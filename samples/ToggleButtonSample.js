@@ -15,7 +15,7 @@ enyo.kind({
 			{classes: "mochi-sample-divider", content: "Toggle Buttons Group"},
 			{kind: "Group", classes: "mochi-sample-tools group", onActivate:"groupActivated", highlander: true, components: [
 				{kind:"mochi.ToggleButton"},
-				{kind:"mochi.ToggleButton", value: true},
+				{kind:"mochi.ToggleButton", value: true, colorActive: "#69cdff", colorInactive: "#000"},
 				{kind:"mochi.ToggleButton"}
 			]}
 			/*

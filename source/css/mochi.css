@@ -211,18 +211,12 @@
 	text-align: center;
 	/* */
 	border-radius: 12px;
-	background-color: #ffb80d;
 	background-size: auto 100%;
 	/* label */
 	color: white;
 	font-size: 14px;
 	font-weight: bold;
 	text-transform: uppercase;
-
-}
-
-.mochi-toggle-button.off {
-	background-color: #646464 !important;
 }
 
 .mochi-toggle-button-knob {

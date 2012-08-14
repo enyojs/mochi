@@ -27,7 +27,9 @@ enyo.kind({
 		onContent: "",
 		offContent: "",
 		disabled: false,
-		canAnimate: true
+		canAnimate: true,
+		colorActive: "#ffb80d",
+		colorInactive: "#646464"
 	},
 	events: {
 		/**
@@ -80,6 +82,7 @@ enyo.kind({
 		this.addRemoveClass("off", !this.value);
 		this.$.contentOn.setShowing(this.value);
 		this.$.contentOff.setShowing(!this.value);
+		this.applyStyle("background-color", this.value ? this.colorActive : this.colorInactive);
 		this.setActive(this.value);
 	},
 	activeChanged: function() {
