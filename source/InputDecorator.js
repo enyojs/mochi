@@ -34,6 +34,17 @@ enyo.kind({
 		onfocus: "receiveFocus",
 		onblur: "receiveBlur"
 	},
+	published: {
+		canAnimate: true
+	},
+	rendered: function() {
+		this.inherited(arguments);
+		this.canAnimateChanged();
+	},
+	canAnimateChanged: function() {
+		var className = (this.canAnimate) ? "mochi-input-animate" : "mochi-no-animate";
+		this.addClass(className);
+	},
 	receiveFocus: function() {
 		this.addClass("mochi-focused");
 	},

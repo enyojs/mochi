@@ -133,7 +133,13 @@
 	border: 1px solid;
 	border-color: #e0e0e0;
 	margin: 0;
-	/*background-color: white;*/
+}
+
+.mochi-input-animate {
+	-webkit-transition: background-color 0.1s linear, border-color 0.1s linear;
+	-moz-transition: background-color 0.1s linear, border-color 0.1s linear;
+	-o-transition: background-color 0.1s linear, border-color 0.1s linear;
+	transition: background-color 0.1s linear, border-color 0.1s linear;
 }
 
 .mochi-input-decorator.mochi-focused {
