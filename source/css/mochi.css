@@ -31,7 +31,6 @@
 	cursor: pointer;
 	height: 24px;
 	width: 24px;
-	background: url(../../images/checkbox.png) no-repeat;
 	/* reset for ? */
 	margin: 0px;
 	/* these entries cause toggle-button and checkbox to line up properly*/
@@ -43,7 +42,8 @@
 }
 
 .mochi-checkbox[checked] {
-	background-position: 0px -24px;
+	background: url(../../images/checkbox.png) no-repeat;
+	background-position: 2px 2px;
 	border-width: 0px;
 	padding: 2px;
 }
