@@ -23,11 +23,25 @@ enyo.kind({
 		onclick: ""
 	},
 	published: {
+		colorActive: "#ffb80d",
+		colorInactive: "#fff",
 		canAnimate: true
 	},
 	rendered: function() {
 		this.inherited(arguments);
 		this.canAnimateChanged();
+	},
+	checkedChanged: function() {
+		this.setNodeProperty("checked", this.checked);
+		if (this.checked) {
+			this.setAttribute("checked", "checked");
+			this.applyStyle("background-color", this.colorActive);
+		} else {
+			this.setAttribute("checked", "");
+			this.applyStyle("background-color", this.colorInactive);
+		}
+		this.setActive(this.checked);
+		
 	},
 	canAnimateChanged: function() {
 		var className = (this.canAnimate) ? "mochi-checkbox-animate" : "mochi-no-animate";
