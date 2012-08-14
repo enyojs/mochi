@@ -8,7 +8,7 @@
 	z-index: 0;
 }
 .mochi-sample {
-	padding: 10px;
+	padding: 60px;
 }
 .mochi-sample-tools {
 	padding-bottom:10px;
@@ -17,7 +17,7 @@
 	margin: 3px;
 }
 .mochi-sample-divider {
-	color: #777;
+	color: #525252;
 	text-transform: uppercase;
 	font-family: Prelude, Prelude Medium, 'Helvetica Neue', 'Nimbus Sans L', Arial, Helvetica, sans-serif;
 	font-size: 22px;
