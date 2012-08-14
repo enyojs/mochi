@@ -29,8 +29,8 @@
 /* Checkbox */
 .mochi-checkbox {
 	cursor: pointer;
-	height: 32px;
-	width: 32px;
+	height: 24px;
+	width: 24px;
 	background: url(../../images/checkbox.png) no-repeat;
 	/* reset for ? */
 	margin: 0px;
@@ -38,13 +38,13 @@
 	display: inline-block;
 	vertical-align: middle;
 
-	border-radius: 18px;
+	border-radius: 14px;
 	border: 2px solid #646464;
 	background-color: white;
 }
 
 .mochi-checkbox[checked] {
-	background-position: 0px -32px;
+	background-position: 0px -24px;
 	background-color: #ffb80d;
 	border-width: 0px;
 	padding: 2px;
