@@ -1,0 +1,325 @@
+/* mochi.css - combined CSS file for all released Mochi controls.
+   Contained in a single file to get around IE bug that allows
+   a maximum of 31 style sheets to be loaded before silently failing */
+
+.mochi {
+	color: #333333;
+	font-family: Prelude, Prelude Medium, 'Helvetica Neue', 'Nimbus Sans L', Arial, Helvetica, sans-serif;
+	/*font-family: Prelude, Prelude Medium, Segoe UI, Neue Helvetica, Arial, Helvetica, Sans-Serif;*/
+	font-size: 20px;
+	cursor: default;
+	background-color: white;
+	/* remove automatic tap highlight color */
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* prevent IE from inheriting line-height for these elements */
+.mochi button, .mochi label, .mochi input {
+	line-height: normal;
+}
+
+/* style that removes transition effects from elements */
+.mochi-no-animate {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+/* Checkbox */
+.mochi-checkbox {
+	cursor: pointer;
+	height: 32px;
+	width: 32px;
+	background: url(../../images/checkbox.png) no-repeat;
+	/* reset for ? */
+	margin: 0px;
+	/* these entries cause toggle-button and checkbox to line up properly*/
+	display: inline-block;
+	vertical-align: middle;
+
+	border-radius: 18px;
+	border: 2px solid #646464;
+	background-color: white;
+}
+
+.mochi-checkbox[checked] {
+	background-position: 0px -32px;
+	background-color: #ffb80d;
+	border-width: 0px;
+	padding: 2px;
+}
+
+.mochi-checkbox-animate {
+	-webkit-transition: background-color 0.1s linear;
+	-moz-transition: background-color 0.1s linear;
+	-o-transition: background-color 0.1s linear;
+	transition: background-color 0.1s linear;
+}
+
+.mochi-checkbox[disabled] {
+	opacity: 0.4;
+}
+
+/* Groupbox */
+.mochi-groupbox {
+}
+
+.mochi-groupbox > * {
+	display: block;
+	/*box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5);*/
+	border-color: #aaaaaa;
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+	/*padding: 10px;*/
+	/* reset styles that make 'item' look bad if they happen to be there */
+	border-radius: 0;
+	margin: 0;
+}
+
+.mochi-groupbox > *:first-child {
+	border-top-color: #aaaaaa;
+	border-width: 1px;
+	border-radius: 4px 4px 0 0;
+}
+
+.mochi-groupbox > *:last-child {
+	border-radius: 0 0 4px 4px;
+}
+
+.mochi-groupbox > *:first-child:last-child {
+	border-radius: 4px;
+}
+
+.mochi-groupbox-header {
+	padding: 2px 10px;
+	/**/
+	color: white;
+	font-family: Segoe UI, Neue Helvetica, Helvectica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	/**/
+	background-color: #343434;
+	border: none;
+	background: #4c4c4c url(../../images/gradient.png) repeat-x 0 10px;
+}
+
+.mochi-groupbox .mochi-input-decorator {
+	display: block;
+}
+
+.mochi-groupbox > .mochi-input-decorator {
+	border-color: #aaaaaa;
+	border-width: 0 1px 1px 1px;
+	border-radius: 0;
+}
+
+.mochi-groupbox > .mochi-input-decorator:first-child {
+	border-width: 1px;
+	border-radius: 4px 4px 0 0;
+}
+
+.mochi-groupbox > .mochi-input-decorator:last-child {
+	border-radius: 0 0 4px 4px;
+}
+
+.mochi-groupbox > .mochi-input-decorator:first-child:last-child {
+	border-radius: 4px;
+}
+
+/* Input */
+.mochi-input-decorator {
+	padding: 2px 14px 4px 14px;
+	border-radius: 18px;
+	border: 1px solid;
+	border-color: #e0e0e0;
+	margin: 0;
+	/*background-color: white;*/
+}
+
+.mochi-input-decorator.mochi-focused {
+	border-color: #69cdff;
+	background-color: white;
+}
+
+.mochi-input-decorator.mochi-disabled {
+	/* FIXME: needed to color a disabled input placeholder. */
+	/*-webkit-text-fill-color: #888;*/
+	opacity: 0.4;
+
+}
+
+.mochi-input-decorator > input {
+	/* reset */
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	font-size: 14px;
+	box-shadow: none;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+}
+
+.mochi-input-decorator.mochi-focused > input {
+	cursor: text;
+}
+
+.mochi-input-decorator.mochi-disabled > input {
+	cursor: default;
+}
+
+/* TextArea */
+.mochi-input-decorator > textarea {
+	/* reset */
+	margin: 8px 0px;
+	padding: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	font-size: 16px;
+	box-shadow: none;
+	/* Remove scrollbars and resize handle */
+	resize: none;
+	overflow: auto;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+}
+
+.mochi-input-decorator.mochi-focused > textarea {
+	cursor: text;
+}
+
+.mochi-input-decorator.mochi-disabled > textarea {
+	cursor: default;
+}
+
+.mochi-textarea {
+	/* need >=50px for scrollbar to be usable on mac */
+	min-height: 50px;
+}
+
+/* ToggleButton */
+.mochi-toggle-button {
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	min-width: 64px;
+	vertical-align: middle;
+	text-align: center;
+	/* */
+	border-radius: 16px;
+	background-color: #ffb80d;
+	background-size: auto 100%;
+	/* label */
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+
+}
+
+.mochi-toggle-button.off {
+	background-color: #646464 !important;
+}
+
+.mochi-toggle-button-knob {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin: 2px;
+	border-radius: 14px;
+	background-color: white;
+	background-size: auto 100%;
+	position: relative;
+}
+
+.mochi-toggle-button .mochi-toggle-button-knob {
+	/*float: right;*/
+	left: 16px;
+}
+
+.mochi-toggle-button.off .mochi-toggle-button-knob {
+	/*float: left;*/
+	left: -16px;
+}
+
+.mochi-toggle-button.disabled {
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+}
+
+.mochi-toggle-content {
+	min-width: 32px;
+	padding: 0 6px;
+}
+
+.mochi-toggle-content.empty {
+	padding: 0;
+}
+
+.mochi-toggle-content.off {
+	float: right;
+}
+
+.mochi-toggle-content.on {
+	float: left;
+}
+
+.mochi-toggle-animate {
+	-webkit-transition: background-color 0.1s linear;
+	-moz-transition: background-color 0.1s linear;
+	-o-transition: background-color 0.1s linear;
+	transition: background-color 0.1s linear;
+}
+
+.mochi-toggle-knob-animate {
+	-webkit-transition: left 0.1s ease-in-out;
+	-moz-transition: left 0.1s ease-in-out;
+	-o-transition: left 0.1s ease-in-out;
+	transition: left 0.1s ease-in-out;
+}
+
+/* RichText */
+.mochi-input-decorator > .mochi-richtext {
+	/* reset */
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	font-size: 16px;
+	min-height: 20px;
+	min-width: 100px;
+	box-shadow: none;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+}
+
+.mochi-input-decorator.mochi-focused > .mochi-richtext {
+	cursor: text;
+}
+
+.mochi-input-decorator.mochi-disabled > .mochi-richtext {
+	cursor: default;
+}
+
+/* Pasting rich text adds <p> tag with a margin-top value of 16px */
+.mochi-richtext > p {
+	margin-top: 0px;
+}
+
+/* optional */
+
+.mochi-dark {
+	background-color: #626368;
+}
+
+.mochi-light {
+	background-color: #cacaca;
+}

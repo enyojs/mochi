@@ -1,0 +1,9 @@
+enyo.depends(
+	"css/",
+	"Checkbox.js",
+	"Input.js",
+	"InputDecorator.js",
+	"RichText.js",
+	"TextArea.js",
+	"ToggleButton.js"
+);
