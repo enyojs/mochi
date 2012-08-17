@@ -1,4 +1,3 @@
-/* standard background style for mochi */
 .mochi-sample-background {
 	border-width: 244px 244px 244px 244px;
 	-moz-border-image: url("assets/background-gradient.png") 244 244 244 244 stretch stretch;
@@ -11,31 +10,23 @@
 	padding: 60px;
 }
 .mochi-sample-tools {
-	padding-bottom:10px;
+	padding-bottom: 10px;
 }
 .mochi-sample-tools > * {
 	margin: 3px;
 }
-.mochi-sample-divider {
-	color: #525252;
-	text-transform: uppercase;
-	font-family: Prelude, Prelude Medium, 'Helvetica Neue', 'Nimbus Sans L', Arial, Helvetica, sans-serif;
-	font-size: 22px;
-	font-weight: 200;
-	margin: 0px 0px 8px 8px;
-}
 .mochi-sample-result-box {
-	width:100%;
+	width: 100%;
 }
 .mochi-sample-result {
-	padding:8px;
+	padding: 8px;
 }
 .mochi-sample-spaced-button {
-	margin:3px;
+	margin: 3px;
 }
 .mochi-sample-animate-label {
-	vertical-align:middle; 
-	padding-left:5px;
+	vertical-align: middle; 
+	padding-left: 5px;
 }
 .mochi-sample-label {
 	color: #1879CD;
@@ -45,4 +36,13 @@
 .mochi-sample-popup {
 	font-size: 30px;
 	text-align: center;
+}
+.mochi-sample-progress-red {
+	background-color: #ff4a4a;
+}
+.mochi-sample-progress-text-red {
+	color: #ff4a4a;
+}
+.mochi-sample-progress-bar {
+	margin: 8px 16px;
 }

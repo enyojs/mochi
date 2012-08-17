@@ -2,7 +2,7 @@ enyo.kind({
 	name: "mochi.sample.ToggleButtonSample",
 	classes: "mochi mochi-sample",
 	components: [
-		{classes: "mochi-sample-divider", content: "Toggle Buttons"},
+		{classes: "mochi-subheader", content: "Toggle Buttons"},
 		{classes: "mochi-sample-tools", components: [
 			{kind:"mochi.ToggleButton", onChange:"toggleChanged", value: true},
 			{kind:"mochi.ToggleButton", onChange:"toggleChanged"},
@@ -10,7 +10,7 @@ enyo.kind({
 			{kind:"mochi.ToggleButton", onChange:"toggleChanged", value: true, disabled: true}
 		]},
 		{tag: "br"},
-		{classes: "mochi-sample-divider", content: "Toggle Buttons Group"},
+		{classes: "mochi-subheader", content: "Toggle Buttons Group"},
 		{kind: "Group", classes: "mochi-sample-tools group", onActivate:"groupActivated", highlander: true, components: [
 			{kind:"mochi.ToggleButton"},
 			{kind:"mochi.ToggleButton", value: true, colorActive: "#69cdff", colorInactive: "#000"},

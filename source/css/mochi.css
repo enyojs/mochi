@@ -2,9 +2,38 @@
    Contained in a single file to get around IE bug that allows
    a maximum of 31 style sheets to be loaded before silently failing */
 
+@font-face {
+    font-family: "PreludeWGL Light";
+    src: local("☺"),
+    	 url("../../fonts/PreludeWGL-Light.woff") format("woff"),
+         url("../../fonts/PreludeWGL-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Prelude Condensed Med";
+    src: local("☺"),
+    	 url("../../fonts/PreludeCondensed-Medium.woff") format("woff"),
+         url("../../fonts/PreludeCondensed-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Prelude Med Oblique";
+    src: local("☺"),
+    	 url("../../fonts/Prelude-MediumOblique.woff") format("woff"),
+         url("../../fonts/Prelude-MediumOblique.ttf") format("truetype");
+    font-weight: normal;
+    font-style: oblique;
+}
+
+
+
+
 .mochi {
 	color: #333333;
-	font-family: "Prelude Light", Prelude, Prelude Medium, "Helvetica Neue", "Nimbus Sans L", Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	cursor: default;
 	background-color: #f5f5f5;
@@ -26,26 +55,47 @@
 	transition: none;
 }
 
+.mochi-header {
+	font-family: "PreludeWGL Light";
+	font-size: 36px;
+	color: #525252;
+	text-transform: uppercase;
+}
+
+.mochi-subheader {
+	font-family: "Prelude Med Oblique";
+	font-size: 18px;
+	color: #323232;
+	font-style: oblique;
+}
+
+.mochi-toolbar-inline > * {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 4px 6px 5px;
+	box-sizing: border-box;
+}
+
+
+
 /* Checkbox */
 .mochi-checkbox {
 	cursor: pointer;
-	height: 24px;
-	width: 24px;
+	height: 22px;
+	width: 22px;
 	/* reset for ? */
 	margin: 0px;
 	/* these entries cause toggle-button and checkbox to line up properly*/
 	display: inline-block;
 	vertical-align: middle;
-
-	border-radius: 14px;
+	border-radius: 13px;
 	border: 2px solid #646464;
 }
 
 .mochi-checkbox[checked] {
 	background: url(../../images/checkbox.png) no-repeat;
-	background-position: 2px 2px;
-	border-width: 0px;
 	padding: 2px;
+	border-width: 0px;
 }
 
 .mochi-checkbox-animate {
@@ -59,113 +109,51 @@
 	opacity: 0.4;
 }
 
-/* Groupbox */
-.mochi-groupbox {
-}
 
-.mochi-groupbox > * {
-	display: block;
-	/*box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5);*/
-	border-color: #aaaaaa;
-	border-style: solid;
-	border-width: 0 1px 1px 1px;
-	/*padding: 10px;*/
-	/* reset styles that make 'item' look bad if they happen to be there */
-	border-radius: 0;
-	margin: 0;
-}
 
-.mochi-groupbox > *:first-child {
-	border-top-color: #aaaaaa;
-	border-width: 1px;
-	border-radius: 4px 4px 0 0;
-}
-
-.mochi-groupbox > *:last-child {
-	border-radius: 0 0 4px 4px;
-}
-
-.mochi-groupbox > *:first-child:last-child {
-	border-radius: 4px;
-}
-
-.mochi-groupbox-header {
-	padding: 2px 10px;
-	/**/
-	color: white;
-	font-family: Segoe UI, Neue Helvetica, Helvectica, Arial, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	text-transform: uppercase;
-	/**/
-	background-color: #343434;
-	border: none;
-	background: #4c4c4c url(../../images/gradient.png) repeat-x 0 10px;
-}
-
-.mochi-groupbox .mochi-input-decorator {
-	display: block;
-}
-
-.mochi-groupbox > .mochi-input-decorator {
-	border-color: #aaaaaa;
-	border-width: 0 1px 1px 1px;
-	border-radius: 0;
-}
-
-.mochi-groupbox > .mochi-input-decorator:first-child {
-	border-width: 1px;
-	border-radius: 4px 4px 0 0;
-}
-
-.mochi-groupbox > .mochi-input-decorator:last-child {
-	border-radius: 0 0 4px 4px;
-}
-
-.mochi-groupbox > .mochi-input-decorator:first-child:last-child {
-	border-radius: 4px;
-}
 
 /* Input */
 .mochi-input-decorator {
-	padding: 2px 14px 4px 14px;
-	border-radius: 18px;
+	padding: 1px 8px 5px 8px;
+	border-radius: 16px;
 	border: 1px solid;
 	border-color: #e0e0e0;
-	margin: 0;
+	background-color: white;
+	margin: 0px;
 }
 
 .mochi-input-animate {
-	-webkit-transition: background-color 0.1s linear, border-color 0.1s linear;
-	-moz-transition: background-color 0.1s linear, border-color 0.1s linear;
-	-o-transition: background-color 0.1s linear, border-color 0.1s linear;
-	transition: background-color 0.1s linear, border-color 0.1s linear;
+	-webkit-transition: border-color 0.1s linear;
+	-moz-transition: border-color 0.1s linear;
+	-o-transition: border-color 0.1s linear;
+	transition: border-color 0.1s linear;
 }
 
 .mochi-input-decorator.mochi-focused {
 	border-color: #69cdff;
-	background-color: white;
 }
 
 .mochi-input-decorator.mochi-disabled {
 	/* FIXME: needed to color a disabled input placeholder. */
 	/*-webkit-text-fill-color: #888;*/
 	opacity: 0.4;
-
 }
 
 .mochi-input-decorator > input {
 	/* reset */
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	border: none;
 	outline: none;
 	cursor: pointer;
 	background-color: transparent;
-	font-size: 14px;
 	box-shadow: none;
 	/* FIXME: hack for styling reset on Android */
 	/* -webkit-appearance: caret;*/
+	font-size: 14px;
+	font-family: "Prelude Med Oblique";
+	color: #4b4b4b;
+	font-style: oblique;
 }
 
 .mochi-input-decorator.mochi-focused > input {
@@ -176,10 +164,108 @@
 	cursor: default;
 }
 
+.mochi-input-decorator > input::-webkit-input-placeholder {
+    color: #7d7d7d;
+}
+
+.mochi-input-decorator > input:-moz-placeholder {
+    color: #7d7d7d;
+}
+/* IE10 */
+.mochi-input-decorator > input:-ms-input-placeholder {
+    color: #7d7d7d;
+}
+
+
+
+
+/* RichText */
+.mochi-input-decorator > .mochi-richtext {
+	/* reset */
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	box-shadow: none;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+	font-size: 14px;
+	font-family: "Prelude Med Oblique";
+	color: #4b4b4b;
+	font-style: oblique;
+}
+
+.mochi-input-decorator.mochi-focused > .mochi-richtext {
+	cursor: text;
+}
+
+.mochi-input-decorator.mochi-disabled > .mochi-richtext {
+	cursor: default;
+}
+
+/* Pasting rich text adds <p> tag with a margin-top value of 16px */
+.mochi-richtext > p {
+	margin-top: 0px;
+}
+
+
+
+
+/* ProgressBar */
+.mochi-progress-bar {
+	height: 1px;
+	min-width: 128px;
+	background-color: #969696;
+}
+
+.mochi-progress-bar-bar {
+	height: 100%;
+	background-color: #69cdff;
+}
+
+
+
+
+/* ProgressText */
+.mochi-progress-text {
+	margin: 24px 16px 0px;
+	font-size: 12px;
+	color: #969696;
+	font-family: "Prelude Med Oblique";
+	font-style: oblique;
+}
+
+.mochi-progress-text-box {
+	position: relative;
+	height: 24px;
+	overflow: hidden;
+}
+
+.mochi-progress-text-underwear {
+	position: absolute;
+	display: inline-block;
+	color: #969696;
+	line-height: 12px;
+}
+
+.mochi-progress-text-outerwear {
+	position: absolute;
+	display: inline-block;
+	color: #69cdff;
+	line-height: 12px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+
+
 /* TextArea */
 .mochi-input-decorator > textarea {
 	/* reset */
-	margin: 8px 0px;
+	margin: 5px 2px;
 	padding: 0;
 	border: none;
 	outline: none;
@@ -192,6 +278,10 @@
 	overflow: auto;
 	/* FIXME: hack for styling reset on Android */
 	/* -webkit-appearance: caret;*/
+	font-size: 14px;
+	font-family: "Prelude Med Oblique";
+	color: #7d7d7d;
+	font-style: oblique;
 }
 
 .mochi-input-decorator.mochi-focused > textarea {
@@ -207,6 +297,26 @@
 	min-height: 50px;
 }
 
+textarea::-webkit-scrollbar {
+	width: 4px;
+}
+
+textarea::-webkit-scrollbar-track-piece {
+	margin-top: 4px;
+	margin-bottom: 0px;
+	background-color: #fff;
+	-webkit-border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:vertical {
+	height: 10px;
+	background-color: #7d7d7d;
+	-webkit-border-radius: 10px;
+}
+
+
+
+
 /* ToggleButton */
 .mochi-toggle-button {
 	display: inline-block;
@@ -215,10 +325,8 @@
 	min-width: 48px;
 	vertical-align: middle;
 	text-align: center;
-	/* */
 	border-radius: 12px;
 	background-size: auto 100%;
-	/* label */
 	color: white;
 	font-size: 14px;
 	font-weight: bold;
@@ -280,51 +388,4 @@
 	-moz-transition: left 0.1s ease-in-out;
 	-o-transition: left 0.1s ease-in-out;
 	transition: left 0.1s ease-in-out;
-}
-
-/* RichText */
-.mochi-input-decorator > .mochi-richtext {
-	/* reset */
-	margin: 0px;
-	padding: 0px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background-color: transparent;
-	font-size: 16px;
-	min-height: 20px;
-	min-width: 100px;
-	box-shadow: none;
-	/* FIXME: hack for styling reset on Android */
-	/* -webkit-appearance: caret;*/
-}
-
-.mochi-input-decorator.mochi-focused > .mochi-richtext {
-	cursor: text;
-}
-
-.mochi-input-decorator.mochi-disabled > .mochi-richtext {
-	cursor: default;
-}
-
-/* Pasting rich text adds <p> tag with a margin-top value of 16px */
-.mochi-richtext > p {
-	margin-top: 0px;
-}
-
-/* optional */
-
-.mochi-dark {
-	background-color: #626368;
-}
-
-.mochi-light {
-	background-color: #cacaca;
-}
-
-.mochi-toolbar-inline > * {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 4px 6px 5px;
-	box-sizing: border-box;
 }

@@ -2,7 +2,7 @@ enyo.kind({
 	name: "mochi.sample.InputSample",
 	classes: "mochi mochi-sample",
 	components: [
-		{classes: "mochi-sample-divider", content: "Inputs"},
+		{classes: "mochi-subheader", content: "Inputs"},
 		{classes: "mochi-toolbar-inline", components: [
 			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.Input", placeholder: "Enter text here", onchange:"inputChanged"}
@@ -27,7 +27,7 @@ enyo.kind({
 			]}
 		]},
 		{tag: "br"},
-		{classes: "mochi-sample-divider", content: "RichTexts"},
+		{classes: "mochi-subheader", content: "RichTexts"},
 		{classes: "mochi-toolbar-inline", components: [
 			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.RichText", style: "width: 200px;", placeholder: "Enter text here", onchange:"inputChanged"}
@@ -38,7 +38,7 @@ enyo.kind({
 			]}
 		]},
 		{tag: "br"},
-		{classes: "mochi-sample-divider", content: "TextAreas"},
+		{classes: "mochi-subheader", content: "TextAreas"},
 		{classes: "mochi-toolbar-inline", components: [
 			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.TextArea", placeholder: "Enter text here", onchange:"inputChanged"}
@@ -46,7 +46,10 @@ enyo.kind({
 			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.TextArea", placeholder: "Search term", onchange:"inputChanged"},
 				{kind: "Image", src: "assets/search-input-search.png"}
-			]}
+			]},
+			{kind: "mochi.InputDecorator", components: [
+				{kind: "mochi.TextArea", placeholder: "Disabled TextArea", onchange:"inputChanged", disabled: true}
+			]},
 		]}
 		/*
 		{tag: "br"},
