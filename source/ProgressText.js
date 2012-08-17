@@ -65,7 +65,7 @@ enyo.kind({
 		this.$.barBackground.setContent(label);
 		this.$.bar.setContent(label);
 
-		var w = parseInt((this.$.barBackground.getBounds().width / 100) * inPercent);
+		var w = (this.$.barBackground.getBounds().width / 100) * inPercent;
 		this.$.bar.applyStyle("width", w + "px");
 	},
 	//* @public
