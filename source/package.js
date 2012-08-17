@@ -3,6 +3,8 @@ enyo.depends(
 	"Checkbox.js",
 	"Input.js",
 	"InputDecorator.js",
+	"ProgressBar.js",
+	"ProgressText.js",
 	"RichText.js",
 	"TextArea.js",
 	"ToggleButton.js"

@@ -69,6 +69,13 @@
 	font-style: oblique;
 }
 
+.mochi-item {
+	font-family: "Prelude Med Oblique";
+	font-size: 14px;
+	color: #323232;
+	font-style: oblique;
+}
+
 .mochi-toolbar-inline > * {
 	display: inline-block;
 	vertical-align: middle;
