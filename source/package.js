@@ -1,5 +1,8 @@
 enyo.depends(
 	"css/",
+	"ButtonDecorator.js",
+	"ButtonBase.js",
+	"Button.js",
 	"Checkbox.js",
 	"Input.js",
 	"InputDecorator.js",
@@ -7,5 +10,6 @@ enyo.depends(
 	"ProgressText.js",
 	"RichText.js",
 	"TextArea.js",
-	"ToggleButton.js"
+	"ToggleButton.js",
+	"ViewSelector.js"
 );

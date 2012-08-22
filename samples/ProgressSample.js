@@ -12,27 +12,16 @@ enyo.kind({
 		{kind: "mochi.ProgressBar", classes: "mochi-sample-progress-bar", barClasses: "mochi-sample-progress-red", progress: 50},
 		{kind: "mochi.ProgressBar", classes: "mochi-sample-progress-bar", progress: 75},
 		{tag: "br"},
-		/*
-		{classes: "mochi-sample-divider", content: "Progress Buttons"},
-		{kind: "mochi.ProgressButton", progress: 25, onCancel:"clearValue", components: [
-			{content: "0"},
-			{content: "100", style: "float: right;"}
+		{kind: "mochi.InputDecorator", style: "margin-right:10px;", components: [
+			{kind: "mochi.Input", placeholder: "Value", style: "width:50px;"}
 		]},
-		{kind: "mochi.ProgressButton", barClasses: "mochi-dark", progress: 50, onCancel:"clearValue"},
-		{kind: "mochi.ProgressButton", progress: 75, onCancel:"clearValue"},
-		{tag: "br"},
-		*/
-		{kind: "mochi.InputDecorator", style:"margin-right:10px;", components: [
-			{kind: "mochi.Input", placeholder: "Value", style:"width:50px;"}
-		]},
-		{kind: "Button", content:"Set", classes:"mochi-sample-spaced-button", ontap:"changeValue"},
-		{kind: "Button", content:"-", classes:"mochi-sample-spaced-button", ontap:"decValue"},
-		{kind: "Button", content:"+", classes:"mochi-sample-spaced-button", ontap:"incValue"},
+		{kind: "mochi.Button", content:"Set", ontap: "changeValue"},
+		{kind: "mochi.Button", content:"-", ontap: "decValue"},
+		{kind: "mochi.Button", content:"+", ontap: "incValue"},
 		{tag: "br"},
 		{tag: "br"},
-		{kind: "mochi.Checkbox", name:"animateSetting", value:true},
-		{content:"Animated", classes:"enyo-inline mochi-sample-animate-label"}
-		
+		{kind: "mochi.Checkbox", name: "animateSetting", value: true},
+		{content: "Animated", classes: "enyo-inline mochi-sample-content"}
 	],
 	changeValue: function(inSender, inEvent) {
 		for (var i in this.$) {
