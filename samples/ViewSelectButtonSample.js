@@ -3,7 +3,7 @@ enyo.kind({
 	classes: "mochi mochi-sample",
 	components: [
 		{classes: "mochi-subheader", content: "View Select Button: Default"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Cats"},
 			{content: "Dogs"},
 			{content: "Bears"}
@@ -11,7 +11,7 @@ enyo.kind({
 		{tag: "br"},
 		{tag: "br"},
 		{classes: "mochi-subheader", content: "View Select Button: Button 1 Active"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Earth", active: true},
 			{content: "Wind"},
 			{content: "Fire"}
@@ -19,7 +19,7 @@ enyo.kind({
 		{tag: "br"},
 		{tag: "br"},
 		{classes: "mochi-subheader", content: "View Select Button: Button 2 Disabled"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Mac", active: true},
 			{content: "PC", disabled: true},
 			{content: "Linux"}
@@ -27,7 +27,7 @@ enyo.kind({
 		{tag: "br"},
 		{tag: "br"},
 		{classes: "mochi-subheader", content: "View Select Button: Custom Bar Color"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
 			{content: "Long", active: true},
 			{content: "button"},
 			{content: "is looooooooong "}
