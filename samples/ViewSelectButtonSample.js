@@ -1,33 +1,33 @@
 enyo.kind({
-	name: "mochi.sample.ViewSelectorSample",
+	name: "mochi.sample.ViewSelectButtonSample",
 	classes: "mochi mochi-sample",
 	components: [
-		{classes: "mochi-subheader", content: "View Selector: Default"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{classes: "mochi-subheader", content: "View Select Button: Default"},
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Cats"},
 			{content: "Dogs"},
 			{content: "Bears"}
 		]},
 		{tag: "br"},
 		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Selector: Button 1 Active"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{classes: "mochi-subheader", content: "View Select Button: Button 1 Active"},
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Earth", active: true},
 			{content: "Wind"},
 			{content: "Fire"}
 		]},
 		{tag: "br"},
 		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Selector: Button 2 Disabled"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{classes: "mochi-subheader", content: "View Select Button: Button 2 Disabled"},
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Mac", active: true},
 			{content: "PC", disabled: true},
 			{content: "Linux"}
 		]},
 		{tag: "br"},
 		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Selector: Custom Bar Color"},
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
+		{classes: "mochi-subheader", content: "View Select Button: Custom Bar Color"},
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
 			{content: "Long", active: true},
 			{content: "button"},
 			{content: "is looooooooong "}

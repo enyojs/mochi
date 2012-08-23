@@ -29,6 +29,24 @@
     font-style: oblique;
 }
 
+@font-face {
+    font-family: "Prelude Bold";
+    src: local("☺"),
+    	 url("../../fonts/Prelude-Bold.woff") format("woff"),
+         url("../../fonts/Prelude-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Prelude Bold Oblique";
+    src: local("☺"),
+    	 url("../../fonts/Prelude-BoldOblique.woff") format("woff"),
+         url("../../fonts/Prelude-boldOblique.ttf") format("truetype");
+    font-weight: bold;
+    font-style: oblique;
+}
+
 
 
 
@@ -82,6 +100,146 @@
 	margin: 4px 6px 5px;
 	box-sizing: border-box;
 }
+
+
+
+
+/* Icon & IconButton */
+
+
+
+
+/* ButtonDecorator */
+.mochi-button-decorator {
+	font-family: "Prelude Bold";
+	font-size: 28px;
+	color: #646464;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: top;
+}
+.mochi-button-decorator-left {
+	float: left;
+}
+.mochi-button-decorator-right {
+	float: right;
+}
+.mochi-button-decorator-bookened {
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+}
+.mochi-button > .mochi-button-decorator-left {
+	padding: 0px 0px 0px 4px;
+	-webkit-transition: padding 0.15s ease-in-out;
+	-moz-transition: padding 0.15s ease-in-out;
+	-o-transition: padding 0.15s ease-in-out;
+	-ms-transition: padding 0.15s ease-in-out;
+	transition: padding 0.15s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
+	padding: 0px 4px 0px 0px;
+}
+.mochi-button > .mochi-button-decorator-right {
+	padding: 0px 4px 0px 0px;
+	-webkit-transition: padding 0.15s ease-in-out;
+	-moz-transition: padding 0.15s ease-in-out;
+	-o-transition: padding 0.15s ease-in-out;
+	-ms-transition: padding 0.15s ease-in-out;
+	transition: padding 0.15s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
+	padding: 0px 0px 0px 4px;
+}
+
+
+
+
+/* Button */
+.mochi-button {
+	position: relative;
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: transparent;
+}
+.mochi-button-bar {
+	position: absolute;
+	top: 32px;
+	left: 0px;
+	height: 1px;
+	width: 0px;
+	background-color: #69cdff;
+}
+.mochi-button > .mochi-button-bar {
+	background-color: transparent;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: background-color 0.2s linear;
+	-o-transition: background-color 0.2s linear;
+	-ms-transition: background-color 0.2s linear;
+	transition: background-color 0.2s linear;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-button.active > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-button.disabled {
+	opacity: 0.4;
+}
+
+.mochi-button > .mochi-button-base {
+	margin: 0px 6px;
+	padding: 0px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+.mochi-view-select-button > .mochi-button-base {
+	height: 34px;
+	line-height: 34px;
+	vertical-align: middle;
+}
+.mochi-button-base {
+	display: inline-block;
+	font-family: "Prelude Bold Oblique";
+	font-size: 14px;
+	color: #323232;
+	font-style: oblique;
+	font-weight: bold;
+	border-width: 0px;
+	background-color: transparent;
+	letter-spacing: normal;
+	margin: 2px;
+	padding: 1px 0px;
+	white-space: nowrap;
+	overflow: hidden;
+
+	height: 28px;
+
+	-webkit-transition: letter-spacing 0.1s ease-in-out;
+	-moz-transition: letter-spacing 0.1s ease-in-out;
+	-o-transition: letter-spacing 0.1s ease-in-out;
+	-ms-transition: letter-spacing 0.1s ease-in-out;
+	transition: letter-spacing 0.1s ease-in-out;
+}
+
+
+
+/* ViewSelector */
+.mochi-view-select-button {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+.mochi-view-select-button > .mochi-button-base:active:hover:not([disabled]) {
+	letter-spacing: 2px;
+}
+.mochi-view-select-button > .mochi-button-base[disabled] {
+	opacity: 0.4;
+}
+
 
 
 

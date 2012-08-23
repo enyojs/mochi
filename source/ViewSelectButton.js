@@ -1,37 +1,38 @@
 /**
-	A modified "mochi.ButtonBase" control intended to be used
-	only within a "mochi.ViewSelector".
+	A modified "enyo.Button" control intended to be used
+	only within a "mochi.ViewSelectButton".
 	
 */
 enyo.kind({
-	name: "mochi.ViewSelectorButton",
-	kind: "mochi.ButtonBase",
+	name: "mochi.ViewSelectButtonItem",
+	kind: "enyo.Button",
+	classes: "mochi-button-base",
 	contentWidth: 0,
 	rendered: function() {
 		this.inherited(arguments);
 
 		this.contentWidth = this.getBounds().width;
-		// Resize the button to fit ViewSelector kerning state
+		// Resize the button to fit ViewSelectButtonItem kerning state
 		// (current-width + ((string-length + arbitrary padding) * size-of-letter-spacing))
 		this.applyStyle("width", (this.contentWidth + ((this.content.length + 2) * 2) ) + "px");
 	}
 });
 
 /**
-	A group of "mochi.ButtonBase" objects laid out horizontally, 
+	A group of "mochi.ViewSelectButtonItem" objects laid out horizontally, 
 	with "mochi.ButtonDecorator" end-caps. Within the same button group, 
 	tapping on one button will release any previously tapped button.
 	
-		{kind: "mochi.ViewSelector", onActivate: "buttonActivated", components: [
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
 			{content: "Cats", active: true},
 			{content: "Dogs"},
 			{content: "Bears"}
 		]}
 */
 enyo.kind({
-	name: "mochi.ViewSelector",
+	name: "mochi.ViewSelectButton",
 	kind: "enyo.Group",
-	defaultKind: "mochi.ViewSelectorButton",
+	defaultKind: "mochi.ViewSelectButtonItem",
 	classes: "enyo-tool-decorator mochi-view-selector",
 	published: {
 		barClasses: ""
