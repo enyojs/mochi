@@ -1,0 +1,14 @@
+{
+	"sourcePath":"../../..",
+	"name": "Mochi",
+	"ns": "mochi.sample",
+	"loadPackages": "$lib/mochi $lib/mochi/samples",
+	"samples": [
+		{"name": "Basic Buttons", "path":"$lib/mochi/samples/ButtonSample", "css":"sample"},
+		{"name": "View Selector Buttons", "path":"$lib/mochi/samples/ViewSelectorSample", "css":"sample"},
+		{"name": "Toggle Buttons", "path":"$lib/mochi/samples/ToggleButtonSample", "css":"sample"},
+		{"name": "Checkboxes", "path":"$lib/mochi/samples/CheckboxSample", "css":"sample"},
+		{"name": "Inputs", "path":"$lib/mochi/samples/InputSample", "css":"sample"},
+		{"name": "Progress Bars", "path":"$lib/mochi/samples/ProgressSample", "css":"sample"}
+	]
+}
