@@ -24,7 +24,7 @@
 .mochi-sample-spaced-button {
 	margin: 3px;
 }
-.mochi-sample-animate-label {
+.mochi-sample-content {
 	vertical-align: middle; 
 	padding-left: 5px;
 	font-family: "Prelude Med Oblique";
@@ -49,4 +49,7 @@
 }
 .mochi-sample-progress-bar {
 	margin: 8px 16px;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-bar.mochi-sample-orange {
+	background-color: orange;
 }
