@@ -10,5 +10,5 @@ enyo.depends(
 	"RichText.js",
 	"TextArea.js",
 	"ToggleButton.js",
-	"ViewSelector.js"
+	"ViewSelectButton.js"
 );
