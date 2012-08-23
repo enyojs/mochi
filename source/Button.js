@@ -18,13 +18,13 @@ enyo.kind({
 	},
 	components: [
 		{kind: "mochi.ButtonDecoratorLeft"},
-		{kind: "mochi.ButtonBase", tag: "div"},
+		{kind: "enyo.Button", name: "button", tag: "div", classes: "mochi-button-base"},
 		{kind: "mochi.ButtonDecoratorRight"},
 		{name: "bar", classes: "mochi-button-bar"}
 	],
 	create: function() {
 		this.inherited(arguments);
-		this.$.buttonBase.setContent(this.content);
+		this.$.button.setContent(this.content);
 		this.activeChanged();
 		this.disabledChanged();
 		this.decoratorLeftChanged();
@@ -57,11 +57,11 @@ enyo.kind({
 		this.$.bar.applyStyle("left", bounds.left + "px");
 	},
 	calcBarValue: function() {
-		var bounds = this.$.buttonBase.getBounds();
+		var bounds = this.$.button.getBounds();
 		this.updateBarPosition(bounds);
 	},
 	contentChanged: function() {
-		this.$.buttonBase.setContent(this.content);
+		this.$.button.setContent(this.content);
 		this.calcBarValue();
 	}
 });

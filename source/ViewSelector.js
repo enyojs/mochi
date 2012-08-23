@@ -1,11 +1,12 @@
 /**
-	A modified "mochi.ButtonBase" control intended to be used
+	A modified "enyo.Button" control intended to be used
 	only within a "mochi.ViewSelector".
 	
 */
 enyo.kind({
 	name: "mochi.ViewSelectorButton",
-	kind: "mochi.ButtonBase",
+	kind: "enyo.Button",
+	classes: "mochi-button-base",
 	contentWidth: 0,
 	rendered: function() {
 		this.inherited(arguments);
@@ -18,7 +19,7 @@ enyo.kind({
 });
 
 /**
-	A group of "mochi.ButtonBase" objects laid out horizontally, 
+	A group of "mochi.ViewSelectorButton" objects laid out horizontally, 
 	with "mochi.ButtonDecorator" end-caps. Within the same button group, 
 	tapping on one button will release any previously tapped button.
 	

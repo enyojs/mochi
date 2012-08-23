@@ -1,7 +1,6 @@
 enyo.depends(
 	"css/",
 	"ButtonDecorator.js",
-	"ButtonBase.js",
 	"Button.js",
 	"Checkbox.js",
 	"Input.js",
