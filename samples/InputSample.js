@@ -19,10 +19,10 @@ enyo.kind({
 			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.Input", disabled: true, value: "Disabled input"}
 			]},
-			{kind: "mochi.InputDecorator", components: [
+/*			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.Input", defaultFocus: true, value: "Focused input", onchange:"inputChanged"}
 			]},
-			{kind: "mochi.InputDecorator", components: [
+*/			{kind: "mochi.InputDecorator", components: [
 				{kind: "mochi.Input", style: "text-align:right;", value: "Right-aligned", onchange:"inputChanged"}
 			]}
 		]},
