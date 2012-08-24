@@ -1,7 +1,8 @@
 enyo.depends(
 	"sample.css",
 	"ButtonSample.js",
-	"ViewSelectorSample.js",
+	"ViewSelectButtonSample.js",
+	"IconButtonSample.js",
 	"CheckboxSample.js",
 	"InputSample.js",
 	"ProgressSample.js",
