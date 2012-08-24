@@ -105,6 +105,83 @@
 
 
 /* Icon & IconButton */
+.mochi-icon-button-item {
+	display: inline-block;
+	margin: 2px;
+	padding: 1px 0px;
+	width: 34px;
+	height: 34px;
+	border-width: 0px;
+	background-color: transparent;
+
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.mochi-icon {
+	width: 24px;
+	height: 24px;
+
+	background-repeat: no-repeat;
+	background-position: 0 0px;
+}
+.mochi-icon-button-item:active:hover:not([disabled]) > .mochi-icon {
+	background-position: 0 -24px;
+}
+.mochi-icon-button-item.disabled {
+	opacity: 0.4;
+}
+
+.mochi-icon-button {
+	position: relative;
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	height: 40px;
+	background-color: transparent;
+}
+.mochi-icon-button > .mochi-icon {
+	margin: 8px 4px 0px;
+}
+.mochi-icon-button > .mochi-button-decorator-left {
+	padding: 0px 0px 0px 4px;
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
+	padding: 0px 4px 0px 0px;
+}
+.mochi-icon-button > .mochi-button-decorator-right {
+	padding: 0px 4px 0px 0px;
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+	
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
+	padding: 0px 0px 0px 4px;
+}
+.mochi-icon-button > .mochi-button-bar {
+	background-color: transparent;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: background-color 0.2s linear;
+	-o-transition: background-color 0.2s linear;
+	-ms-transition: background-color 0.2s linear;
+	transition: background-color 0.2s linear;
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-icon-button.active > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-icon-button.disabled {
+	opacity: 0.4;
+}
 
 
 
@@ -131,25 +208,27 @@
 }
 .mochi-button > .mochi-button-decorator-left {
 	padding: 0px 0px 0px 4px;
-	-webkit-transition: padding 0.15s ease-in-out;
-	-moz-transition: padding 0.15s ease-in-out;
-	-o-transition: padding 0.15s ease-in-out;
-	-ms-transition: padding 0.15s ease-in-out;
-	transition: padding 0.15s ease-in-out;
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
 }
 .mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
 	padding: 0px 4px 0px 0px;
+	/* -webkit-transform: scale(1.10, 1.10); */
 }
 .mochi-button > .mochi-button-decorator-right {
 	padding: 0px 4px 0px 0px;
-	-webkit-transition: padding 0.15s ease-in-out;
-	-moz-transition: padding 0.15s ease-in-out;
-	-o-transition: padding 0.15s ease-in-out;
-	-ms-transition: padding 0.15s ease-in-out;
-	transition: padding 0.15s ease-in-out;
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
 }
 .mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
 	padding: 0px 0px 0px 4px;
+	/* -webkit-transform: scale(1.10, 1.10); */
 }
 
 
@@ -162,10 +241,11 @@
 	margin: 0px;
 	padding: 0px;
 	background-color: transparent;
+	background-color: lightblue;
 }
 .mochi-button-bar {
 	position: absolute;
-	top: 32px;
+	top: 33px;
 	left: 0px;
 	height: 1px;
 	width: 0px;
@@ -187,6 +267,15 @@
 }
 .mochi-button.disabled {
 	opacity: 0.4;
+}
+.mochi-button-warning > .mochi-button-base {
+	color: #ff4a4a;
+}
+.mochi-button:active:hover:not([disabled]).mochi-button-warning > .mochi-button-bar {
+	background-color: #ff4a4a;
+}
+.mochi-button.active.mochi-button-warning > .mochi-button-bar {
+	background-color: #ff4a4a;
 }
 
 .mochi-button > .mochi-button-base {

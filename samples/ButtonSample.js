@@ -7,6 +7,8 @@ enyo.kind({
 		{kind: "mochi.Button", content: "Disabled Button", disabled: true},
 		{kind: "mochi.Button", content: "Active Button", active: true},
 		{kind: "mochi.Button", content: "Active Disabled Button", active: true, disabled: true},
+		{kind: "mochi.Button", content: "Warning Button", classes: "mochi-button-warning"},
+		{kind: "mochi.Button", content: "Active Warning Button", classes: "mochi-button-warning", active: true},
 		{tag: "br"},
 		{tag: "br"},
 		{classes: "mochi-subheader", content: "Custom Buttons"},

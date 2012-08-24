@@ -33,7 +33,7 @@ enyo.kind({
 	name: "mochi.ViewSelectButton",
 	kind: "enyo.Group",
 	defaultKind: "mochi.ViewSelectButtonItem",
-	classes: "enyo-tool-decorator mochi-view-selector",
+	classes: "enyo-tool-decorator mochi-view-select-button",
 	published: {
 		barClasses: ""
 	},
@@ -73,13 +73,22 @@ enyo.kind({
 	},
 	calcBarValue: function(activeItem) {
 		if ((this.active) && (this.componentsRendered)) {
-			this.$.bar.applyStyle("width", activeItem.contentWidth + "px");
 
-			var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
-			var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + (differential / 2);
+			if (this.active.kind === "mochi.ViewSelectButtonItem") {
+				this.$.bar.applyStyle("width", activeItem.contentWidth + "px");
+				var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
+				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + (differential / 2);
+			} else if (this.active.kind === "mochi.IconButtonItem") {
+				//this.$.bar.applyStyle("width", activeItem.hasNode().getBoundingClientRect().width + "px");
+				this.$.bar.applyStyle("width", 25 + "px");
+				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + 5;
+
+				//enyo.log("active", activeItem.hasNode().getBoundingClientRect().width, xPos);
+			}
+
+			
 
 			this.$.animator.play({
-				//duration: 1500,
 				startValue: this.lastBarPos,
 				endValue: xPos,
 				node: this.$.bar.hasNode()

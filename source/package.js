@@ -3,6 +3,8 @@ enyo.depends(
 	"ButtonDecorator.js",
 	"Button.js",
 	"Checkbox.js",
+	"Icon.js",
+	"IconButton.js",
 	"Input.js",
 	"InputDecorator.js",
 	"ProgressBar.js",
