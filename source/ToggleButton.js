@@ -2,7 +2,7 @@
 	A control that looks like a switch with labels for two states. Each time a ToggleButton is tapped,
 	it switches its value and fires an onChange event.
 	
-		{kind: "mochi.ToggleButton", onContent: "foo", offContent: "bar", onChange: "buttonToggle"}
+		{kind: "mochi.ToggleButton", onChange: "buttonToggle"}
 	
 		buttonToggle: function(inSender, inEvent) {
 			this.log("Toggled to value " + inEvent.value);
@@ -24,8 +24,6 @@ enyo.kind({
 	published: {
 		active: false,
 		value: false,
-		onContent: "",
-		offContent: "",
 		disabled: false,
 		canAnimate: true,
 		colorActive: "#ffb80d",
@@ -44,58 +42,80 @@ enyo.kind({
 		ondrag: "drag",
 		ondragfinish: "dragfinish"
 	},
+	lastKnobPos: 0,
+	onXPos: 0,
+	_canAnimate: false,
 	components: [
-		{name: "contentOn", classes: "mochi-toggle-content on"},
-		{name: "contentOff", classes: "mochi-toggle-content off"},
-		{name: "toggleKnob", classes: "mochi-toggle-button-knob"}
+		{name: "toggleKnob", classes: "mochi-toggle-button-knob"},
+		{kind: "enyo.Animator", onStep: "animatorStep", onEnd: "animatorEnd"}
 	],
 	create: function() {
 		this.inherited(arguments);
 		this.value = Boolean(this.value || this.active);
-		this.onContentChanged();
-		this.offContentChanged();
 		this.disabledChanged();
+		this.supressAnimation();
 	},
 	rendered: function() {
 		this.inherited(arguments);
-		this.adjustSize();
+		this.calcKnob();
 		this.valueChanged();
-		this.canAnimateChanged();
+		this.init();
 	},
+	supressAnimation: function() {
+		this._canAnimate = this.canAnimate;
+		this.canAnimate = false;
+	},
+	init: function() {
+		this.setCanAnimate(this._canAnimate);
+	},
+	/*
+	// We can add a class here to animate the background also
 	canAnimateChanged: function() {
 		if (this.canAnimate) {
 			var toggleClass = "mochi-toggle-animate";
-			var knobClass = "mochi-toggle-knob-animate";
 		} else {
-			var toggleClass = knobClass = "mochi-no-animate";
+			var toggleClass = "mochi-no-animate";
 		}
 		this.addClass(toggleClass);
-		this.$.toggleKnob.addClass(knobClass);
 	},
-	adjustSize: function() {
-		// FIXME: // the 4 is for padding (2px top & bottom)
-		if (this.$.contentOn.getBounds().width > (this.$.toggleKnob.getBounds().width + 4)) {
-			this.$.toggleKnob.applyStyle("left", "0px");
+	*/
+	animatorStep: function(inSender) {
+		this.updateKnobPosition(inSender.value);
+	},
+	updateKnobPosition: function(inValue) {
+		var xPos = inValue + "px";
+		var inControl = this.$.toggleKnob;
+		if (enyo.dom.canTransform()) {
+			enyo.dom.transform(inControl, {translateX: xPos});
+		} else {
+			inControl.applyStyle("left", xPos);
 		}
 	},
+	calcKnob: function() {
+		this.onXPos = (this.getBounds().width - this.$.toggleKnob.getBounds().width) - (parseInt(enyo.dom.getComputedStyleValue(this.$.toggleKnob.hasNode(), "margin-left")) * 2);
+	},
 	valueChanged: function() {
-		this.addRemoveClass("off", !this.value);
-		this.$.contentOn.setShowing(this.value);
-		this.$.contentOff.setShowing(!this.value);
 		this.applyStyle("background-color", this.value ? this.colorActive : this.colorInactive);
 		this.setActive(this.value);
+		this.doChange({value: this.value});
+
+		var xPos = (this.value) ? this.onXPos : 0;
+
+		if (this.canAnimate) {
+			this.$.animator.play({
+				startValue: this.lastKnobPos,
+				endValue: xPos,
+				node: this.$.toggleKnob.hasNode()
+			});
+		} else {
+			this.updateKnobPosition(xPos);
+		}
+		this.lastKnobPos = xPos;
+		
 	},
 	activeChanged: function() {
 		this.setValue(this.active);
 		this.bubble("onActivate");
-	},
-	onContentChanged: function() {
-		this.$.contentOn.setContent(this.onContent || "");
-		this.$.contentOn.addRemoveClass("empty", !this.onContent);
-	},
-	offContentChanged: function() {
-		this.$.contentOff.setContent(this.offContent || "");
-		this.$.contentOff.addRemoveClass("empty", !this.onContent);
 	},
 	disabledChanged: function() {
 		this.addRemoveClass("disabled", this.disabled);
@@ -103,7 +123,6 @@ enyo.kind({
 	updateValue: function(inValue) {
 		if (!this.disabled) {
 			this.setValue(inValue);
-			this.doChange({value: this.value});
 		}
 	},
 	tap: function() {

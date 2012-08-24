@@ -577,7 +577,6 @@ textarea::-webkit-scrollbar-thumb:vertical {
 	line-height: 24px;
 	min-width: 48px;
 	vertical-align: middle;
-	text-align: center;
 	border-radius: 12px;
 	background-size: auto 100%;
 	color: white;
@@ -587,24 +586,14 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 .mochi-toggle-button-knob {
-	display: inline-block;
+	position: relative;
 	width: 20px;
 	height: 20px;
 	margin: 2px;
 	border-radius: 10px;
 	background-color: white;
-	background-size: auto 100%;
-	position: relative;
-}
-
-.mochi-toggle-button .mochi-toggle-button-knob {
-	/*float: right;*/
-	left: 12px;
-}
-
-.mochi-toggle-button.off .mochi-toggle-button-knob {
-	/*float: left;*/
-	left: -12px;
+	left: 0px;
+	overflow: hidden;
 }
 
 .mochi-toggle-button.disabled {
@@ -612,33 +601,9 @@ textarea::-webkit-scrollbar-thumb:vertical {
 	filter: alpha(opacity=40);
 }
 
-.mochi-toggle-content {
-	min-width: 24px;
-	padding: 0 6px;
-}
-
-.mochi-toggle-content.empty {
-	padding: 0;
-}
-
-.mochi-toggle-content.off {
-	float: right;
-}
-
-.mochi-toggle-content.on {
-	float: left;
-}
-
 .mochi-toggle-animate {
 	-webkit-transition: background-color 0.1s linear;
 	-moz-transition: background-color 0.1s linear;
 	-o-transition: background-color 0.1s linear;
 	transition: background-color 0.1s linear;
-}
-
-.mochi-toggle-knob-animate {
-	-webkit-transition: left 0.1s ease-in-out;
-	-moz-transition: left 0.1s ease-in-out;
-	-o-transition: left 0.1s ease-in-out;
-	transition: left 0.1s ease-in-out;
 }
