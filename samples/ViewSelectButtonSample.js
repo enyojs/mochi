@@ -34,11 +34,27 @@ enyo.kind({
 		]},
 		{tag: "br"},
 		{tag: "br"},
+		{classes: "mochi-subheader", content: "Mixed-bag: View Select & Icon Buttons"},
+		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
+			{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"},
+			{content: "Alpha", active: true},
+			{content: "Beta"},
+			{kind: "mochi.IconButtonItem", disabled: true, src: "assets/sample-calendar-icon-custom.png"},
+			{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"}
+		]},
+		{tag: "br"},
+		{tag: "br"},
 		{name: "result", classes: "mochi-sample-content", content: "result"}
 	],
 	buttonActivated: function(inSender, inEvent) {
-		if (inEvent.originator.getActive()) {
+		if ((inEvent.originator.getActive()) && (inEvent.originator.kind === "mochi.ViewSelectButtonItem")) {
 			this.$.result.setContent("The \"" + inEvent.originator.getContent() + "\" button is selected.");
+		} else {
+			this.$.result.setContent("The \"" + inEvent.originator.name + "\" button is selected.");
 		}
+	},
+	rendered: function() {
+		this.inherited(arguments);
+		this.$.result.setContent("");
 	}
 });
