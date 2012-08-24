@@ -66,28 +66,32 @@ enyo.kind({
 		this.$.bar.addClass(this.barClasses);
 	},
 	animatorStep: function(inSender) {
-		this.updateBarPosition(inSender.value);
+		this.updateBarPosition(this.$.bar, inSender.value);
 	},
-	updateBarPosition: function(xPos) {
-		this.$.bar.applyStyle("left", xPos + "px");
+	updateBarPosition: function(inControl, inValue) {
+		var xPos = inValue + "px";
+		if (enyo.dom.canTransform()) {
+			enyo.dom.transform(inControl, {translateX: xPos});
+		} else {
+			inControl.applyStyle("left", xPos);
+		}
 	},
 	calcBarValue: function(activeItem) {
 		if ((this.active) && (this.componentsRendered)) {
 
 			if (this.active.kind === "mochi.ViewSelectButtonItem") {
 				this.$.bar.applyStyle("width", activeItem.contentWidth + "px");
-				var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
+
+				// IE8 doesn't return getBoundingClientRect().width, so we calculate from right/left. Who cares ... it's IE8 ... I know
+				//var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
+				var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - activeItem.contentWidth;
 				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + (differential / 2);
+
 			} else if (this.active.kind === "mochi.IconButtonItem") {
-				//this.$.bar.applyStyle("width", activeItem.hasNode().getBoundingClientRect().width + "px");
 				this.$.bar.applyStyle("width", 25 + "px");
 				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + 5;
-
-				//enyo.log("active", activeItem.hasNode().getBoundingClientRect().width, xPos);
 			}
-
 			
-
 			this.$.animator.play({
 				startValue: this.lastBarPos,
 				endValue: xPos,
