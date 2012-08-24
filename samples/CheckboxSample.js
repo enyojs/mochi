@@ -2,37 +2,41 @@ enyo.kind({
 	name: "mochi.sample.CheckboxSample",
 	classes: "mochi mochi-sample",
 	components: [
-		{classes: "mochi-subheader", content: "Checkboxes"},
+		{classes: "mochi-subheader", content: "Checkbox: Default"},
 		{classes: "mochi-sample-tools", components: [
-			{kind:"mochi.Checkbox", onchange:"checkboxChanged", checked: true},
-			{kind:"mochi.Checkbox", onchange:"checkboxChanged"},
-			{kind:"mochi.Checkbox", onchange:"checkboxChanged", colorActive: "#69cdff", colorInactive: "#000", checked: true}
+			{kind: "mochi.Checkbox", onchange: "sample1Changed", checked: true},
+			{kind: "mochi.Checkbox", onchange: "sample1Changed"},
+			{kind: "mochi.Checkbox", onchange: "sample1Changed"},
+			{name: "sample1Result", classes:"mochi-sample-content", content:"No button tapped yet."}
 		]},
 		{tag: "br"},
-		{classes: "mochi-subheader", content: "Checkboxes Group"},
-		{kind: "Group", classes: "mochi-sample-tools group", onActivate:"groupActivated", highlander: true, components: [
-			{kind:"mochi.Checkbox", checked: true},
-			{kind:"mochi.Checkbox"},
-			{kind:"mochi.Checkbox"}
-		]}
-		/*
+		{classes: "mochi-subheader", content: "Checkboxes: Custom Styles"},
+		{classes: "mochi-sample-tools", components: [
+			{kind: "mochi.Checkbox", onchange: "sample2Changed", colorActive: "#8c3037", colorInactive: "#d9d4ba", checked: true},
+			{kind: "mochi.Checkbox", onchange: "sample2Changed", colorActive: "#E75533", colorInactive: "#fafafa", checked: true},
+			{kind: "mochi.Checkbox", onchange: "sample2Changed", colorActive: "#364b57", colorInactive: "#fafafa", checked: true},
+			{name: "sample2Result", classes:"mochi-sample-content", content:"No button tapped yet."}
+		]},
 		{tag: "br"},
-		{kind: "mochi.Groupbox", classes:"mochi-sample-result-box", components: [
-			{kind: "mochi.GroupboxHeader", content: "Result"},
-			{name:"result", classes:"mochi-sample-result", content:"No button tapped yet."}
-		]}
-		*/
+		{classes: "mochi-subheader", content: "Checkbox Group"},
+		{kind: "Group", classes: "mochi-sample-tools group", onActivate: "sample3Activated", highlander: true, components: [
+			{kind: "mochi.Checkbox", checked: true},
+			{kind: "mochi.Checkbox"},
+			{kind: "mochi.Checkbox"}
+		]},
+		{name: "sample3Result", classes:"mochi-sample-content", content:"No button tapped yet."}
 	],
-	checkboxChanged: function(inSender, inEvent) {
-		//this.$.result.setContent(inSender.name + " was " + (inSender.getValue() ? " selected." : "deselected."));
+	sample1Changed: function(inSender, inEvent) {
+		this.$.sample1Result.setContent(inSender.name + " was " + (inSender.getValue() ? " selected." : "deselected."));
+	},
+	sample2Changed: function(inSender, inEvent) {
+		this.$.sample2Result.setContent(inSender.name + " was " + (inSender.getValue() ? " selected." : "deselected."));
 	},
 	ordinals: ["1st", "2nd", "3rd"],
-	groupActivated: function(inSender, inEvent) {
-		/*
+	sample3Activated: function(inSender, inEvent) {
 		if (inEvent.originator.getActive()) {
 			var selected = inEvent.originator.indexInContainer();
-			this.$.result.setContent("The " + this.ordinals[selected] + " checkbox in the group is selected.");
+			this.$.sample3Result.setContent("The " + this.ordinals[selected] + " checkbox in the group is selected.");
 		}
-		*/
 	}
 });
