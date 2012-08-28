@@ -10,6 +10,7 @@
 		{"name": "Icon Buttons", "path":"$lib/mochi/samples/IconButtonSample", "css":"sample"},
 		{"name": "Checkboxes", "path":"$lib/mochi/samples/CheckboxSample", "css":"sample"},
 		{"name": "Inputs", "path":"$lib/mochi/samples/InputSample", "css":"sample"},
-		{"name": "Progress Bars", "path":"$lib/mochi/samples/ProgressSample", "css":"sample"}
+		{"name": "Progress Bars", "path":"$lib/mochi/samples/ProgressSample", "css":"sample"},
+		{"name": "Sliders", "path":"$lib/mochi/samples/SliderSample", "css":"sample"}
 	]
 }

@@ -53,3 +53,6 @@
 .mochi-button:active:hover:not([disabled]) > .mochi-button-bar.mochi-sample-orange {
 	background-color: orange;
 }
+.mochi-background-orange {
+	background-color: #ffb80d;
+}
