@@ -6,5 +6,6 @@ enyo.depends(
 	"CheckboxSample.js",
 	"InputSample.js",
 	"ProgressSample.js",
-	"ToggleButtonSample.js"
+	"ToggleButtonSample.js",
+	"SliderSample.js"
 );
