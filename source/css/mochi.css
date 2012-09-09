@@ -189,8 +189,8 @@
 /* ButtonDecorator */
 .mochi-button-decorator {
 	font-family: "Prelude Bold";
-	font-size: 28px;
-	color: #646464;
+	font-size: 30px;
+	color: #4b4b4b;
 	font-weight: bold;
 	display: inline-block;
 	vertical-align: top;
@@ -244,7 +244,7 @@
 }
 .mochi-button-bar {
 	position: absolute;
-	top: 33px;
+	top: 35px;
 	left: 0px;
 	height: 1px;
 	width: 0px;
@@ -370,7 +370,7 @@
 	padding: 1px 8px 5px 8px;
 	border-radius: 16px;
 	border: 1px solid;
-	border-color: #e0e0e0;
+	border-color: #a2a2a2;
 	background-color: white;
 	margin: 0px;
 }
@@ -470,7 +470,7 @@
 .mochi-progress-bar {
 	height: 1px;
 	min-width: 128px;
-	background-color: #969696;
+	background-color: #a2a2a2;
 }
 
 .mochi-progress-bar-bar {
@@ -485,7 +485,7 @@
 .mochi-progress-text {
 	margin: 24px 16px 0px;
 	font-size: 12px;
-	color: #969696;
+	color: #a2a2a2;
 	font-family: "Prelude Med Oblique";
 	font-style: oblique;
 }
@@ -499,7 +499,7 @@
 .mochi-progress-text-underwear {
 	position: absolute;
 	display: inline-block;
-	color: #969696;
+	color: #a2a2a2;
 	line-height: 12px;
 }
 
@@ -555,8 +555,8 @@
 	width: 60px;
 	height: 34px;
 	white-space: nowrap;
-	font-family: arial, sans-serif;
-	color: white;
+	font-family: "PreludeWGL Light", arial, sans-serif;
+	color: #fff;
 	text-align: center;
 	line-height: 34px;
 	vertical-align: middle;
