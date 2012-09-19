@@ -10,6 +10,13 @@ enyo.kind({
 			{name: "sample1Result", classes:"mochi-sample-content", content:"No button tapped yet."}
 		]},
 		{tag: "br"},
+		{classes: "mochi-subheader", content: "Checkboxes: Disabled"},
+		{classes: "mochi-sample-tools", components: [
+			{kind: "mochi.Checkbox", checked: true, disabled: true},
+			{kind: "mochi.Checkbox", disabled: true},
+			{kind: "mochi.Checkbox", disabled: true}
+		]},
+		{tag: "br"},
 		{classes: "mochi-subheader", content: "Checkboxes: Custom Styles"},
 		{classes: "mochi-sample-tools", components: [
 			{kind: "mochi.Checkbox", onchange: "sample2Changed", colorActive: "#8c3037", colorInactive: "#d9d4ba", checked: true},
@@ -24,7 +31,7 @@ enyo.kind({
 			{kind: "mochi.Checkbox"},
 			{kind: "mochi.Checkbox"}
 		]},
-		{name: "sample3Result", classes:"mochi-sample-content", content:"No button tapped yet."}
+		{name: "sample3Result", classes: "mochi-sample-content", content: "No button tapped yet."}
 	],
 	sample1Changed: function(inSender, inEvent) {
 		this.$.sample1Result.setContent(inSender.name + " was " + (inSender.getValue() ? " selected." : "deselected."));

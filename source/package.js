@@ -2,6 +2,7 @@ enyo.depends(
 	"css/",
 	"ButtonDecorator.js",
 	"Button.js",
+	"RadioButton.js",
 	"Checkbox.js",
 	"Icon.js",
 	"IconButton.js",

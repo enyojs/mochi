@@ -331,14 +331,38 @@
 
 
 
+/* RadioButton */
+.mochi-radio-button  {
+	cursor: pointer;
+	height: 22px;
+	width: 22px;
+	margin: 0px;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 13px;
+	border: 2px solid #646464;
+}
+
+.mochi-radio-button-animate {
+	-webkit-transition: background-color 0.1s linear;
+	-moz-transition: background-color 0.1s linear;
+	-o-transition: background-color 0.1s linear;
+	transition: background-color 0.1s linear;
+}
+
+.mochi-radio-button.disabled {
+	border-color: #a2a2a2;
+}
+
+
+
+
 /* Checkbox */
 .mochi-checkbox {
 	cursor: pointer;
 	height: 22px;
 	width: 22px;
-	/* reset for ? */
 	margin: 0px;
-	/* these entries cause toggle-button and checkbox to line up properly*/
 	display: inline-block;
 	vertical-align: middle;
 	border-radius: 13px;
@@ -358,7 +382,7 @@
 	transition: background-color 0.1s linear;
 }
 
-.mochi-checkbox[disabled] {
+.mochi-checkbox.disabled {
 	opacity: 0.4;
 }
 
