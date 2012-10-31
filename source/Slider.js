@@ -34,7 +34,7 @@ enyo.kind({
 	moreComponents: [
 		{kind: "Animator", onStep: "animatorStep", onEnd: "animatorComplete"},
 		{classes: "mochi-slider-taparea"},
-		{name: "knob", ondown: "showKnobStatus", classes: "mochi-slider-knob"},
+		{name: "knob", ondown: "showKnobStatus", onup: "hideKnobStatus", classes: "mochi-slider-knob"},
 		{kind: "mochi.Popup", name: "popup", classes: "mochi-slider-popup", components: [
 			{tag: "canvas", name: "drawing", attributes: { width: 62, height: 34 }},
 			{name: "popupLabel", classes: "mochi-slider-popup-label"}
@@ -83,6 +83,7 @@ enyo.kind({
 		inControl.addStyles(s);
 	},
 	adjustPopupPosition: function(inControl, belowActivator) {
+
 		var inControl = this.$.popup;
 		if (inControl.hasNode()) {
 			var b = inControl.node.getBoundingClientRect();
@@ -90,7 +91,7 @@ enyo.kind({
 			//FIXME: when the tooltip bottom goes below the window height move it above the decorator
 			if ((b.top + b.height) > window.innerHeight) {
 				//inControl.addRemoveClass("below", false);
-				//inControl.addRemoveClass("above", true);	
+				//inControl.addRemoveClass("above", true);
 			} else 	{
 				//inControl.addRemoveClass("above", false);
 				//inControl.addRemoveClass("below", true);
@@ -108,11 +109,15 @@ enyo.kind({
 	showKnobStatus: function(inSender, inEvent) {
 		this.$.popup.setShowing(true);
 	},
+	hideKnobStatus: function(inSender, inEvent) {
+		this.$.popup.setShowing(false);
+	},
 	dragstart: function(inSender, inEvent) {
 		if (inEvent.horizontal) {
 			inEvent.preventDefault();
 			this.dragging = true;
 			this.$.knob.addClass("active");
+			this.showKnobStatus();
 			return true;
 		}
 	},

@@ -41,7 +41,8 @@ enyo.kind({
 		onActivate: "activate"
 	},
 	moreComponents: [
-		{kind: "mochi.ButtonDecoratorLeft", prepend: true},
+		//{kind: "mochi.ButtonDecoratorLeft", prepend: true},
+		{kind: "mochi.ButtonDecoratorLeft", addBefore: null},
 		{kind: "mochi.ButtonDecoratorRight"},
 		{kind: "enyo.Control", name: "bar", classes: "mochi-button-bar"},
 		{kind: "enyo.Animator", onStep: "animatorStep", onEnd: "animatorEnd"}

@@ -575,14 +575,14 @@
 }
 .mochi-slider-popup-label {
 	position: absolute;
-	top: 0px;
+	top: 3px;
 	width: 60px;
-	height: 34px;
+	height: 30px;
 	white-space: nowrap;
 	font-family: "PreludeWGL Light", arial, sans-serif;
 	color: #fff;
 	text-align: center;
-	line-height: 34px;
+	line-height: 30px;
 	vertical-align: middle;
 	font-size: 14px;
 }
