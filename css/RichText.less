@@ -1,0 +1,27 @@
+/* RichText.css */
+.mochi-input-decorator > .mochi-richtext {
+	/* reset */
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	box-shadow: none;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+	font-size: 14px;
+	font-family: "Prelude Med Oblique";
+	color: #4b4b4b;
+	font-style: oblique;
+}
+.mochi-input-decorator.mochi-focused > .mochi-richtext {
+	cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > .mochi-richtext {
+	cursor: default;
+}
+/* Pasting rich text adds <p> tag with a margin-top value of 16px */
+.mochi-richtext > p {
+	margin-top: 0px;
+}

@@ -1,0 +1,84 @@
+/* Button.css */
+.mochi-button {
+	position: relative;
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: transparent;
+}
+.mochi-button:focus {
+	outline: none;
+}
+.mochi-button::-moz-focus-inner {
+	border: 0px;
+}
+.mochi-button-bar {
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	height: 1px;
+	width: 0px;
+	background-color: #69cdff;
+}
+.mochi-button > .mochi-button-bar {
+	background-color: transparent;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: background-color 0.2s linear;
+	-o-transition: background-color 0.2s linear;
+	-ms-transition: background-color 0.2s linear;
+	transition: background-color 0.2s linear;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-button.active > .mochi-button-bar {
+	background-color: #69cdff;
+}
+.mochi-button.disabled {
+	opacity: 0.4;
+}
+.mochi-button-warning > .mochi-button-base {
+	color: #ff4a4a;
+}
+.mochi-button:active:hover:not([disabled]).mochi-button-warning > .mochi-button-bar {
+	background-color: #ff4a4a;
+}
+.mochi-button.active.mochi-button-warning > .mochi-button-bar {
+	background-color: #ff4a4a;
+}
+
+.mochi-button > .mochi-button-base {
+	margin: 0px 6px;
+	padding: 0px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+.mochi-view-select-button > .mochi-button-base {
+	height: 34px;
+	line-height: 34px;
+	vertical-align: middle;
+}
+.mochi-button-base {
+	display: inline-block;
+	font-family: "Prelude Bold Oblique";
+	font-size: 14px;
+	color: #323232;
+	font-style: oblique;
+	font-weight: bold;
+	border-width: 0px;
+	background-color: transparent;
+	letter-spacing: normal;
+	margin: 2px;
+	padding: 1px 0px;
+	white-space: nowrap;
+	overflow: hidden;
+
+	height: 28px;
+	
+	-webkit-transition: letter-spacing 0.1s ease-in-out;
+	-moz-transition: letter-spacing 0.1s ease-in-out;
+	-o-transition: letter-spacing 0.1s ease-in-out;
+	-ms-transition: letter-spacing 0.1s ease-in-out;
+	transition: letter-spacing 0.1s ease-in-out;
+}

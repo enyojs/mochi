@@ -1,0 +1,47 @@
+/* Slider.css */
+.mochi-slider {
+	position: relative;
+	margin: 10px 20px;
+}
+.mochi-slider-taparea {
+	position: absolute;
+	top: -16px;
+	height: 32px;
+	width: 100%;
+}
+.mochi-slider-knob {
+	position: relative;
+	height: 16px;
+	width: 16px;
+	border-radius: 8px;
+	margin: -8px -9px;
+	background-color: #69cdff;
+}
+.mochi-slider-knob.active, .mochi-slider-knob:active:hover {
+	height: 32px;
+	width: 32px;
+	border-radius: 16px;
+	margin: -16px -18px;
+}
+.mochi-slider-popup {
+	position: absolute;
+	display: block;
+	z-index: 20;
+	left: 0px;
+	top: 0px;
+	width: 62px;
+	height: 34px;
+}
+.mochi-slider-popup-label {
+	position: absolute;
+	top: 3px;
+	width: 60px;
+	height: 30px;
+	white-space: nowrap;
+	font-family: "PreludeWGL Light", arial, sans-serif;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+	font-size: 14px;
+}

@@ -1,0 +1,45 @@
+/* TextArea.css */
+.mochi-input-decorator > textarea {
+	/* reset */
+	margin: 5px 2px;
+	padding: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+	font-size: 16px;
+	box-shadow: none;
+	/* Remove scrollbars and resize handle */
+	resize: none;
+	overflow: auto;
+	/* FIXME: hack for styling reset on Android */
+	/* -webkit-appearance: caret;*/
+	font-size: 14px;
+	font-family: "Prelude Med Oblique";
+	color: #7d7d7d;
+	font-style: oblique;
+}
+.mochi-input-decorator.mochi-focused > textarea {
+	cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > textarea {
+	cursor: default;
+}
+.mochi-textarea {
+	/* need >=50px for scrollbar to be usable on mac */
+	min-height: 50px;
+}
+textarea::-webkit-scrollbar {
+	width: 4px;
+}
+textarea::-webkit-scrollbar-track-piece {
+	margin-top: 4px;
+	margin-bottom: 0px;
+	background-color: #fff;
+	-webkit-border-radius: 10px;
+}
+textarea::-webkit-scrollbar-thumb:vertical {
+	height: 10px;
+	background-color: #7d7d7d;
+	-webkit-border-radius: 10px;
+}

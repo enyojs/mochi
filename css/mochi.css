@@ -1,0 +1,651 @@
+/* WARNING: This is a generated file for backward-compatibility.  Most      */
+/* usrs should instead modify LESS files.  If you choose to edit this CSS   */
+/* directly rather than LESS files, you should make sure less.xx.yy.min.js  */
+/* is commented out in your debug.html, and run deploy.sh/bat using the     */
+/* '-c' flag to disable LESS compilation.  This will force the loader and   */
+/* minifier to fall back to using CSS files in place of the same-name       */
+/* LESS file.                                                               */
+
+/* Mochi default parameters defined here */
+/* Fonts */
+/* ---------------------------------------*/
+/* Text Colors */
+/* ---------------------------------------*/
+/* Background Colors */
+/* ---------------------------------------*/
+/* Disabled Opacity */
+/* ---------------------------------------*/
+/* Mochi rules defined here */
+/* mochi-classes.less - combined CSS (less) files for all released mochi controls 
+   into single mochi.less file to avoid IE bug that allows
+   a maximum of 31 style sheets to be loaded before silently failing */
+/* Import font styles */
+@font-face {
+  font-family: "PreludeWGL Light";
+  src: local("☺"), url(./../fonts/PreludeWGL-Light.woff) format("woff"), url(./../fonts/PreludeWGL-Light.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Prelude Condensed Med";
+  src: local("☺"), url(./../fonts/PreludeCondensed-Medium.woff) format("woff"), url(./../fonts/PreludeCondensed-Medium.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Prelude Med Oblique";
+  src: local("☺"), url(./../fonts/Prelude-MediumOblique.woff) format("woff"), url(./../fonts/Prelude-MediumOblique.ttf) format("truetype");
+  font-weight: normal;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Prelude Bold";
+  src: local("☺"), url(./../fonts/Prelude-Bold.woff) format("woff"), url(./../fonts/Prelude-bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Prelude Bold Oblique";
+  src: local("☺"), url(./../fonts/Prelude-BoldOblique.woff) format("woff"), url(./../fonts/Prelude-boldOblique.ttf) format("truetype");
+  font-weight: bold;
+  font-style: oblique;
+}
+.mochi {
+  color: #333333;
+  font-family: "Prelude Bold Oblique";
+  font-size: 20px;
+  cursor: default;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 169px rgba(0, 0, 0, 0.3);
+  /* remove automatic tap highlight color */
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* prevent IE from inheriting line-height for these elements */
+.mochi button,
+.mochi label,
+.mochi input {
+  line-height: normal;
+}
+.mochi-selected {
+  background-color: #c4e3fe;
+}
+/* style that removes transition effects from elements */
+.mochi-no-animate {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.mochi-header {
+  font-family: "PreludeWGL Light";
+  font-size: 36px;
+  color: #525252;
+  text-transform: uppercase;
+}
+.mochi-subheader {
+  font-family: "Prelude Med Oblique";
+  font-size: 18px;
+  color: #323232;
+  font-style: oblique;
+}
+.mochi-item {
+  font-family: "Prelude Med Oblique";
+  font-size: 14px;
+  color: #323232;
+  font-style: oblique;
+}
+.mochi-toolbar-inline > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 4px 6px 5px;
+  box-sizing: border-box;
+}
+/* LESS pre-calculations */
+/* Individual Widget CSS */
+/* Button.css */
+.mochi-button {
+  position: relative;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+.mochi-button:focus {
+  outline: none;
+}
+.mochi-button::-moz-focus-inner {
+  border: 0px;
+}
+.mochi-button-bar {
+  position: absolute;
+  top: 35px;
+  left: 0px;
+  height: 1px;
+  width: 0px;
+  background-color: #69cdff;
+}
+.mochi-button > .mochi-button-bar {
+  background-color: transparent;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-bar {
+  background-color: #69cdff;
+}
+.mochi-button.active > .mochi-button-bar {
+  background-color: #69cdff;
+}
+.mochi-button.disabled {
+  opacity: 0.4;
+}
+.mochi-button-warning > .mochi-button-base {
+  color: #ff4a4a;
+}
+.mochi-button:active:hover:not([disabled]).mochi-button-warning > .mochi-button-bar {
+  background-color: #ff4a4a;
+}
+.mochi-button.active.mochi-button-warning > .mochi-button-bar {
+  background-color: #ff4a4a;
+}
+.mochi-button > .mochi-button-base {
+  margin: 0px 6px;
+  padding: 0px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.mochi-view-select-button > .mochi-button-base {
+  height: 34px;
+  line-height: 34px;
+  vertical-align: middle;
+}
+.mochi-button-base {
+  display: inline-block;
+  font-family: "Prelude Bold Oblique";
+  font-size: 14px;
+  color: #323232;
+  font-style: oblique;
+  font-weight: bold;
+  border-width: 0px;
+  background-color: transparent;
+  letter-spacing: normal;
+  margin: 2px;
+  padding: 1px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 28px;
+  -webkit-transition: letter-spacing 0.1s ease-in-out;
+  -moz-transition: letter-spacing 0.1s ease-in-out;
+  -o-transition: letter-spacing 0.1s ease-in-out;
+  -ms-transition: letter-spacing 0.1s ease-in-out;
+  transition: letter-spacing 0.1s ease-in-out;
+}
+/* ButtonDecorator.css */
+.mochi-button-decorator {
+  font-family: "Prelude Bold";
+  font-size: 30px;
+  color: #4b4b4b;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: top;
+}
+.mochi-button-decorator-left {
+  float: left;
+}
+.mochi-button-decorator-right {
+  float: right;
+}
+.mochi-button-decorator-bookened {
+  vertical-align: top;
+  margin: 0px;
+  padding: 0px;
+}
+.mochi-button > .mochi-button-decorator-left {
+  padding: 0px 0px 0px 4px;
+  /* Iffy method - prevents flickering in Chrome */
+
+  /*
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+	*/
+
+  /* Preferred method */
+
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  -moz-transition: -moz-transform 0.1s ease-in-out;
+  -o-transition: -o-transform 0.1s ease-in-out;
+  -ms-transition: -ms-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
+  -webkit-transform: translateX(-4px);
+  -moz-transform: translateX(-4px);
+  -o-transform: translateX(-4px);
+  -ms-transform: translateX(-4px);
+  transform: translateX(-4px);
+}
+.mochi-button > .mochi-button-decorator-right {
+  padding: 0px 4px 0px 0px;
+  /* Iffy method - prevents flickering in Chrome */
+
+  /*
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+	*/
+
+  /* Preferred method */
+
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  -moz-transition: -moz-transform 0.1s ease-in-out;
+  -o-transition: -o-transform 0.1s ease-in-out;
+  -ms-transition: -ms-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  transform: translateX(4px);
+}
+/* Icon.css & IconButton.css */
+.mochi-icon {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+}
+.mochi-icon-button-item {
+  display: inline-block;
+  margin: 2px;
+  padding: 1px 0px;
+  width: 34px;
+  height: 34px;
+  border-width: 0px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.mochi-icon-button-item:active:hover:not([disabled]) > .mochi-icon {
+  background-position: 0 -24px;
+}
+.mochi-icon-button-item.disabled {
+  opacity: 0.4;
+}
+.mochi-icon-button {
+  position: relative;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+  height: 40px;
+  background-color: transparent;
+}
+.mochi-icon-button > .mochi-icon {
+  margin: 8px 4px 0px;
+}
+.mochi-icon-button > .mochi-button-decorator-left {
+  padding: 0px 0px 0px 4px;
+  -webkit-transition: padding 0.1s ease-in-out;
+  -moz-transition: padding 0.1s ease-in-out;
+  -o-transition: padding 0.1s ease-in-out;
+  -ms-transition: padding 0.1s ease-in-out;
+  transition: padding 0.1s ease-in-out;
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
+  padding: 0px 4px 0px 0px;
+}
+.mochi-icon-button > .mochi-button-decorator-right {
+  padding: 0px 4px 0px 0px;
+  -webkit-transition: padding 0.1s ease-in-out;
+  -moz-transition: padding 0.1s ease-in-out;
+  -o-transition: padding 0.1s ease-in-out;
+  -ms-transition: padding 0.1s ease-in-out;
+  transition: padding 0.1s ease-in-out;
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
+  padding: 0px 0px 0px 4px;
+}
+.mochi-icon-button > .mochi-button-bar {
+  background-color: transparent;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+.mochi-icon-button:active:hover:not([disabled]) > .mochi-button-bar {
+  background-color: #69cdff;
+}
+.mochi-icon-button.active > .mochi-button-bar {
+  background-color: #69cdff;
+}
+.mochi-icon-button.disabled {
+  opacity: 0.4;
+}
+/* ViewSelector */
+.mochi-view-select-button {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+.mochi-view-select-button > .mochi-button-base:active:hover:not([disabled]) {
+  letter-spacing: 2px;
+}
+.mochi-view-select-button > .mochi-button-base[disabled] {
+  opacity: 0.4;
+}
+/* RadioButton.css */
+.mochi-radio-button {
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 13px;
+  border: 2px solid #646464;
+}
+.mochi-radio-button-animate {
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+.mochi-radio-button.disabled {
+  border-color: #a2a2a2;
+}
+/* Checkbox.css */
+.mochi-checkbox {
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 13px;
+  border: 2px solid #646464;
+}
+.mochi-checkbox[checked] {
+  background: url(./../images/checkbox.png) no-repeat;
+  padding: 2px;
+  border-width: 0px;
+}
+.mochi-checkbox-animate {
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+.mochi-checkbox.disabled {
+  opacity: 0.4;
+}
+/* Input.css */
+.mochi-input-animate {
+  -webkit-transition: border-color 0.1s linear;
+  -moz-transition: border-color 0.1s linear;
+  -o-transition: border-color 0.1s linear;
+  transition: border-color 0.1s linear;
+}
+/* InputDecorator.css */
+.mochi-input-decorator {
+  padding: 1px 8px 5px 8px;
+  border-radius: 16px;
+  border: 1px solid;
+  border-color: #a2a2a2;
+  background-color: white;
+  margin: 0px;
+}
+.mochi-input-decorator.mochi-focused {
+  border-color: #69cdff;
+}
+.mochi-input-decorator.mochi-disabled {
+  /* FIXME: needed to color a disabled input placeholder. */
+
+  /*-webkit-text-fill-color: #888;*/
+
+  opacity: 0.4;
+}
+.mochi-input-decorator > input {
+  /* reset */
+
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+  /* FIXME: hack for styling reset on Android */
+
+  /* -webkit-appearance: caret;*/
+
+  font-size: 14px;
+  font-family: "Prelude Med Oblique";
+  color: #4b4b4b;
+  font-style: oblique;
+}
+.mochi-input-decorator.mochi-focused > input {
+  cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > input {
+  cursor: default;
+}
+.mochi-input-decorator > input::-webkit-input-placeholder {
+  color: #7d7d7d;
+}
+.mochi-input-decorator > input:-moz-placeholder {
+  color: #7d7d7d;
+}
+/* IE10 */
+.mochi-input-decorator > input:-ms-input-placeholder {
+  color: #7d7d7d;
+}
+/* RichText.css */
+.mochi-input-decorator > .mochi-richtext {
+  /* reset */
+
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+  /* FIXME: hack for styling reset on Android */
+
+  /* -webkit-appearance: caret;*/
+
+  font-size: 14px;
+  font-family: "Prelude Med Oblique";
+  color: #4b4b4b;
+  font-style: oblique;
+}
+.mochi-input-decorator.mochi-focused > .mochi-richtext {
+  cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > .mochi-richtext {
+  cursor: default;
+}
+/* Pasting rich text adds <p> tag with a margin-top value of 16px */
+.mochi-richtext > p {
+  margin-top: 0px;
+}
+/* ProgressBar.css */
+.mochi-progress-bar {
+  height: 1px;
+  min-width: 128px;
+  background-color: #a2a2a2;
+}
+.mochi-progress-bar-bar {
+  height: 100%;
+  background-color: #69cdff;
+}
+/* ProgressText.css */
+.mochi-progress-text {
+  margin: 24px 16px 0px;
+  font-size: 12px;
+  color: #a2a2a2;
+  font-family: "Prelude Med Oblique";
+  font-style: oblique;
+}
+.mochi-progress-text-box {
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+}
+.mochi-progress-text-underwear {
+  position: absolute;
+  display: inline-block;
+  color: #a2a2a2;
+  line-height: 12px;
+}
+.mochi-progress-text-outerwear {
+  position: absolute;
+  display: inline-block;
+  color: #69cdff;
+  line-height: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* Slider.css */
+.mochi-slider {
+  position: relative;
+  margin: 10px 20px;
+}
+.mochi-slider-taparea {
+  position: absolute;
+  top: -16px;
+  height: 32px;
+  width: 100%;
+}
+.mochi-slider-knob {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  margin: -8px -9px;
+  background-color: #69cdff;
+}
+.mochi-slider-knob.active,
+.mochi-slider-knob:active:hover {
+  height: 32px;
+  width: 32px;
+  border-radius: 16px;
+  margin: -16px -18px;
+}
+.mochi-slider-popup {
+  position: absolute;
+  display: block;
+  z-index: 20;
+  left: 0px;
+  top: 0px;
+  width: 62px;
+  height: 34px;
+}
+.mochi-slider-popup-label {
+  position: absolute;
+  top: 3px;
+  width: 60px;
+  height: 30px;
+  white-space: nowrap;
+  font-family: "PreludeWGL Light", arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+/* TextArea.css */
+.mochi-input-decorator > textarea {
+  /* reset */
+
+  margin: 5px 2px;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 16px;
+  box-shadow: none;
+  /* Remove scrollbars and resize handle */
+
+  resize: none;
+  overflow: auto;
+  /* FIXME: hack for styling reset on Android */
+
+  /* -webkit-appearance: caret;*/
+
+  font-size: 14px;
+  font-family: "Prelude Med Oblique";
+  color: #7d7d7d;
+  font-style: oblique;
+}
+.mochi-input-decorator.mochi-focused > textarea {
+  cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > textarea {
+  cursor: default;
+}
+.mochi-textarea {
+  /* need >=50px for scrollbar to be usable on mac */
+
+  min-height: 50px;
+}
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+textarea::-webkit-scrollbar-track-piece {
+  margin-top: 4px;
+  margin-bottom: 0px;
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+}
+textarea::-webkit-scrollbar-thumb:vertical {
+  height: 10px;
+  background-color: #7d7d7d;
+  -webkit-border-radius: 10px;
+}
+/* ToggleButton.css */
+.mochi-toggle-button {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  min-width: 48px;
+  vertical-align: middle;
+  border-radius: 12px;
+  background-size: auto 100%;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.mochi-toggle-button-knob {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 10px;
+  background-color: white;
+  left: 0px;
+  overflow: hidden;
+}
+.mochi-toggle-button.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+.mochi-toggle-animate {
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}

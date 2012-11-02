@@ -1,3 +1,3 @@
 enyo.depends(
-	"mochi.css"
+	"mochi.less"
 );

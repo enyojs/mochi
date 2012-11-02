@@ -1,0 +1,70 @@
+/* ButtonDecorator.css */
+.mochi-button-decorator {
+	font-family: "Prelude Bold";
+	font-size: 30px;
+	color: #4b4b4b;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: top;
+}
+.mochi-button-decorator-left {
+	float: left;
+}
+.mochi-button-decorator-right {
+	float: right;
+}
+.mochi-button-decorator-bookened {
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+}
+.mochi-button > .mochi-button-decorator-left {
+	padding: 0px 0px 0px 4px;
+	/* Iffy method - prevents flickering in Chrome */
+	/*
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+	*/
+
+	/* Preferred method */
+	-webkit-transition: -webkit-transform 0.1s ease-in-out;
+	-moz-transition: -moz-transform 0.1s ease-in-out;
+	-o-transition: -o-transform 0.1s ease-in-out;
+	-ms-transition: -ms-transform 0.1s ease-in-out;
+	transition: transform 0.1s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-left {
+	-webkit-transform: translateX(-4px);
+	-moz-transform: translateX(-4px);
+	-o-transform: translateX(-4px);
+	-ms-transform: translateX(-4px);
+	transform: translateX(-4px);
+}
+.mochi-button > .mochi-button-decorator-right {
+	padding: 0px 4px 0px 0px;
+	/* Iffy method - prevents flickering in Chrome */
+	/*
+	-webkit-transition: padding 0.1s ease-in-out;
+	-moz-transition: padding 0.1s ease-in-out;
+	-o-transition: padding 0.1s ease-in-out;
+	-ms-transition: padding 0.1s ease-in-out;
+	transition: padding 0.1s ease-in-out;
+	*/
+
+	/* Preferred method */
+	-webkit-transition: -webkit-transform 0.1s ease-in-out;
+	-moz-transition: -moz-transform 0.1s ease-in-out;
+	-o-transition: -o-transform 0.1s ease-in-out;
+	-ms-transition: -ms-transform 0.1s ease-in-out;
+	transition: transform 0.1s ease-in-out;
+}
+.mochi-button:active:hover:not([disabled]) > .mochi-button-decorator-right {
+	-webkit-transform: translateX(4px);
+	-moz-transform: translateX(4px);
+	-o-transform: translateX(4px);
+	-ms-transform: translateX(4px);
+	transform: translateX(4px);
+}
