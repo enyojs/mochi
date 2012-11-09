@@ -1,11 +1,3 @@
-/* WARNING: This is a generated file for backward-compatibility.  Most      */
-/* usrs should instead modify LESS files.  If you choose to edit this CSS   */
-/* directly rather than LESS files, you should make sure less.xx.yy.min.js  */
-/* is commented out in your debug.html, and run deploy.sh/bat using the     */
-/* '-c' flag to disable LESS compilation.  This will force the loader and   */
-/* minifier to fall back to using CSS files in place of the same-name       */
-/* LESS file.                                                               */
-
 /* Mochi default parameters defined here */
 /* Fonts */
 /* ---------------------------------------*/
@@ -22,31 +14,31 @@
 /* Import font styles */
 @font-face {
   font-family: "PreludeWGL Light";
-  src: local("☺"), url(./../fonts/PreludeWGL-Light.woff) format("woff"), url(./../fonts/PreludeWGL-Light.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeWGL-Light.woff") format("woff"), url("../fonts/PreludeWGL-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Condensed Med";
-  src: local("☺"), url(./../fonts/PreludeCondensed-Medium.woff) format("woff"), url(./../fonts/PreludeCondensed-Medium.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeCondensed-Medium.woff") format("woff"), url("../fonts/PreludeCondensed-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Med Oblique";
-  src: local("☺"), url(./../fonts/Prelude-MediumOblique.woff) format("woff"), url(./../fonts/Prelude-MediumOblique.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-MediumOblique.woff") format("woff"), url("../fonts/Prelude-MediumOblique.ttf") format("truetype");
   font-weight: normal;
   font-style: oblique;
 }
 @font-face {
   font-family: "Prelude Bold";
-  src: local("☺"), url(./../fonts/Prelude-Bold.woff) format("woff"), url(./../fonts/Prelude-bold.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-Bold.woff") format("woff"), url("../fonts/Prelude-bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Bold Oblique";
-  src: local("☺"), url(./../fonts/Prelude-BoldOblique.woff) format("woff"), url(./../fonts/Prelude-boldOblique.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-BoldOblique.woff") format("woff"), url("../fonts/Prelude-boldOblique.ttf") format("truetype");
   font-weight: bold;
   font-style: oblique;
 }
@@ -103,6 +95,26 @@
 }
 /* LESS pre-calculations */
 /* Individual Widget CSS */
+/* Badge.css */
+.mochi-badge {
+  padding: 8px;
+  height: 40px;
+  min-width: 40px;
+  width: auto;
+}
+.mochi-badge-inner {
+  font-family: "PreludeWGL Light";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+  min-width: 24px;
+  width: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}
 /* Button.css */
 .mochi-button {
   position: relative;
@@ -376,7 +388,7 @@
   border: 2px solid #646464;
 }
 .mochi-checkbox[checked] {
-  background: url(./../images/checkbox.png) no-repeat;
+  background: url(../images/checkbox.png) no-repeat;
   padding: 2px;
   border-width: 0px;
 }

@@ -1,4 +1,5 @@
 enyo.depends(
+	"Badge.js",
 	"ButtonDecorator.js",
 	"Button.js",
 	"RadioButton.js",
