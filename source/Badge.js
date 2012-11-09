@@ -32,6 +32,7 @@ enyo.kind({
 			} else {
 				//Revert back to a circle
 				this.$.inner.addStyles("border-radius: 50%;");	
+				this.$.inner.addStyles("padding: 0px;");
 			}
 		}
 	},

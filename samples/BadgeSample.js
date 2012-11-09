@@ -3,11 +3,11 @@ enyo.kind({
 	classes: "mochi mochi-sample",
 	components: [
 		{classes: "mochi-subheader", content: "Stand-alone Badge"},
-		{name: "badge1", kind: "mochi.Badge", content: "25"},
+		{name: "badge", kind: "mochi.Badge", content: "25"},
 		{
 			content: "Change badge value", 
 			components: [
-				{name: "slider1", kind: "mochi.Slider", value: 25, onChanging:"slider1Changing", onChange:"slider1Changed"}
+				{name: "slider", kind: "mochi.Slider", value: 25, onChanging:"sliderChanging", onChange:"sliderChanged"}
 			]
 		},
 		{tag: "br"},
@@ -45,10 +45,10 @@ enyo.kind({
 		{classes: "mochi-subheader", content: "Badge with a large number"},
 		{kind: "mochi.Badge", content: "2012"}
 	],
-	slider1Changing: function(inSender, inEvent) {
-		this.$.badge1.setContent(Math.round(inSender.getValue()));
+	sliderChanging: function(inSender, inEvent) {
+		this.$.badge.setContent(Math.round(inSender.getValue()));
 	},
-	slider1Changed: function(inSender, inEvent) {
-		this.$.badge1.setContent(Math.round(inSender.getValue()));
+	sliderChanged: function(inSender, inEvent) {
+		this.$.badge.setContent(Math.round(inSender.getValue()));
 	}
 });
