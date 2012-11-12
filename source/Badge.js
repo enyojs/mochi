@@ -27,8 +27,8 @@ enyo.kind({
 			this.setShowing(true);
 			if (this.$.inner.hasNode().clientWidth > 24) {
 				//Use an oval instead of a circle
-				this.$.inner.addStyles("border-radius: 8px;");	
-				this.$.inner.addStyles("padding-left: 8px; padding-right:8px;");
+				this.$.inner.addStyles("border-radius: 8px;");
+				this.$.inner.addStyles("padding-left: 8px; padding-right: 8px;");
 			} else {
 				//Revert back to a circle
 				this.$.inner.addStyles("border-radius: 50%;");	
