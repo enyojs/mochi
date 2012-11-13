@@ -13,6 +13,7 @@ enyo.depends(
 	"ProgressText.js",
 	"RichText.js",
 	"Slider.js",
+	"Spinner.js",
 	"TextArea.js",
 	"ToggleButton.js",
 	"ViewSelectButton.js"

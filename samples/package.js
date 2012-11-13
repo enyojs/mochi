@@ -8,5 +8,6 @@ enyo.depends(
 	"InputSample.js",
 	"ProgressSample.js",
 	"ToggleButtonSample.js",
-	"SliderSample.js"
+	"SliderSample.js",
+	"SpinnerSample.js"
 );
