@@ -20,20 +20,21 @@ enyo.kind({
 		this.colorChanged();
 	},
 	contentChanged: function() {
-		this.$.inner.setContent(this.content);
 		if (this.content == '') {
 			this.setShowing(false);
+			this.$.inner.setContent('');
+			return;
+		} 
+		this.setShowing(true);
+		this.$.inner.setContent(this.content);
+		if (this.$.inner.hasNode().clientWidth > 24) {
+			//Use an oval instead of a circle
+			this.$.inner.addStyles("border-radius: 8px;");
+			this.$.inner.addStyles("padding-left: 8px; padding-right: 8px;");
 		} else {
-			this.setShowing(true);
-			if (this.$.inner.hasNode().clientWidth > 24) {
-				//Use an oval instead of a circle
-				this.$.inner.addStyles("border-radius: 8px;");
-				this.$.inner.addStyles("padding-left: 8px; padding-right: 8px;");
-			} else {
-				//Revert back to a circle
-				this.$.inner.addStyles("border-radius: 50%;");	
-				this.$.inner.addStyles("padding: 0px;");
-			}
+			//Revert back to a circle
+			this.$.inner.addStyles("border-radius: 50%;");	
+			this.$.inner.addStyles("padding: 0px;");
 		}
 	},
 	backgroundChanged: function() {
