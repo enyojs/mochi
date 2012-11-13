@@ -35,13 +35,14 @@ enyo.kind({
 		{kind: "mochi.Badge", content: "88", background: "orange"},
 		{kind: "mochi.Badge", content: "3", background: "green"},
 
-		{classes: "mochi-subheader", content: "Text Badges"},
+		/*{classes: "mochi-subheader", content: "Text Badges"},
 		{kind: "mochi.Badge", content: "Error! Please check your email address.", background: "red"},
 		{tag: "br"},
 		{kind: "mochi.Badge", content: "Warning! Please save your changes before proceeding.", background: "orange"},
 		{tag: "br"},
 		{kind: "mochi.Badge", content: "Success! Your changes have been saved.", background: "green"},
-
+		*/
+		
 		{classes: "mochi-subheader", content: "Badge with a large number"},
 		{kind: "mochi.Badge", content: "2012"}
 	],
