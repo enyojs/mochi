@@ -29,12 +29,12 @@ enyo.kind({
 		this.$.inner.setContent(this.content);
 		if (this.$.inner.hasNode().clientWidth > 24) {
 			//Use an oval instead of a circle
-			this.$.inner.addStyles("border-radius: 8px;");
-			this.$.inner.addStyles("padding-left: 8px; padding-right: 8px;");
+			this.$.inner.removeClass("round");
+			this.$.inner.addClass("oval");
 		} else {
 			//Revert back to a circle
-			this.$.inner.addStyles("border-radius: 50%;");	
-			this.$.inner.addStyles("padding: 0px;");
+			this.$.inner.removeClass("oval");
+			this.$.inner.addClass("round");
 		}
 	},
 	backgroundChanged: function() {
