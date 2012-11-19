@@ -2,12 +2,13 @@ enyo.depends(
 	"sample.css",
 	"BadgeSample.js",
 	"ButtonSample.js",
-	"ViewSelectButtonSample.js",
-	"IconButtonSample.js",
 	"CheckboxSample.js",
+	"IconButtonSample.js",
+	"ImageGridSample.js",
 	"InputSample.js",
 	"ProgressSample.js",
-	"ToggleButtonSample.js",
 	"SliderSample.js",
-	"SpinnerSample.js"
+	"SpinnerSample.js",
+	"ToggleButtonSample.js",
+	"ViewSelectButtonSample.js"
 );
