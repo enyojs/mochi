@@ -715,20 +715,19 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 /*for popups on the left of the activator*/
-.mochi-contextual-popup.left {
+.mochi-contextual-popup.right {
  	margin-left: -10px;
 }
 
 /*for popups on the right of the activator*/
-.mochi-contextual-popup.right {
+.mochi-contextual-popup.left {
  	margin-left: 10px;
 }
 
 
-/********** nub positioning positioning***********/
 
-/****vertical nub ****/
-/*horizontally centered nub for popups below & above activators*/
+/****nub positioning for vertical popups****/
+/*horizontally centered nub*/
 .mochi-contextual-popup.vertical::after {
 	content: '';
 	position:absolute;
@@ -740,13 +739,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 /*nub near horizontal left*/
-.mochi-contextual-popup.vertical.left::after {
+.mochi-contextual-popup.vertical.right::after {
 	left:0%;	
 	margin-left:20px;
 }
 
 /*nub near horizontal right*/
-.mochi-contextual-popup.vertical.right::after {
+.mochi-contextual-popup.vertical.left::after {
 	left:100%;
 	margin-left: -90px;
 }
@@ -754,13 +753,31 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /*downward facing nub*/
 .mochi-contextual-popup.vertical.above::after {
 	top:100%;	
+	width:71px;
+	height:20px;	
 	background: transparent url('../images/contextual-popup-nubs/down.png') no-repeat;
 }
 
+.mochi-contextual-popup.vertical.below.right::after {
+	top:0%;
+	margin-top:-20px;
+	width:71px;
+	height:20px;
+	background: transparent url('../images/contextual-popup-nubs/up.png') no-repeat;
+}
 
-/****side nub positioning*****/
+.mochi-contextual-popup.vertical.below.left::after {
+	top:0%;
+	margin-top:-20px;
+	width:71px;
+	height:20px;
+	background: transparent url('../images/contextual-popup-nubs/up.png') no-repeat;
+}
+
+
+/****nub positioning for left/right popups****/
 /*vertically centered nub for popups on left of activator*/
-.mochi-contextual-popup.left::after {
+.mochi-contextual-popup.right::after {
   	left: 100%;
   	top:35%;
   	width:20px;
@@ -769,18 +786,18 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 /*nub near vertical top for popups on left of activator*/
-.mochi-contextual-popup.left.high::after {
+.mochi-contextual-popup.right.high::after {
   	top:25px;
 }
 
 /*nub near vertical bottom for popups on left of activator*/
-.mochi-contextual-popup.left.low::after {
+.mochi-contextual-popup.right.low::after {
   	top:100%;
 	margin-top:-100px;
 }
 
 /*vertically centered nub for popups on right of activator*/
-.mochi-contextual-popup.right::after {
+.mochi-contextual-popup.left::after {
   	left: 0%;
   	width:20px;
   	height:71px;
@@ -791,12 +808,12 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 /*nub near vertical top for popups on right of activator*/
-.mochi-contextual-popup.right.high::after {
+.mochi-contextual-popup.left.high::after {
   	top:25px;
 }
 
 /*nub near vertical bottom for popups on right of activator*/
-.mochi-contextual-popup.right.low::after {
+.mochi-contextual-popup.left.low::after {
   	top:100%;
 	margin-top:-100px;
 }
@@ -804,15 +821,24 @@ textarea::-webkit-scrollbar-thumb:vertical {
 
 /*********************corners********************/
 /*vertical top corners*/
-.mochi-contextual-popup.vertical.below.right.corner {
+/*for popups on the left of the activator*/
+.mochi-contextual-popup.vertical.right.corner {
+ 	margin-left: 0px;
+}
+
+/*for popups on the right of the activator*/
+.mochi-contextual-popup.vertical.left.corner {
+ 	margin-left: 0px;
+}
+.mochi-contextual-popup.vertical.below.left.corner {
   border-top-right-radius: 0px;
 }
 
-.mochi-contextual-popup.vertical.below.left.corner {
+.mochi-contextual-popup.vertical.below.right.corner {
   border-top-left-radius: 0px;
 }
 
-.mochi-contextual-popup.vertical.below.right.corner::after {
+.mochi-contextual-popup.vertical.below.left.corner::after {
  	top:0%;	
 	left:100%;
 	margin-top:-14px;
@@ -822,7 +848,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
  	background: transparent url('../images/contextual-popup-nubs/top-right-corner-up.png') no-repeat;
 }
 
-.mochi-contextual-popup.vertical.below.left.corner::after {
+.mochi-contextual-popup.vertical.below.right.corner::after {
 	top:0%;	
 	left:0%;
 	width:71px;
@@ -833,15 +859,15 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 
 /*vertical bottom corners*/
-.mochi-contextual-popup.right.above.corner {
+.mochi-contextual-popup.left.above.corner {
   border-bottom-right-radius: 0px;
 }
 
-.mochi-contextual-popup.left.above.corner {
+.mochi-contextual-popup.right.above.corner {
   border-bottom-left-radius: 0px;
 }
 
-.mochi-contextual-popup.vertical.right.above.corner::after {
+.mochi-contextual-popup.vertical.left.above.corner::after {
  	top:100%;	
 	margin-left:-30px;	
 	width:71px;
@@ -849,10 +875,9 @@ textarea::-webkit-scrollbar-thumb:vertical {
  	background: transparent url('../images/contextual-popup-nubs/bottom-right-corner-down.png') no-repeat;
 }
 
-.mochi-contextual-popup.vertical.left.above.corner::after {
+.mochi-contextual-popup.vertical.right.above.corner::after {
 	top:100%;	
 	left:0%;
-	margin-top: -3px;
 	margin-left:-2px;	
  	background: transparent url('../images/contextual-popup-nubs/bottom-left-corner-down.png') no-repeat;
 }
@@ -860,15 +885,15 @@ textarea::-webkit-scrollbar-thumb:vertical {
 
 
 /*horizontal bottom corners*/
-.mochi-contextual-popup.right.low.corner {
+.mochi-contextual-popup.left.low.corner {
   border-bottom-left-radius: 0px;
 }
 
-.mochi-contextual-popup.left.low.corner {
+.mochi-contextual-popup.right.low.corner {
   border-bottom-right-radius: 0px;
 }
 
-.mochi-contextual-popup.right.low.corner::after {
+.mochi-contextual-popup.left.low.corner::after {
  	top:100%;	
 	left:0%;
 	margin-top:-30px;
@@ -876,7 +901,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
  	background: transparent url('../images/contextual-popup-nubs/bottom-left-corner-left.png') no-repeat;
 }
 
-.mochi-contextual-popup.left.low.corner::after {
+.mochi-contextual-popup.right.low.corner::after {
 	top:100%;	
 	left:100%;
 	margin-top:-30px;	
@@ -885,15 +910,15 @@ textarea::-webkit-scrollbar-thumb:vertical {
 
 
 /*horizontal top corners*/
-.mochi-contextual-popup.right.high.corner {
+.mochi-contextual-popup.left.high.corner {
   border-top-left-radius: 0px;
 }
 
-.mochi-contextual-popup.left.high.corner {
+.mochi-contextual-popup.right.high.corner {
   border-top-right-radius: 0px;
 }
 
-.mochi-contextual-popup.right.high.corner::after {
+.mochi-contextual-popup.left.high.corner::after {
  	top:0%;	
 	left:0%;
 	margin-top:-2px;
@@ -901,7 +926,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
  	background: transparent url('../images/contextual-popup-nubs/top-left-corner-left.png') no-repeat;
 }
 
-.mochi-contextual-popup.left.high.corner::after {
+.mochi-contextual-popup.right.high.corner::after {
 	top:0%;	
 	left:100%;
 	margin-top:-2px;	

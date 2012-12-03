@@ -47,6 +47,14 @@ enyo.kind({
 		//* Buttons at bottom of popup		
 		actionButtons: []
 	},
+	
+	//layout parameters
+	vertFlushMargin:100, //vertical flush layout margin
+	horizFlushMargin:120, //vertical flush layout margin
+	widePopup:200, //popups wider than this value are considered wide (for layout purposes)
+	longPopup:200, //popups longer than this value are considered long (for layout purposes)
+	horizBuffer:16, //do not allow horizontal flush popups past spec'd amount of buffer space on left/right screen edge
+	
 	events: {
 		onTap: ""
 	},
@@ -146,11 +154,6 @@ enyo.kind({
 	*/
 	adjustPosition: function() {		
 		if (this.showing && this.hasNode()) {
-			this.resetPositioning();
-			
-			var innerWidth = this.getViewWidth();
-			var innerHeight = this.getViewHeight();
-			
 			/****ContextualPopup positioning rules:
 				1. Activator Location: 
 					a. If activator is located in a corner then position using a flush style. 
@@ -178,12 +181,15 @@ enyo.kind({
 					use a bottom position for the popup as much possible. Additionally within the vetical position function we center the
 					popup if the activator is at the vertical center of the view.
 			****/
+			this.resetPositioning();			
+			var innerWidth = this.getViewWidth();
+			var innerHeight = this.getViewHeight();
 			
 			//These are the view "flush boundaries"
-			var topFlushPt = 100;
-			var bottomFlushPt = innerHeight - 100;
-			var leftFlushPt = 120;
-			var rightFlushPt = innerWidth - 120;
+			var topFlushPt = this.vertFlushMargin;
+			var bottomFlushPt = innerHeight - this.vertFlushMargin;
+			var leftFlushPt = this.horizFlushMargin;
+			var rightFlushPt = innerWidth - this.horizFlushMargin;
 			
 			//Rule 1 - Activator Location based positioning
 			//if the activator is in the top or bottom edges of the view, check if the popup needs flush positioning
@@ -214,19 +220,17 @@ enyo.kind({
 			//		   position a popup where there isn't enough room for it.
 			
 			//Rule 3 - Popup Size based positioning 
-			var wideWidth = 200;  //this values is arbitrarily chosen as reasonable for a "wide popup"
-			var longHeight = 200;  //this values is arbitrarily chosen as reasonable for a "long popup"
 			var clientRect = this.node.getBoundingClientRect();							
 			var clientHeight = (clientRect.height === undefined) ? (clientRect.bottom - clientRect.top) : clientRect.height;
 
 			//if the popup is wide then use vertical positioning
-			if (clientRect.width > wideWidth) {
+			if (clientRect.width > this.widePopup) {
 				if (this.applyVerticalPositioning()){
 					return;
 				}
 			}
 			//if the popup is long then use horizontal positioning
-			else if (clientHeight > longHeight) {
+			else if (clientHeight > this.longPopup) {
 				if (this.applyHorizontalPositioning()){
 					return;
 				}				
@@ -293,10 +297,10 @@ enyo.kind({
 			var centeredLeft = this.activatorOffset.left + this.activatorOffset.width/2 - clientRect.width/2;
 			if (centeredLeft + clientRect.width > innerWidth) {//popup goes off right edge of the screen if centered
 				this.applyPosition({left: this.activatorOffset.left + this.activatorOffset.width - clientRect.width});
-				this.addClass("right");
+				this.addClass("left");
 			} else if (centeredLeft < 0) {//popup goes off left edge of the screen if centered
 				this.applyPosition({left:this.activatorOffset.left});
-				this.addClass("left");
+				this.addClass("right");
 			} else {//center the popup
 				this.applyPosition({left: centeredLeft});
 			}	
@@ -306,10 +310,9 @@ enyo.kind({
 			var centeredLeftDelta = this.activatorOffset.left + this.activatorOffset.width/2 - clientRect.left - clientRect.width/2;
 			if (clientRect.right + centeredLeftDelta > innerWidth) {//popup goes off right edge of the screen if centered
 				this.applyPosition({left: -(clientRect.right - (this.activatorOffset.left + this.activatorOffset.width))});
-				this.addRemoveClass("right", true);											
+				this.addRemoveClass("left", true);											
 			} else if (clientRect.left + centeredLeftDelta < 0) {//popup goes off left edge of the screen if centered
-				this.applyPosition({left:this.activatorOffset.left});
-				this.addRemoveClass("left", true);
+				this.addRemoveClass("right", true);
 			} else {//center the popup
 				this.applyPosition({left: centeredLeftDelta});
 			}	
@@ -325,17 +328,26 @@ enyo.kind({
 		var clientRect = this.node.getBoundingClientRect();		
 		var innerWidth = this.getViewWidth();
 		
-		//If the activator's right side is within our left side cut off
+		//If the activator's right side is within our left side cut off use flush positioning
 		if ((this.activatorOffset.left + this.activatorOffset.width) < leftFlushPt){
-			this.applyPosition({left:this.activatorOffset.left});
-			this.addClass("left");
+			//if the activator's left edge is too close or past the screen left edge
+			if (this.activatorOffset.left < this.horizBuffer){
+				this.applyPosition({left:-clientRect.left+this.horizBuffer});
+			}
+
+			this.addClass("right");
 			this.addClass("corner");
 			return true;
 		}
-		//If the activator's left side is within our right side cut off
-		else if (this.activatorOffset.left > rightFlushPt) {		
-			this.applyPosition({left: -(clientRect.right - (this.activatorOffset.left + this.activatorOffset.width))});
-			this.addClass("right");	
+		//If the activator's left side is within our right side cut off use flush positioning
+		else if (this.activatorOffset.left > rightFlushPt) {
+			//if the activator's right edge is too close or past the screen right edge
+			if ((this.activatorOffset.left+this.activatorOffset.width) > (innerWidth-this.horizBuffer)){
+				this.applyPosition({left:innerWidth - clientRect.right - this.horizBuffer});
+			} else {
+				this.applyPosition({left: -(clientRect.right - (this.activatorOffset.left + this.activatorOffset.width))});				
+			}
+			this.addClass("left");	
 			this.addClass("corner");			
 			return true;
 		}
@@ -353,18 +365,18 @@ enyo.kind({
 		if (this.floating){
 			if ((this.activatorOffset.left + this.activatorOffset.width) < innerWidth/2) {
 				this.applyPosition({left: this.activatorOffset.left + this.activatorOffset.width});
-				this.addRemoveClass("right", true)				
+				this.addRemoveClass("left", true)				
 			} else {
 				this.applyPosition({left: this.activatorOffset.left - clientRect.width});										
-				this.addRemoveClass("left", true);				
+				this.addRemoveClass("right", true);				
 			}
 		} else {
 			if (this.activatorOffset.left - clientRect.width > 0) {
 				this.applyPosition({left: this.activatorOffset.left - clientRect.left - clientRect.width});
-				this.addRemoveClass("left", true);
+				this.addRemoveClass("right", true);
 			} else {
 				this.applyPosition({left: this.activatorOffset.width});										
-				this.addRemoveClass("right", true);			
+				this.addRemoveClass("left", true);			
 			}
 			
 		}
@@ -431,7 +443,7 @@ enyo.kind({
 				this.addRemoveClass("low", true);																
 			}				
 		} else {
-			if ((clientRect.top + clientRect.height) > innerHeight){
+			if (((clientRect.top + clientRect.height) > innerHeight) && ((innerHeight - clientRect.bottom) < (clientRect.top - clientRect.height))) {
 				this.applyPosition({top: clientRect.top - clientRect.height - this.activatorOffset.top - this.activatorOffset.height/4});	
 				this.addRemoveClass("low", true);											
 			} else {
@@ -440,15 +452,15 @@ enyo.kind({
 			}			
 		}
 				
-		//If the activator's right side is within our left side cut off
+		//If the activator's right side is within our left side cut off use flush positioning
 		if ((this.activatorOffset.left + this.activatorOffset.width) < leftFlushPt){
-			this.addClass("right");
+			this.addClass("left");
 			this.addClass("corner");
 			return true;
 		}
-		//If the activator's left side is within our right side cut off
+		//If the activator's left side is within our right side cut off use flush positioning
 		else if (this.activatorOffset.left > rightFlushPt) {		
-			this.addClass("left");	
+			this.addClass("right");	
 			this.addClass("corner");			
 			return true;
 		}
@@ -462,8 +474,8 @@ enyo.kind({
 		return (window.innerWidth === undefined) ? document.documentElement.clientWidth : window.innerWidth;
 	},
 	resetPositioning: function() {
-		this.removeClass("left");
 		this.removeClass("right");
+		this.removeClass("left");
 		this.removeClass("high");
 		this.removeClass("low");			
 		this.removeClass("corner");
