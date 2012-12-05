@@ -79,3 +79,13 @@
 	width:5000px;
 	height:2000px;
 }
+
+.list-sample-list {
+	width: 50%;
+	min-width:300px;
+	margin: auto;
+}
+
+.list-sample-index {
+	float: right;
+}

@@ -18,5 +18,9 @@ enyo.depends(
 	"ToggleButton.js",
 	"ViewSelectButton.js",
 	"ContextualPopupDecorator.js",
-	"ContextualPopup.js"	
+	"ContextualPopup.js",
+	"List.js",
+	"ListItem.js",
+	"ListHeader.js",
+	"Collapsable.js"
 );
