@@ -2,6 +2,7 @@ enyo.depends(
 	"sample.css",
 	"BadgeSample.js",
 	"ButtonSample.js",
+	"ContextualPopupSample.js",
 	"ViewSelectButtonSample.js",
 	"IconButtonSample.js",
 	"CheckboxSample.js",
