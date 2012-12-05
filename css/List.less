@@ -1,0 +1,45 @@
+/* List.css */
+.mochi-list-scroll-fade {
+    position: absolute;
+    height: 4px;
+	margin:0 112px;
+    line-height: 4px;
+}
+
+.mochi-list-scroll-fade:before, .mochi-list-scroll-fade:after {
+    content: ' ';
+    width: 112px;
+    height: 4px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.mochi-list-scroll-fade.top {
+  top:0;
+  background: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
+}
+
+.mochi-list-scroll-fade.top:before {
+    left: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
+}
+
+.mochi-list-scroll-fade.top:after {
+    right: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
+}
+
+.mochi-list-scroll-fade.bottom {
+  bottom: 0;
+  background: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
+}
+
+.mochi-list-scroll-fade.bottom:before {
+    left: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
+}
+
+.mochi-list-scroll-fade.bottom:after {
+    right: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
+}
