@@ -48,8 +48,9 @@ enyo.kind({
 				flyweight.performOnRow(index, function() {
 					//show the borders
 					var width = inControl.node.getBoundingClientRect().width;
-					inControl.$.topBorder.showBorder(width);
-					inControl.$.bottomBorder.showBorder(width);
+					inControl.$.topBorder.showBorder(width,0);
+					inControl.$.bottomBorder.showBorder(width,inControl.getComputedStyleValue('padding-bottom'));
+					
 					if (!inControl.hasClass(inClass)) {
 						inControl.addClass(inClass);
 					} else {
@@ -83,7 +84,8 @@ enyo.kind({
 	classes: "mochi-highlight-border",
 	published: {
 		top:true,
-		width:0
+		width:0,
+		marginTop:0
 	},
 	edgeWidths: 224, //total width of left and right fade edges
 	largeEdgeWidths: 640, //total width of left and right fade edges for wide list	
@@ -91,7 +93,8 @@ enyo.kind({
 		this.inherited(arguments);
 		this.topChanged();
 	},
-	showBorder: function(width){
+	showBorder: function(width,marginTop){
+		this.setMarginTop(marginTop);
 		this.width = width;
 		this.widthChanged();
 		this.show();
@@ -108,7 +111,8 @@ enyo.kind({
 		}
 		
 		//do not include the edges in the total width, those are applied using css pseudoclasses
-		this.setStyle("width:"+ (this.width - ((this.width < this.largeEdgeWidths) ? this.edgeWidths : this.largeEdgeWidths)) + "px");
-		this.render(); //re-render to ensure styles/classes are enacted
+		this.setStyle("width:"+ (this.width - ((this.width < this.largeEdgeWidths) ? this.edgeWidths : this.largeEdgeWidths)) + 
+					  "px;margin-top:" + this.marginTop);
+		this.render(); //re-render to ensure styles/classes are applied
 	}
 });
