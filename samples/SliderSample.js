@@ -1,26 +1,35 @@
 enyo.kind({
 	name: "mochi.sample.SliderSample",
-	classes: "mochi mochi-sample",
+	classes: "mochi mochi-sample enyo-unselectable enyo-fit",
+	kind: "FittableRows",
 	components: [
-		{classes: "mochi-subheader", content: "Slider: Default"},
-		{kind: "mochi.Slider", value: 50, onChanging:"sliderChanging", onChange:"sliderChanged"},
-		{tag: "br"},
-		{classes: "mochi-subheader", content: "Slider: Custom Color"},
-		{kind: "mochi.Slider", value: 75, onChanging:"sliderChanging", onChange:"sliderChanged", customClasses: "mochi-background-orange"},
-		{tag: "br"},
-		{kind: "mochi.InputDecorator", style:"margin-right:10px;", components: [
-			{kind: "mochi.Input", placeholder: "Value", style:"width:50px;"}
-		]},
-		{kind: "mochi.Button", content:"Set", classes:"mochi-sample-spaced-button", ontap:"changeValue"},
-		{kind: "mochi.Button", content:"-", classes:"mochi-sample-spaced-button", ontap:"decValue"},
-		{kind: "mochi.Button", content:"+", classes:"mochi-sample-spaced-button", ontap:"incValue"},
-		{tag: "br"},
-		{tag: "br"},
-		{kind: "mochi.Checkbox", name:"animateSetting", value:true},
-		{content:"Animated", classes:"enyo-inline mochi-sample-content"},
-		{tag: "br"},
-		{tag: "br"},
-		{name:"result", classes:"mochi-sample-content", content:"No slider moved yet."}
+		{kind: "enyo.Scroller", fit: true, components:[
+			{kind: "mochi.Subheader", content: "Slider: Default"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.Slider", value: 50, onChanging:"sliderChanging", onChange:"sliderChanged"}
+			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "Slider: Custom Color"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.Slider", value: 75, onChanging:"sliderChanging", onChange:"sliderChanged", customClasses: "mochi-background-orange"}
+			]},
+			{tag: "br"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.InputDecorator", style:"margin-right:10px;", components: [
+					{kind: "mochi.Input", placeholder: "Value", style:"width:50px;"}
+				]},
+				{kind: "mochi.Button", content:"Set", classes:"mochi-sample-spaced-button", ontap:"changeValue"},
+				{kind: "mochi.Button", content:"-", classes:"mochi-sample-spaced-button", ontap:"decValue"},
+				{kind: "mochi.Button", content:"+", classes:"mochi-sample-spaced-button", ontap:"incValue"},
+				{tag: "br"},
+				{tag: "br"},
+				{kind: "mochi.Checkbox", name:"animateSetting", value:true},
+				{content:"Animated", classes:"enyo-inline mochi-sample-content"},
+				{tag: "br"},
+				{tag: "br"},
+				{name:"result", classes:"mochi-sample-content", content:"No slider moved yet."}
+			]}
+		]}
 	],
 	changeValue: function(inSender, inEvent) {
 		for (var i in this.$) {
