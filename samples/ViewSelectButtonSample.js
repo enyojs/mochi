@@ -1,50 +1,60 @@
 enyo.kind({
 	name: "mochi.sample.ViewSelectButtonSample",
-	classes: "mochi mochi-sample",
+	classes: "mochi mochi-sample enyo-unselectable enyo-fit",
+	kind: "FittableRows",
 	components: [
-		{classes: "mochi-subheader", content: "View Select Button: Default"},
-		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
-			{content: "Cats"},
-			{content: "Dogs"},
-			{content: "Bears"}
-		]},
-		{tag: "br"},
-		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Select Button: Button 1 Active"},
-		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
-			{content: "Earth", active: true},
-			{content: "Wind"},
-			{content: "Fire"}
-		]},
-		{tag: "br"},
-		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Select Button: Button 2 Disabled"},
-		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
-			{content: "Mac", active: true},
-			{content: "PC", disabled: true},
-			{content: "Linux"}
-		]},
-		{tag: "br"},
-		{tag: "br"},
-		{classes: "mochi-subheader", content: "View Select Button: Custom Bar Color"},
-		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
-			{content: "Long", active: true},
-			{content: "button"},
-			{content: "is looooooooong "}
-		]},
-		{tag: "br"},
-		{tag: "br"},
-		{classes: "mochi-subheader", content: "Mixed-bag: View Select & Icon Buttons"},
-		{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
-			{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"},
-			{content: "Alpha", active: true},
-			{content: "Beta"},
-			{kind: "mochi.IconButtonItem", disabled: true, src: "assets/sample-calendar-icon-custom.png"},
-			{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"}
-		]},
-		{tag: "br"},
-		{tag: "br"},
-		{name: "result", classes: "mochi-sample-content", content: "result"}
+		{kind: "enyo.Scroller", fit: true, components:[
+			{kind: "mochi.Subheader", content: "View Select Button: Default"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
+					{content: "Cats"},
+					{content: "Dogs"},
+					{content: "Bears"}
+				]}
+			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "View Select Button: Button 1 Active"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
+					{content: "Earth", active: true},
+					{content: "Wind"},
+					{content: "Fire"}
+				]}
+			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "View Select Button: Button 2 Disabled"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", components: [
+					{content: "Mac", active: true},
+					{content: "PC", disabled: true},
+					{content: "Linux"}
+				]}
+			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "View Select Button: Custom Bar Color"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
+					{content: "Long", active: true},
+					{content: "button"},
+					{content: "is looooooooong "}
+				]}
+			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "Mixed-bag: View Select & Icon Buttons"},
+			{classes: "mochi-sample-tools", components: [
+				{kind: "mochi.ViewSelectButton", onActivate: "buttonActivated", barClasses: "mochi-sample-progress-red", components: [
+					{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"},
+					{content: "Alpha", active: true},
+					{content: "Beta"},
+					{kind: "mochi.IconButtonItem", disabled: true, src: "assets/sample-calendar-icon-custom.png"},
+					{kind: "mochi.IconButtonItem", src: "assets/sample-calendar-icon-custom.png"}
+				]}
+			]},
+			{tag: "br"},
+			{classes: "mochi-sample-tools", components: [
+				{name: "result", classes: "mochi-sample-content", content: "result"}
+			]}
+		]}
 	],
 	buttonActivated: function(inSender, inEvent) {
 		if ((inEvent.originator.getActive()) && (inEvent.originator.kind === "mochi.ViewSelectButtonItem")) {

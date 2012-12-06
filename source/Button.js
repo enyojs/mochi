@@ -16,6 +16,7 @@ enyo.kind({
 		decoratorLeft: "(",
 		decoratorRight: ")"
 	},
+	componentsRendered: false,
 	components: [
 		{kind: "mochi.ButtonDecoratorLeft"},
 		{kind: "enyo.Button", name: "button", tag: "div", classes: "mochi-button-base"},
@@ -32,6 +33,7 @@ enyo.kind({
 	},
 	rendered: function() {
 		this.inherited(arguments);
+		this.componentsRendered = true;
 		this.calcBarValue();
 		this.barClassesChanged();
 	},
@@ -58,10 +60,19 @@ enyo.kind({
 	},
 	calcBarValue: function() {
 		var bounds = this.$.button.getBounds();
+		bounds.left += 4;
 		this.updateBarPosition(bounds);
+
+		var pl = this.$.buttonDecoratorLeft.hasNode() ? enyo.dom.calcPaddingExtents(this.$.buttonDecoratorLeft.node).left : {};
+		var pr = this.$.buttonDecoratorRight.hasNode() ? enyo.dom.calcPaddingExtents(this.$.buttonDecoratorRight.node).right : {};
+		var padding = pl + pr;
+		
+		this.applyStyle("width", (this.getBounds().width + padding) + "px");
 	},
 	contentChanged: function() {
 		this.$.button.setContent(this.content);
-		this.calcBarValue();
+		if (this.componentsRendered) {
+			this.calcBarValue();
+		}
 	}
 });
