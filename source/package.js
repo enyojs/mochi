@@ -22,5 +22,7 @@ enyo.depends(
 	"List.js",
 	"ListItem.js",
 	"ListHeader.js",
-	"Collapsable.js"
+	"Collapsable.js",
+	"Header.js",
+	"Subheader.js"
 );

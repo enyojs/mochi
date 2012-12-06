@@ -3,7 +3,7 @@
    a maximum of 31 style sheets to be loaded before silently failing */
 
 /* Import font styles */
-@import "Fonts.less";
+@import "mochi-fonts.less";
 
 .mochi {
 	color: @mochi-text-color;
@@ -31,20 +31,6 @@
 	-moz-transition: none;
 	-o-transition: none;
 	transition: none;
-}
-
-.mochi-header {
-	font-family: "PreludeWGL Light";
-	font-size: 36px;
-	color: #525252;
-	text-transform: uppercase;
-}
-
-.mochi-subheader {
-	font-family: "Prelude Med Oblique";
-	font-size: 18px;
-	color: #323232;
-	font-style: oblique;
 }
 
 .mochi-item {
@@ -81,3 +67,11 @@
 @import "Spinner.less";
 @import "TextArea.less";
 @import "ToggleButton.less";
+@import "Header.less";
+@import "Subheader.less";
+@import "Collapsable.less";
+@import "ContextualPopup.less";
+@import "ContextualPopupDecorator.less";
+@import "List.less";
+@import "ListHeader.less";
+@import "ListItem.less";
