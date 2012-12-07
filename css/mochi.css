@@ -605,16 +605,16 @@
 }
 .mochi-slider-popup-label {
   position: absolute;
-  top: 3px;
+  top: 1px;
   width: 60px;
   height: 30px;
   white-space: nowrap;
-  font-family: "PreludeWGL Light", arial, sans-serif;
+  font-family:  "PreludeWGL Medium", arial, sans-serif;
   color: #fff;
   text-align: center;
   line-height: 30px;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 15px;
 }
 /* Spinner.css */
 .mochi-spinner {
