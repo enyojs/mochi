@@ -15,7 +15,7 @@ enyo.kind({
 	horizontal:"hidden",
 	thumb:false,
 	yVals:[], //consecutive y-axis scroll values used to determine average scroll direction
-	scrollEventMax: 10, //number of scroll values to collect to determine average scroll direction
+	scrollEventsReq: 10, //number of scroll values to collect to determine average scroll direction
 	yDirection: undefined, //vertical direction list is moving
 	initComponents: function() {
 		this.createChrome(this.scrollFade);
@@ -34,13 +34,13 @@ enyo.kind({
 		}
 		
 		//if we've collected enough scroll values to determine the scroll direction then update the fade
-		if (this.yVals.length == this.scrollEventMax) {
-			this.updateScrollFade(this.yVals[this.scrollEventMax-1] - this.yVals[0])
+		if (this.yVals.length == this.scrollEventsReq) {
+			this.updateScrollFade(this.yVals[this.scrollEventsReq-1] - this.yVals[0])
 			this.yVals = [];
 		} else {
 			this.yVals.push(inEvent.originator.y);
 		}
-		enyo.job.stop("hideFade"); //cancel the scroll fade hide if we're scrolling
+		enyo.job.stop("hideFade"); //cancel hiding the scroll fade if we're scrolling
 	},
 	scrollStopHandler: function(inSender, inEvent) {
 		//hide the fade in 100ms - gives enough time to cancel the hide if this isn't an intended scroll stop event
@@ -63,44 +63,40 @@ enyo.kind({
 			this.$.scrollFade.fade("bottom");
 			this.yDirection = 1;
 		}
-	},
-	//set the scroll fade width
-	resizeHandler: function(){
-		this.inherited(arguments);
-		this.$.scrollFade.setWidth(this.node.getBoundingClientRect().width);
-	},
-	rendered: function(){
-		this.inherited(arguments);
-		this.$.scrollFade.setWidth(this.node.getBoundingClientRect().width);
 	}
 })
 
 enyo.kind({
 	name: "mochi.ScrollFade",
 	classes: "mochi-list-scroll-fade",
-	published: {
-		width:0
-	},
-	edgeWidths: 224, //total width of left and right fade edges
+	components:[
+		{name:"top", showing:false, components: [
+			{classes:"mochi-list-scroll-fade-row row-1"},
+			{classes:"mochi-list-scroll-fade-row row-2"},
+			{classes:"mochi-list-scroll-fade-row row-3"},
+			{classes:"mochi-list-scroll-fade-row row-4"}
+		]},
+		{name:"bottom", showing:false, components: [
+			{classes:"mochi-list-scroll-fade-row row-4"},
+			{classes:"mochi-list-scroll-fade-row row-3"},
+			{classes:"mochi-list-scroll-fade-row row-2"},
+			{classes:"mochi-list-scroll-fade-row row-1"}
+		]}
+	],
 	fade: function(position) {
 		if (!this.fadeLocked){
 			this.fadeLocked = true;
+			this.addClass(position);
+			this.$[position].show();
 			this.show();
-			if (position == "top") {
-				this.addClass("top");
-			} else {
-				this.addClass("bottom");				
-			}
 		}
 	},
 	hideFade: function() {
-		this.removeClass("top");
+		this.$.top.hide();		
+		this.$.bottom.hide();
+		this.removeClass("top");				
 		this.removeClass("bottom");		
 		this.hide();	
-		this.fadeLocked = false;
-	},
-	widthChanged: function(){
-		//do not include the edges in the total width, those are applied using css pseudoclasses
-		this.setStyle("width:"+(this.width-this.edgeWidths)+"px");
+		this.fadeLocked = false;		
 	}
 });
