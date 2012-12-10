@@ -436,6 +436,39 @@
   opacity: 0.4;
 }
 /* Input.css */
+.mochi-input-decorator > input {
+  margin: 4px 0px 0px;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+  /* FIXME: hack for styling reset on Android */
+
+  /* -webkit-appearance: caret;*/
+
+  font-size: 14pt;
+  font-family: "PreludeWGL Medium";
+  color: #4b4b4b;
+  font-style: italic;
+}
+.mochi-input-decorator.mochi-focused > input {
+  cursor: text;
+}
+.mochi-input-decorator.mochi-disabled > input {
+  cursor: default;
+}
+.mochi-input-decorator > input::-webkit-input-placeholder {
+  color: #7d7d7d;
+}
+.mochi-input-decorator > input:-moz-placeholder {
+  color: #7d7d7d;
+}
+/* IE10 */
+.mochi-input-decorator > input:-ms-input-placeholder {
+  color: #7d7d7d;
+}
 .mochi-input-animate {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
@@ -461,47 +494,10 @@
 
   opacity: 0.4;
 }
-.mochi-input-decorator > input {
-  /* reset */
-
-  margin: 0px;
-  padding: 0px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-color: transparent;
-  box-shadow: none;
-  /* FIXME: hack for styling reset on Android */
-
-  /* -webkit-appearance: caret;*/
-
-  font-size: 14px;
-  font-family: "Prelude Med Oblique";
-  color: #4b4b4b;
-  font-style: oblique;
-}
-.mochi-input-decorator.mochi-focused > input {
-  cursor: text;
-}
-.mochi-input-decorator.mochi-disabled > input {
-  cursor: default;
-}
-.mochi-input-decorator > input::-webkit-input-placeholder {
-  color: #7d7d7d;
-}
-.mochi-input-decorator > input:-moz-placeholder {
-  color: #7d7d7d;
-}
-/* IE10 */
-.mochi-input-decorator > input:-ms-input-placeholder {
-  color: #7d7d7d;
-}
 /* RichText.css */
 .mochi-input-decorator > .mochi-richtext {
-  /* reset */
-
-  margin: 0px;
-  padding: 0px;
+  margin: 4px 0px 0px;
+  padding: 0;
   border: none;
   outline: none;
   cursor: pointer;
@@ -511,10 +507,12 @@
 
   /* -webkit-appearance: caret;*/
 
-  font-size: 14px;
-  font-family: "Prelude Med Oblique";
+  font-size: 14pt;
+  font-family: "PreludeWGL Medium";
   color: #4b4b4b;
-  font-style: oblique;
+  font-style: italic;
+  min-height: 25px;
+  min-width: 100px;
 }
 .mochi-input-decorator.mochi-focused > .mochi-richtext {
   cursor: text;
@@ -631,13 +629,12 @@
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {
-  margin: 10px 0px 6px;
+  margin: 6px 0px 6px;
   padding: 0;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: transparent;
-  font-size: 16px;
   box-shadow: none;
   /* Remove scrollbars and resize handle */
 
@@ -647,10 +644,10 @@
 
   /* -webkit-appearance: caret;*/
 
-  font-size: 14px;
-  font-family: "Prelude Med Oblique";
+  font-size: 14pt;
+  font-family: "PreludeWGL Medium";
   color: #4b4b4b;
-  font-style: oblique;
+  font-style: italic;
 }
 .mochi-input-decorator.mochi-focused > textarea {
   cursor: text;
