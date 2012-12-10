@@ -159,13 +159,12 @@ enyo.kind({
 									{content:"test2"}
 								], 
 								components: [
-									{content:"This"},
-									{content:"popup"},							
-									{content:"will"},
-									{content:"scroll"},
-									{content:"with"},
-									{content:"the page."}
-								],
+									{content:"This popup"},
+									{content:"will scroll"},
+									{content:"with the page"},
+									{content:"and will be"},
+									{content:"obscured by toolbars."},
+								]
 							}
 						]},
 
