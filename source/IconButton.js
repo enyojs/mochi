@@ -17,8 +17,6 @@ enyo.kind({
 		disabled: false,
 		// url path specifying the icon image
 		src: "",
-		decoratorLeft: "(",
-		decoratorRight: ")",
 		active: false,
 		disabled: false,
 		barClasses: ""
@@ -27,32 +25,28 @@ enyo.kind({
 		ontap: "tapHandler"
 	},
 	components: [
-		{kind: "mochi.ButtonDecoratorLeft"},
 		{kind: "mochi.Icon"},
-		{kind: "mochi.ButtonDecoratorRight"},
-		{name: "bar", classes: "mochi-button-bar"}
+		{name: "bar", classes: "mochi-button-bar mochi-icon-button-bar"}
 	],
 	//* @protected
 	create: function() {
 		this.inherited(arguments);
 		this.disabledChanged();
 		this.srcChanged();
-		this.decoratorLeftChanged();
-		this.decoratorRightChanged();
 	},
 	rendered: function() {
 		this.inherited(arguments);
 		this.calcBarValue();
 		this.activeChanged();
-		//this.barClassesChanged();
 	},
 	barClassesChanged: function(inOld) {
 		this.$.bar.removeClass(inOld);
 		this.$.bar.addClass(this.barClasses);
 	},
 	updateBarPosition: function(bounds) {
+		// icons given are 24px wide, containing a 1px padding - thus 22px bar desired
 		this.$.bar.applyStyle("width", (bounds.width-2) + "px");
-		this.$.bar.applyStyle("left", (bounds.left+2) + "px");
+		this.$.bar.applyStyle("left", (bounds.left+1) + "px");
 	},
 	calcBarValue: function() {
 		var bounds = this.$.icon.getBounds();
@@ -60,12 +54,6 @@ enyo.kind({
 	},
 	srcChanged: function() {
 		this.$.icon.setSrc(this.src);
-	},
-	decoratorLeftChanged: function() {
-		this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
-	},
-	decoratorRightChanged: function() {
-		this.$.buttonDecoratorRight.setContent(this.decoratorRight);
 	},
 	disabledChanged: function() {
 		this.setAttribute("disabled", this.disabled);
