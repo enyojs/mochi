@@ -15,35 +15,3 @@
 	/*-webkit-text-fill-color: #888;*/
 	opacity: 0.4;
 }
-.mochi-input-decorator > input {
-	/* reset */
-	margin: 0px;
-	padding: 0px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background-color: transparent;
-	box-shadow: none;
-	/* FIXME: hack for styling reset on Android */
-	/* -webkit-appearance: caret;*/
-	font-size: 14px;
-	font-family: "Prelude Med Oblique";
-	color: #4b4b4b;
-	font-style: oblique;
-}
-.mochi-input-decorator.mochi-focused > input {
-	cursor: text;
-}
-.mochi-input-decorator.mochi-disabled > input {
-	cursor: default;
-}
-.mochi-input-decorator > input::-webkit-input-placeholder {
-    color: #7d7d7d;
-}
-.mochi-input-decorator > input:-moz-placeholder {
-    color: #7d7d7d;
-}
-/* IE10 */
-.mochi-input-decorator > input:-ms-input-placeholder {
-    color: #7d7d7d;
-}

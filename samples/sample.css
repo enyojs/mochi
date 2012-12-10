@@ -61,8 +61,7 @@
 	color: #ffb80d;
 }
 .mochi-sample-textarea-tools > * {
-	margin-right: 16px;
-	margin-left: 0px;
+	margin: 0px 16px 16px 0px;
 }
 .mochi-contextualpopup-button-container{
 	margin-left:1500px;

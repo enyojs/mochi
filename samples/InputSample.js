@@ -5,7 +5,7 @@ enyo.kind({
 	components: [
 		{kind: "enyo.Scroller", fit: true, components:[
 			{kind: "mochi.Subheader", content: "Inputs"},
-			{classes: "mochi-sample-tools mochi-toolbar-inline", components: [
+			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.Input", placeholder: "Enter text here", onchange:"inputChanged"}
 				]},
@@ -15,22 +15,18 @@ enyo.kind({
 				]},
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.Input", type:"password", placeholder: "Enter password", onchange:"inputChanged"}
-				]}
-			]},
-			{classes: "mochi-sample-tools mochi-toolbar-inline", components: [
+				]},
+				{tag: "br"},
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.Input", disabled: true, value: "Disabled input"}
 				]},
-	/*			{kind: "mochi.InputDecorator", components: [
-					{kind: "mochi.Input", defaultFocus: true, value: "Focused input", onchange:"inputChanged"}
-				]},
-	*/			{kind: "mochi.InputDecorator", components: [
+				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.Input", style: "text-align:right;", value: "Right-aligned", onchange:"inputChanged"}
 				]}
 			]},
 			{tag: "br"},
 			{kind: "mochi.Subheader", content: "RichTexts"},
-			{classes: "mochi-sample-tools mochi-toolbar-inline", components: [
+			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.RichText", style: "width: 200px;", placeholder: "Enter text here", onchange:"inputChanged"}
 				]},
