@@ -6,7 +6,6 @@ enyo.depends(
 	"Checkbox.js",
 	"Icon.js",
 	"IconButton.js",
-	"ImageGrid.js",
 	"Input.js",
 	"InputDecorator.js",
 	"Popup.js",
