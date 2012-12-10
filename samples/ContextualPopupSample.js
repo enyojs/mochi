@@ -81,7 +81,7 @@ enyo.kind({
 					]},
 
 					//Center row of buttons
-					{fit:true, style:"padding-top:30%;", components:[
+					{fit:true, style:"padding-top:15%;padding-bottom:15%;", components:[
 						{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;", components: [
 							{content: "Wide",},
 							{kind: "mochi.ContextualPopup", 
