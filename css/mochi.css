@@ -449,7 +449,7 @@
   border: 1px solid;
   border-color: #a2a2a2;
   background-color: white;
-  margin: 0px;
+  margin: 0;
 }
 .mochi-input-decorator.mochi-focused {
   border-color: #69cdff;
@@ -631,9 +631,7 @@
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {
-  /* reset */
-
-  margin: 5px 2px;
+  margin: 10px 0px 6px;
   padding: 0;
   border: none;
   outline: none;
