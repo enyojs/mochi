@@ -18,7 +18,6 @@ enyo.kind({
 			{kind: "mochi.Subheader", content: "Custom Buttons"},
 			{classes: "mochi-sample-tools", components: [
 				{kind: "mochi.Button", content: "Custom Bar Color", barClasses: "mochi-sample-orange"},
-				{kind: "mochi.Button", content: "Long Button", style: "width: 300px;"},
 				{kind: "mochi.Button", content: "Custom End-Caps", decoratorLeft: "<", decoratorRight: ">"}
 			]}
 			/*	
