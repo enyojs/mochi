@@ -16,15 +16,15 @@ enyo.kind({
 		decoratorLeft: "(",
 		decoratorRight: ")"
 	},
-	components: [
-		{kind: "mochi.ButtonDecoratorLeft"},
-		{kind: "enyo.Button", name: "button", tag: "div", classes: "mochi-button-base"},
-		{kind: "mochi.ButtonDecoratorRight"},
-		{name: "bar", classes: "mochi-button-bar"}
-	],
+	componentsRendered: false,
+	initComponents: function() {
+		this.moreComponents = ((this.components === undefined) || (this.components.length === 0)) ? null : this.components;
+		this.components = null;
+		this.inherited(arguments);
+	},
 	create: function() {
 		this.inherited(arguments);
-		this.$.button.setContent(this.content);
+		this.buildButton();
 		this.activeChanged();
 		this.disabledChanged();
 		this.decoratorLeftChanged();
@@ -32,8 +32,22 @@ enyo.kind({
 	},
 	rendered: function() {
 		this.inherited(arguments);
+		this.componentsRendered = true;
 		this.calcBarValue();
 		this.barClassesChanged();
+	},
+	buildButton: function() {
+		// Button components
+		var bc = [{kind: "mochi.ButtonDecoratorLeft"}, {kind: "enyo.Button", name: "button", tag: "div", classes: "mochi-button-base"}];
+		if (this.moreComponents !== null) {
+			var len = this.moreComponents.length;
+			for (var i=0; i<len; i++) {
+				bc.push(this.moreComponents[i]);
+			}
+		}
+		bc.push({kind: "mochi.ButtonDecoratorRight"}, {name: "bar", classes: "mochi-button-bar"});
+		this.createComponents(bc);
+		this.$.button.setContent(this.content);
 	},
 	decoratorLeftChanged: function() {
 		this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
@@ -58,10 +72,13 @@ enyo.kind({
 	},
 	calcBarValue: function() {
 		var bounds = this.$.button.getBounds();
+		bounds.left += 4;
 		this.updateBarPosition(bounds);
 	},
 	contentChanged: function() {
-		this.$.button.setContent(this.content);
-		this.calcBarValue();
+		if (this.componentsRendered) {
+			this.$.button.setContent(this.content);
+			this.calcBarValue();
+		}
 	}
 });

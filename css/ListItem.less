@@ -1,0 +1,105 @@
+/* ListItem.css */
+.mochi-list-item {
+  font-family: "PreludeWGL Medium";
+  font-size: 14pt;
+  font-weight: bold;
+  font-style: italic;
+  color: #4b4b4b;
+  padding:0 0 48px 32px;
+}
+
+.mochi-highlight {
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(255,255,255,0)), color-stop(0.5, #f5f5f5), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), #f5f5f5, rgba(255,255,255,0));
+  background-image: -moz-linear-gradient(left, rgba(255,255,255,0), #f5f5f5, rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(left, rgba(255,255,255,0), #f5f5f5, rgba(255,255,255,0));
+  background-image: -o-linear-gradient(left, rgba(255,255,255,0), #f5f5f5, rgba(255,255,255,0));
+  background-image: linear-gradient(left, rgba(255,255,255,0), #f5f5f5, rgba(255,255,255,0));
+}
+
+.mochi-highlight-border {
+    position: absolute;
+    height: 4px;
+	margin:0 112px;
+    line-height: 4px;
+}
+
+.mochi-highlight-border:before, .mochi-highlight-border:after {
+    content: ' ';
+    width: 112px;
+    height: 4px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.mochi-highlight-border.top {
+  background: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
+}
+
+.mochi-highlight-border.top:before {
+    left: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
+}
+
+.mochi-highlight-border.top:after {
+    right: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
+}
+
+.mochi-highlight-border.bottom {
+  background: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
+}
+
+.mochi-highlight-border.bottom:before {
+    left: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
+}
+
+.mochi-highlight-border.bottom:after {
+    right: -112px;
+    background-image: url(../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
+}
+
+/* wide lists, ie width >= 640px */
+.mochi-highlight-border.large {
+    position: absolute;
+    height: 4px;
+	margin:0 320px;
+    line-height: 4px;
+}
+
+.mochi-highlight-border.large:before, .mochi-highlight-border.large:after {
+    content: ' ';
+    width: 320px;
+    height: 4px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.mochi-highlight-border.large.top {
+  background: url(../images/list/LargeSelectedItem/LargeSelectedListItem_TopMiddle.png) repeat-x;
+}
+
+.mochi-highlight-border.top.large:before {
+    left: -320px;
+    background-image: url(../images/list/LargeSelectedItem/LargeSelectedListItem_TopLeftFade.png);
+}
+
+.mochi-highlight-border.top.large:after {
+    right: -320px;
+    background-image: url(../images/list/LargeSelectedItem/LargeSelectedListItem_TopRightFade.png);
+}
+
+.mochi-highlight-border.bottom.large {
+  background: url(../images/list/LargeSelectedItem/LargeSelectedListItem_BottomMiddle.png) repeat-x;
+}
+
+.mochi-highlight-border.bottom.large:before {
+    left: -320px;
+    background-image: url(../images/list/LargeSelectedItem/LargeSelectedListItem_BottomLeftFade.png);
+}
+
+.mochi-highlight-border.bottom.large:after {
+    right: -320px;
+    background-image: url(../images/list/LargeSelectedItem/LargeSelectedListItem_BottomRightFade.png);
+}

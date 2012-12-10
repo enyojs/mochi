@@ -17,5 +17,13 @@ enyo.depends(
 	"Spinner.js",
 	"TextArea.js",
 	"ToggleButton.js",
-	"ViewSelectButton.js"
+	"ViewSelectButton.js",
+	"ContextualPopupDecorator.js",
+	"ContextualPopup.js",
+	"List.js",
+	"ListItem.js",
+	"ListHeader.js",
+	"Collapsable.js",
+	"Header.js",
+	"Subheader.js"
 );

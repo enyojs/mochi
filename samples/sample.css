@@ -10,7 +10,8 @@
 	/* padding: 60px; */
 }
 .mochi-sample-tools {
-	padding-bottom: 10px;
+	/* padding-bottom: 10px; */
+	padding: 0px 32px;
 }
 .mochi-sample-tools > * {
 	margin: 3px;
@@ -55,4 +56,42 @@
 }
 .mochi-background-orange {
 	background-color: #ffb80d;
+}
+.mochi-sample-orange {
+	color: #ffb80d;
+}
+.mochi-sample-textarea-tools > * {
+	margin: 0px 16px 16px 0px;
+}
+.mochi-contextualpopup-button-container{
+	margin-left:1500px;
+	margin-top:1000px;
+}
+
+.mochi-contextualpopup-toolbarcheck {
+	position:absolute;
+	z-index:200;
+	margin-left:35%	
+}		
+		
+.mochi-contextualpopup-toolbarcheck-label {
+	display: inline-block;
+	padding-left:10px; 
+	width: 120px;
+	padding-right: 10px;"
+}
+
+.mochi-contextualpopup-scroller-content {
+	width:5000px;
+	height:2000px;
+}
+
+.list-sample-list {
+	width: 50%;
+	min-width:300px;
+	margin: auto;
+}
+
+.list-sample-index {
+	float: right;
 }
