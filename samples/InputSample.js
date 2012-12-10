@@ -48,9 +48,13 @@ enyo.kind({
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.TextArea", placeholder: "Disabled TextArea", onchange:"inputChanged", disabled: true}
 				]},
+			]},
+			{tag: "br"},
+			//replace this with the groupbox below once it's available
+			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [			
+				{name:"result", classes:"mochi-sample-content", content:"No input entered yet."}
 			]}
 			/*
-			{tag: "br"},
 			{kind: "mochi.Groupbox", classes:"mochi-sample-result-box", components: [
 				{kind: "mochi.GroupboxHeader", content: "Result"},
 				{name:"result", classes:"mochi-sample-result", content:"No input entered yet."}
@@ -58,7 +62,7 @@ enyo.kind({
 			*/
 		]}
 	],
-	inputChanged: function(inSender, inEvent) {
-		//this.$.result.setContent("Input: " + inSender.getValue());
+	inputChanged: function(inSender, inEvent) {console.log('ok ok')
+		this.$.result.setContent("Input: " + inSender.getValue());
 	}
 });
