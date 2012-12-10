@@ -20,7 +20,8 @@ enyo.kind({
 		progress: 0,
 		min: 0,
 		max: 100,
-		barClasses: ""
+		barClasses: "",
+		decimalPlaces: 0
 	},
 	events: {
 		onAnimateProgressFinish: ""
@@ -58,7 +59,7 @@ enyo.kind({
 		return (inValue - this.min) / (this.max - this.min);
 	},
 	calcPercent: function(inValue) {
-		return parseInt(this.calcRatio(inValue) * 100);
+		return (this.calcRatio(inValue) * 100).toFixed(this.decimalPlaces);
 	},
 	updateBarPosition: function(inPercent) {
 		var label = inPercent + "% Downloaded";
