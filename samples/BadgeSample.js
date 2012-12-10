@@ -27,16 +27,6 @@ enyo.kind({
 			]},
 			{tag: "br"},
 
-			{kind: "mochi.Subheader", content: "Badge inside a toolbar"},
-			{
-				kind: "onyx.Toolbar", components: [
-					{content: "Toolbar"},
-					{kind: "mochi.Badge", content: "11"},
-				]
-			},
-			{tag: "br"},
-
-
 			{kind: "mochi.Subheader", content: "Colorful Badges"},
 			{classes: "mochi-sample-tools", components: [
 				{kind: "mochi.Badge", content: "6", background: "red"},
