@@ -60,6 +60,10 @@
 .mochi-sample-orange {
 	color: #ffb80d;
 }
+.mochi-sample-textarea-tools > * {
+	margin-right: 16px;
+	margin-left: 0px;
+}
 .mochi-contextualpopup-button-container{
 	margin-left:1500px;
 	margin-top:1000px;

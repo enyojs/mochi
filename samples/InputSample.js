@@ -41,7 +41,7 @@ enyo.kind({
 			]},
 			{tag: "br"},
 			{kind: "mochi.Subheader", content: "TextAreas"},
-			{classes: "mochi-sample-tools mochi-toolbar-inline", components: [
+			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.TextArea", placeholder: "Enter text here", onchange:"inputChanged"}
 				]},
