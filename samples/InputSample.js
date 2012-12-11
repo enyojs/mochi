@@ -19,11 +19,15 @@ enyo.kind({
 				{tag: "br"},
 				{kind: "mochi.InputDecorator", components: [
 					{kind: "mochi.Input", disabled: true, value: "Disabled input"}
-				]},
-				{kind: "mochi.InputDecorator", components: [
-					{kind: "mochi.Input", style: "text-align:right;", value: "Right-aligned", onchange:"inputChanged"}
 				]}
 			]},
+			{tag: "br"},
+			{kind: "mochi.Subheader", content: "Right-aligned Input"},
+			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [
+				{kind: "mochi.InputDecorator", components: [
+					{kind: "mochi.Input", style: "text-align:right;", placeholder: "", onchange:"inputChanged"}
+				]}
+			]},	
 			{tag: "br"},
 			{kind: "mochi.Subheader", content: "RichTexts"},
 			{classes: "mochi-sample-tools mochi-sample-textarea-tools", components: [
