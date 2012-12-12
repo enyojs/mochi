@@ -42,12 +42,12 @@ enyo.kind({
 			]},
 		]},
 		{classes:"mochi-contextualpopup-toolbarcheck", components:[
-			{kind: "mochi.Checkbox", style:"margin-top:-20px", onchange: "topToolbarChecked"},		
-			{content:"Hide/Show Toolbars", classes:"mochi-contextualpopup-toolbarcheck-label"},			
+			{kind: "mochi.Checkbox", onchange: "topToolbarChecked"},		
+			{content:"Hide/Show Toolbars", classes:"mochi-sample-content mochi-contextualpopup-toolbarcheck-label"},			
 		]},
 		
 		{kind: "Panels", fit: true, draggable: false, components: [
-			{kind: "Scroller", classes: "enyo-fit", thumb:false, components:[{
+			{kind: "Scroller", classes: "enyo-fit", thumb:false, touch: true, components:[{
 				classes:"mochi-contextualpopup-scroller-content",
 				components:[
 				{name:"buttonContainer", kind:"FittableRows", fit:true, classes:"mochi-contextualpopup-button-container", components:[
