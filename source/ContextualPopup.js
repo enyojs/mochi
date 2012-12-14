@@ -50,7 +50,7 @@ enyo.kind({
 	
 	//layout parameters
 	vertFlushMargin:100, //vertical flush layout margin
-	horizFlushMargin:120, //vertical flush layout margin
+	horizFlushMargin:100, //horizontal flush layout margin
 	widePopup:200, //popups wider than this value are considered wide (for layout purposes)
 	longPopup:200, //popups longer than this value are considered long (for layout purposes)
 	horizBuffer:16, //do not allow horizontal flush popups past spec'd amount of buffer space on left/right screen edge
@@ -165,6 +165,7 @@ enyo.kind({
 						ii.  Activator is in bottom edge, position popup above it.
 						iii. Activator is in left edge, position popup to the right of it.
 						iv.  Activator is in right edge, position popup to the left of it.
+						
 				2. Screen Size - the pop-up should generally extend in the direction where there’s room for it.
 					Note: no specific logic below for this rule since it is built into the positioning functions, ie we attempt to never
 					position a popup where there isn't enough room for it.
@@ -210,7 +211,7 @@ enyo.kind({
 				}
 			//otherwise check if the activator is in the left or right edges of the view & if so try horizontal positioning
 			} else if ((this.activatorOffset.left + this.activatorOffset.width) < leftFlushPt || this.activatorOffset.left > rightFlushPt) {
-				//if flush positioning didn't work then try just positioning horizontally (rule 1.b.iii & rule 1.b.iv)
+				//if flush positioning didn't work then try just positioning horizontally (rule 1.b.iii & rule 1.b.iv)			
 				if (this.applyHorizontalPositioning()){
 					return;
 				}				
@@ -329,24 +330,25 @@ enyo.kind({
 		var innerWidth = this.getViewWidth();
 		
 		//If the activator's right side is within our left side cut off use flush positioning
-		if ((this.activatorOffset.left + this.activatorOffset.width) < leftFlushPt){
+		if ((this.activatorOffset.left + this.activatorOffset.width/2) < leftFlushPt){
 			//if the activator's left edge is too close or past the screen left edge
-			if (this.activatorOffset.left < this.horizBuffer){
-				this.applyPosition({left:-clientRect.left+this.horizBuffer});
-			}
+			if (this.activatorOffset.left + this.activatorOffset.width/2 < this.horizBuffer){
+				this.applyPosition({left:this.horizBuffer + (this.floating ? 0 : -clientRect.left)});
+			} else {
+				this.applyPosition({left:this.activatorOffset.width/2  + (this.floating ? this.activatorOffset.left : 0)});
+			}				
 
 			this.addClass("right");
 			this.addClass("corner");
 			return true;
 		}
 		//If the activator's left side is within our right side cut off use flush positioning
-		else if (this.activatorOffset.left > rightFlushPt) {
-			//if the activator's right edge is too close or past the screen right edge
-			if ((this.activatorOffset.left+this.activatorOffset.width) > (innerWidth-this.horizBuffer)){
-				this.applyPosition({left:innerWidth - clientRect.right - this.horizBuffer});
+		else if (this.activatorOffset.left + this.activatorOffset.width/2 > rightFlushPt) {
+			if ((this.activatorOffset.left+this.activatorOffset.width/2) > (innerWidth-this.horizBuffer)){
+				this.applyPosition({left:innerWidth - this.horizBuffer - clientRect.right});
 			} else {
-				this.applyPosition({left: -(clientRect.right - (this.activatorOffset.left + this.activatorOffset.width))});				
-			}
+				this.applyPosition({left: (this.activatorOffset.left + this.activatorOffset.width/2) - clientRect.right});
+			}				
 			this.addClass("left");	
 			this.addClass("corner");			
 			return true;
@@ -403,10 +405,10 @@ enyo.kind({
 			//if the activator's center is within 10% of the center of the view, vertically center the popup
 			if ((activatorCenter >= (innerHeight/2 - 0.05 * innerHeight)) && (activatorCenter <= (innerHeight/2 + 0.05 * innerHeight))) {
 				this.applyPosition({top: this.activatorOffset.top + this.activatorOffset.height/2 - clientRect.height/2, bottom: "auto"});														
-			} else if (this.activatorOffset.top + this.activatorOffset.height < innerHeight/2) { //the activator is in the top hemisphere
+			} else if (this.activatorOffset.top + this.activatorOffset.height < innerHeight/2) { //the activator is in the top 1/2 of the screen
 				this.applyPosition({top: this.activatorOffset.top - this.activatorOffset.height, bottom: "auto"});				
 				this.addRemoveClass("high", true);				
-			} else { //otherwise the popup will be positioned in the bottom hemisphere
+			} else { //otherwise the popup will be positioned in the bottom 1/2 of the screen
 				this.applyPosition({top: this.activatorOffset.top - clientRect.height + this.activatorOffset.height*2, bottom: "auto"});						
 				this.addRemoveClass("low", true);		
 			}
@@ -414,10 +416,10 @@ enyo.kind({
 			//if the activator's center is within 10% of the center of the view, vertically center the popup			
 			if ((activatorCenter >= (innerHeight/2 - 0.05 * innerHeight)) && (activatorCenter <= (innerHeight/2 + 0.05 * innerHeight))) {			
 				this.applyPosition({top: (this.activatorOffset.height - clientRect.height)/2});					
-			} else if (this.activatorOffset.top + this.activatorOffset.height < innerHeight/2) { //the activator is in the top hemisphere
+			} else if (this.activatorOffset.top + this.activatorOffset.height < innerHeight/2) { //the activator is in the top 1/2 of the screen
 				this.applyPosition({top: -this.activatorOffset.height});
 				this.addRemoveClass("high", true);			
-			} else { //otherwise the popup will be positioned in the bottom hemisphere
+			} else { //otherwise the popup will be positioned in the bottom 1/2 of the screen
 				this.applyPosition({top: clientRect.top - clientRect.height - this.activatorOffset.top + this.activatorOffset.height});	
 				this.addRemoveClass("low", true);
 			}
@@ -436,18 +438,18 @@ enyo.kind({
 		//adjust vertical positioning (high or low nub & popup position)	
 		if (this.floating){		
 			if (this.activatorOffset.top < (innerHeight/2)){
-				this.applyPosition({top: this.activatorOffset.top});	
+				this.applyPosition({top: this.activatorOffset.top + this.activatorOffset.height/2});	
 				this.addRemoveClass("high", true);											
 			} else {
-				this.applyPosition({top:this.activatorOffset.top + this.activatorOffset.height - clientRect.height});
+				this.applyPosition({top:this.activatorOffset.top + this.activatorOffset.height/2 - clientRect.height});
 				this.addRemoveClass("low", true);																
 			}				
 		} else {
 			if (((clientRect.top + clientRect.height) > innerHeight) && ((innerHeight - clientRect.bottom) < (clientRect.top - clientRect.height))) {
-				this.applyPosition({top: clientRect.top - clientRect.height - this.activatorOffset.top - this.activatorOffset.height/4});	
+				this.applyPosition({top: clientRect.top - clientRect.height - this.activatorOffset.top - this.activatorOffset.height/2});	
 				this.addRemoveClass("low", true);											
 			} else {
-				this.applyPosition({top: this.activatorOffset.height/4});
+				this.applyPosition({top: this.activatorOffset.height/2});
 				this.addRemoveClass("high", true);																
 			}			
 		}
