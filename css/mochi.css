@@ -791,6 +791,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /*for popups above activator*/
 .mochi-contextual-popup.vertical.above {
   top: auto;
+  margin-top:-10px;
   bottom: 100%;
   margin-bottom: 10px;
 }
