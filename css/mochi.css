@@ -561,10 +561,10 @@
 }
 .mochi-slider-knob.active,
 .mochi-slider-knob:active:hover {
-  height: 32px;
-  width: 32px;
-  border-radius: 16px;
-  margin: -16px -18px;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  margin: -18px -20px;
 }
 .mochi-slider-popup {
   position: absolute;
@@ -573,21 +573,31 @@
   left: 0px;
   top: 0px;
   width: 62px;
-  height: 34px;
+  height: 37px;
+  padding-left: 4px;
 }
 .mochi-slider-popup-label {
   position: absolute;
   top: 1px;
   width: 60px;
-  height: 30px;
+  height: 32px;
   white-space: nowrap;
-  font-family: "PreludeWGL Medium", arial, sans-serif;
+  font-family: "PreludeWGL Medium";
   color: #fff;
   text-align: center;
-  line-height: 30px;
+  line-height: 32px;
   vertical-align: middle;
-  font-size: 15px;
+  font-size: 14px;
 }
+.mochi-slider-popup.above {
+  top: -56px;
+}
+/* below is commented out pending HI approval */
+/*
+.mochi-slider-popup.below {
+  top: 25px;
+}
+*/
 /* Spinner.css */
 .mochi-spinner {
   width: 52px;
@@ -791,7 +801,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /*for popups above activator*/
 .mochi-contextual-popup.vertical.above {
   top: auto;
-  margin-top:-10px;
+  margin-top: -10px;
   bottom: 100%;
   margin-bottom: 10px;
 }
