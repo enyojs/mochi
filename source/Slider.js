@@ -35,8 +35,8 @@ enyo.kind({
 		{kind: "Animator", onStep: "animatorStep", onEnd: "animatorComplete"},
 		{classes: "mochi-slider-taparea"},
 		{name: "knob", ondown: "showKnobStatus", onup: "hideKnobStatus", classes: "mochi-slider-knob"},
-		{kind: "mochi.Popup", name: "popup", classes: "mochi-slider-popup", components: [
-			{tag: "canvas", name: "drawing", attributes: { width: 62, height: 34 }},
+		{kind: "mochi.Popup", name: "popup", classes: "mochi-slider-popup above", components: [
+			{tag: "canvas", name: "drawing", attributes: { width: 62, height: 36 }},
 			{name: "popupLabel", classes: "mochi-slider-popup-label"}
 		]}
 	],
@@ -75,35 +75,35 @@ enyo.kind({
 		var x = inEvent.clientX - this.hasNode().getBoundingClientRect().left;
 		return (x / this.getBounds().width) * (this.max - this.min) + this.min;
 	},
-	applyPosition: function(inRect, inControl) {
-		var s = ""
-		for (n in inRect) {
-			s += (n + ":" + inRect[n] + (isNaN(inRect[n]) ? "; " : "px; "));
-		}
-		inControl.addStyles(s);
-	},
-	adjustPopupPosition: function(inControl, belowActivator) {
+	adjustPopupPosition: function() {
 
 		var inControl = this.$.popup;
-		if (inControl.hasNode()) {
-			var b = inControl.node.getBoundingClientRect();
+		
+		// popup bounds
+		var pb = inControl.hasNode().getBoundingClientRect();
+		// container bounds
+		var cb = this.container.hasNode().getBoundingClientRect();
+		// knob bounds
+		var kb = this.$.knob.hasNode().getBoundingClientRect();
 
-			//FIXME: when the tooltip bottom goes below the window height move it above the decorator
-			if ((b.top + b.height) > window.innerHeight) {
-				//inControl.addRemoveClass("below", false);
-				//inControl.addRemoveClass("above", true);
-			} else 	{
-				//inControl.addRemoveClass("above", false);
-				//inControl.addRemoveClass("below", true);
-				inControl.applyStyle("top", -56 + "px");
-			}
+		// FIXME: What do we do when the popup's top goes above the window height?
+		// Adding "above" class directly to classes property for now
+		/*
+		// IE8 doesn't return window.page{X/Y}Offset
+		var pageYOffset = (window.pageYOffset === undefined) ? document.documentElement.scrollTop : window.pageYOffset;
+		//when the popup's top goes above the container's top, move popup below the decorator
+		if ((pb.top + pb.height) < pageYOffset) {
+			inControl.addRemoveClass("above", false);
+			inControl.addRemoveClass("below", true);
+		} else 	{
+			inControl.addRemoveClass("above", true);
+			inControl.addRemoveClass("below", false);
+		}
+		*/
 
-			// when popup's right edge is out of the window, align its right edge with the decorator left edge
-			if ((b.left + b.width) > window.innerWidth){
-				this.applyPosition({'margin-left': -b.width, bottom: "auto"}, inControl);					
-			} else if (b.left < 0) {
-				this.applyPosition({'margin-left': 0}, inControl);
-			}
+		// when the popup's right edge is out of the window, adjust to the left
+		if ( (pb.width + pb.left) > cb.right ) {
+			inControl.applyStyle("left", (kb.left - cb.left - pb.width) + "px");
 		}
 	},
 	showKnobStatus: function(inSender, inEvent) {
@@ -126,7 +126,7 @@ enyo.kind({
 			var v = this.calcKnobPosition(inEvent);
 			this.setValue(v);
 			this.doChanging({value: this.value});
-			this.adjustPopupPosition(false);
+			this.adjustPopupPosition(inEvent);
 			return true;
 		}
 	},
@@ -175,15 +175,15 @@ enyo.kind({
     	ctx.fillStyle = enyo.dom.getComputedStyleValue(this.$.knob.hasNode(), "background-color");
 
     	// Draw shape with arrow on bottom-left
-    	ctx.moveTo(1, 35);
-    	ctx.arcTo(1, 31, 12, 31, 4);
-    	ctx.lineTo(46, 31);
-		ctx.arcTo(61, 31, 61, 16, 15);
-		ctx.moveTo(61, 16); // This is needed on IE9 for some reason
-		ctx.arcTo(61, 1, 46, 1, 15);
+        ctx.moveTo(1, 37);
+    	ctx.arcTo(1, 33, 12, 33, 4);
+    	ctx.lineTo(46, 33);
+		ctx.arcTo(61, 33, 61, 17, 16);
+		ctx.moveTo(61, 17); // This is needed on IE9 for some reason
+		ctx.arcTo(61, 1, 46, 1, 16);
 		ctx.lineTo(16, 1);
-    	ctx.arcTo(1, 1, 1, 16, 15);
-    	ctx.lineTo(1, 35);
+    	ctx.arcTo(1, 1, 1, 17, 16);
+    	ctx.lineTo(1, 37);
         ctx.fill();
 	}
 });
