@@ -810,11 +810,11 @@ textarea::-webkit-scrollbar-thumb:vertical {
   margin-top: 20px;
 }
 /*for popups on the left of the activator*/
-.mochi-contextual-popup.right {
-  margin-left: -10px;
+.mochi-contextual-popup.right.horizontal {
+  margin-left: -11px;
 }
 /*for popups on the right of the activator*/
-.mochi-contextual-popup.left {
+.mochi-contextual-popup.left.horizontal {
   margin-left: 10px;
 }
 /****nub positioning for vertical popups****/
