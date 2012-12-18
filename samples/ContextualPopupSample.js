@@ -184,6 +184,7 @@ enyo.kind({
 				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
 				{kind: "mochi.ContextualPopup",
 					title:"Toolbar Button",
+					floating:true,					
 					actionButtons:[
 						{content:"test1", classes: "onyx-button-warning"},
 						{content:"test2"}
@@ -202,6 +203,7 @@ enyo.kind({
 				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
 				{kind: "mochi.ContextualPopup", name:"facebook",
 					title:"Toolbar Button",
+					floating:true,					
 					actionButtons:[
 						{content:"test1", classes: "onyx-button-warning"},
 						{content:"Dismiss", name:"dismiss_button"}
