@@ -8,13 +8,14 @@ enyo.kind({
 	components: [
 		{kind: "onyx.Toolbar", name:"topToolbar", classes: "onyx-menu-toolbar", style:"background-color:lightgray", components: [
 			{kind: "mochi.ContextualPopupDecorator", components: [
-				{kind:mochi.Button, content:"Back"},
-				{kind: "mochi.ContextualPopup", 
-					title:"Back", 
+				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+				{kind: "mochi.ContextualPopup",
+					title:"Toolbar Button",
+					floating:true,					
 					actionButtons:[
-						{content:"test1", classes: "mochi-button-warning"},
-						{content:"test2"},					
-					], 
+						{content:"test1", classes: "onyx-button-warning"},
+						{content:"test2"}
+					],
 					components: [
 						{content:"testing 1"},
 						{content:"testing 2"}
@@ -22,13 +23,14 @@ enyo.kind({
 				}
 			]},
 			{kind: "mochi.ContextualPopupDecorator", style:"float:right;", components: [
-				{kind:mochi.Button, content:"Facebook +"},
-				{kind: "mochi.ContextualPopup", 
-					title:"Facebook +", 
+				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+				{kind: "mochi.ContextualPopup",
+					title:"Toolbar Button",
+					floating:true,					
 					actionButtons:[
-						{content:"test1", classes: "mochi-button-warning"},
+						{content:"test1", classes: "onyx-button-warning"},
 						{content:"test2"}
-					], 
+					],
 					components: [
 						{content:"testing 1"},
 						{content:"testing 2"},
@@ -38,79 +40,66 @@ enyo.kind({
 						{content:"testing 6"}
 					]
 				}
-			]},
+			]}
 		]},
-		{classes:"mochi-contextualpopup-toolbarcheck", components:[
-			{kind: "mochi.Checkbox", style:"margin-top:-20px", onchange: "topToolbarChecked"},		
-			{content:"Hide/Show Toolbars", classes:"mochi-contextualpopup-toolbarcheck-label"},			
-		]},
-		
-		{kind: "Scroller", fit: true, thumb:false, components:[{
-			classes:"mochi-contextualpopup-scroller-content",
-			components:[
-			{name:"buttonContainer", kind:"FittableRows", fit:true, classes:"mochi-contextualpopup-button-container", components:[
+		{kind: "Scroller", fit: true, thumb:false, components:[
+			{name:"buttonContainer", kind:"FittableRows", classes:"mochi-contextualpopup-button-container enyo-fit", components:[
 				//Top row of buttons
 				{components:[
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block", components: [
 						{content: "Average"},
-						{kind: "mochi.ContextualPopup", 
-							title:"Average", 
+						{kind: "mochi.ContextualPopup",
+							title:"Average",
 							floating:true,
 							actionButtons:[
 								{content:"Press Me"}
-							], 
+							],
 							components: [
 								{content:"Item 1"},
 								{content:"Item 2"},
 								{content:"Item 3"},
 								{content:"Item 4"},
-								{content:"Item 5"}										
+								{content:"Item 5"}
 							]
 						}
 					]},
-					
+
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;float:right", components: [
 						{content:"Small"},
-						{kind: "mochi.ContextualPopup", 
+						{kind: "mochi.ContextualPopup",
 							title:"Small",
-							floating:true, 
+							floating:true
 						}
 					]}
 				]},
-
 				//Center row of buttons
 				{fit:true, style:"padding-top:15%;padding-bottom:15%;", components:[
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;", components: [
-						{content: "Wide",},
-						{kind: "mochi.ContextualPopup", 
-							title:"Wide", 
+						{content: "Wide"},
+						{kind: "mochi.ContextualPopup",
+							style:"width:200px",
 							floating:true,
 							actionButtons:[
-								{content:"test1", classes: "mochi-button-warning"},
-								{content:"test2"},
-								{content:"test2"},							
-								{content:"test3"}							
-							], 
-							components: [
-								{content:"testing 1"},
-								{content:"testing 2"},
-								{content:"testing 3"},
-								{content:"testing 4"},
-								{content:"testing 5"},
-								{content:"testing 6"}
+								{content:"test1", classes: "onyx-button-warning"},
+								{content:"test2"}
 							],
+							components: [
+								{kind: "Scroller", style:"min-width:150px;", horizontal:"auto",  touch:true, thumb:false,  components:[							
+									{content:"testing 1"},
+									{content:"testing 2"}
+								]}
+							]
 						}
 					]},
-
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;float:right", components: [
 						{content:"Long"},
-						{kind: "mochi.ContextualPopup", 
-							maxHeight: "300",
-							title:"Long", 
+						{kind: "mochi.ContextualPopup",
+							maxHeight: "200",
+							title:"Long",
 							floating:true,
 							actionButtons:[
 								{content:"Press Me"}
-							], 
+							],
 							components: [
 								{content:"testing 1"},
 								{content:"testing 2"},
@@ -141,40 +130,41 @@ enyo.kind({
 								{content:"testing 28"},
 								{content:"testing 29"},
 								{content:"testing 30"}
-							],
+							]
 						}
 					]}
 				]},
-
-				//Bottom row of buttons			
+				//Bottom row of buttons
 				{components:[
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;", components: [
-						{content: "Non-floating"},
-						{kind: "mochi.ContextualPopup", 
-							title:"Bottom Left", 
+						{content: "Press Me"},
+						{kind: "mochi.ContextualPopup",
+							title:"Press Me",
+							floating:true,
 							actionButtons:[
-								{content:"test1", classes: "mochi-button-warning"},
+								{content:"test1", classes: "onyx-button-warning"},
 								{content:"test2"}
-							], 
+							],
 							components: [
-								{content:"This popup"},
-								{content:"will scroll"},
-								{content:"with the page"},
-								{content:"and will be"},
-								{content:"obscured by toolbars."},
+								{content:"testing 1"},
+								{content:"testing 2"},
+								{content:"testing 3"},
+								{content:"testing 4"},
+								{content:"testing 5"},
+								{content:"testing 6"},
+								{content:"testing 7"},
+								{content:"testing 9"},
+								{content:"testing 10"}
 							]
 						}
 					]},
-
 					{kind: "mochi.ContextualPopupDecorator", style:"display:inline-block;float:right", components: [
-						{content:"Modal"},
-						{kind: "mochi.ContextualPopup", 
-							style:"width:250px",
-							title:"Modal",
+						{content:"Try Me"},
+						{kind: "mochi.ContextualPopup",
+							title:"Try Me",
 							floating:true,
-							autoDismiss: false,
 							actionButtons:[
-								{content:"Do Nothing", classes: "mochi-button-warning"},
+								{content:"Do Nothing", classes: "onyx-button-warning"},
 								{content:"Dismiss", name:"dismiss_button"}
 							],
 							components: [
@@ -182,23 +172,22 @@ enyo.kind({
 								{content:"Item 2"},
 								{content:"Item 3"},
 								{content:"Item 4"},
-								{content:"Item 5"}										
+								{content:"Item 5"}
 							]
 						}
 					]}
-				]}			
+				]}
 			]},
-			]
-		}]},
+		]},
 		{kind: "onyx.Toolbar", name:"bottomToolbar", classes: "onyx-menu-toolbar", style:"background-color:lightgray", components: [
 			{kind: "mochi.ContextualPopupDecorator", components: [
-				{content:"Back"},
-				{kind: "mochi.ContextualPopup", 
-					title:"Back", 
+				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+				{kind: "mochi.ContextualPopup",
+					title:"Toolbar Button",
 					actionButtons:[
-						{content:"test1", classes: "mochi-button-warning"},
+						{content:"test1", classes: "onyx-button-warning"},
 						{content:"test2"}
-					], 
+					],
 					components: [
 						{content:"testing 1"},
 						{content:"testing 2"},
@@ -209,54 +198,26 @@ enyo.kind({
 					]
 				}
 			]},
-						
 			{kind: "mochi.ContextualPopupDecorator", style:"float:right;", components: [
-				{kind:mochi.Button, content:"Facebook +"},
+				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
 				{kind: "mochi.ContextualPopup", name:"facebook",
-					title:"Facebook +",
-					autoDismiss: false,
+					title:"Toolbar Button",
 					actionButtons:[
-						{content:"test1", classes: "mochi-button-warning"},
+						{content:"test1", classes: "onyx-button-warning"},
 						{content:"Dismiss", name:"dismiss_button"}
-					], 
+					],
 					components: [
-						{content:"This"},
-						{content:"popup"},
-						{content:"has"},
-						{content:"autoDismiss"},
-						{content:"set"},
-						{content:"to"},
-						{content:"true."},
-						{content:"Press Dismiss!"}
+						{content:"testing 1"},
+						{content:"testing 2"},
+						{content:"testing 3"},
+						{content:"testing 4"},
+						{content:"testing 5"},
+						{content:"testing 6"}
 					]
 				}
-			]},
-		]}	
+			]}
+		]}
 	],
-	create:function(){
-		this.inherited(arguments);
-		enyo.asyncMethod(this,this.initializeView);
-	},
-	initializeView: function(){
-		var client = this.$.scroller.hasNode().getBoundingClientRect();
-		//set the size of the button container area (so we get buttons spread evenly)
-		this.$.buttonContainer.addStyles("width:" + client.width + "px");
-		this.$.buttonContainer.addStyles("height:"+ client.height + "px");
-		this.$.buttonContainer.resized();
-
-		this.$.scroller.setScrollLeft(1500);
-		this.$.scroller.setScrollTop(1000);
-
-	},
-	resizeHandler:function(){
-		this.inherited(arguments);
-		this.initializeView();
-	},
-	topToolbarChecked: function(inSender, inEvent) {
-		this.$.topToolbar.setShowing(!inSender.getValue());
-		this.$.bottomToolbar.setShowing(!inSender.getValue());
-		this.resized();
-	},
 	tapHandler: function(inSender, inEvent) {
 		if (inEvent.actionButton) {
 			enyo.log(inEvent.popup);	//info about popup it's coming from
