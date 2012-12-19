@@ -737,7 +737,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 .mochi-subheader-content {
   font-family: "PreludeWGL Medium";
-  font-size: 18pt;
+  font-size: 18px;
   font-style: italic;
   color: #323232;
   text-overflow: ellipsis;
@@ -747,7 +747,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /* Collapsable.css */
 .mochi-collapsable-header {
   font-family: "PreludeWGL Medium";
-  font-size: 18pt;
+  font-size: 18px;
   font-weight: bold;
   font-style: italic;
   color: #323232;
@@ -755,7 +755,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 .mochi-collapsable-item {
   font-family: "PreludeWGL Medium";
-  font-size: 14pt;
+  font-size: 14px;
   font-weight: bold;
   font-style: italic;
   color: #4b4b4b;
@@ -1052,7 +1052,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /* ListHeader.css */
 .mochi-list-header {
   font-family: "PreludeWGL Medium";
-  font-size: 18pt;
+  font-size: 18px;
   font-weight: bold;
   font-style: italic;
   color: #323232;
@@ -1061,7 +1061,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /* ListItem.css */
 .mochi-list-item {
   font-family: "PreludeWGL Medium";
-  font-size: 14pt;
+  font-size: 14px;
   font-weight: bold;
   font-style: italic;
   color: #4b4b4b;
