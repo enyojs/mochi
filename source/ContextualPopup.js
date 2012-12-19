@@ -139,8 +139,7 @@ enyo.kind({
 		this.addStyles(s);
 	},
 	getPageOffset: function(inNode) {
-		// getBoundingClientRect returns top/left values which are relative to the viewport and not absolute
-		var r = inNode.getBoundingClientRect();
+		var r = this.getBoundingRect(inNode);
 
 		var pageYOffset = (window.pageYOffset === undefined) ? document.documentElement.scrollTop : window.pageYOffset;
 		var pageXOffset = (window.pageXOffset === undefined) ? document.documentElement.scrollLeft : window.pageXOffset;
@@ -221,8 +220,7 @@ enyo.kind({
 			//		   position a popup where there isn't enough room for it.
 			
 			//Rule 3 - Popup Size based positioning 
-			var clientRect = this.node.getBoundingClientRect();							
-			var clientHeight = (clientRect.height === undefined) ? (clientRect.bottom - clientRect.top) : clientRect.height;
+			var clientRect = this.getBoundingRect(this.node);
 
 			//if the popup is wide then use vertical positioning
 			if (clientRect.width > this.widePopup) {
@@ -231,7 +229,7 @@ enyo.kind({
 				}
 			}
 			//if the popup is long then use horizontal positioning
-			else if (clientHeight > this.longPopup) {
+			else if (clientRect.height > this.longPopup) {
 				if (this.applyHorizontalPositioning()){
 					return;
 				}				
@@ -255,8 +253,7 @@ enyo.kind({
 		this.resetPositioning();
 		this.addClass("vertical");
 						
-		var clientRect = this.node.getBoundingClientRect();				
-		var clientHeight = (clientRect.height === undefined) ? (clientRect.bottom - clientRect.top) : clientRect.height;
+		var clientRect = this.getBoundingRect(this.node);
 		var innerHeight = this.getViewHeight();
 		
 		if (this.floating){		
@@ -269,7 +266,7 @@ enyo.kind({
 			}	
 		} else {
 			//if the popup's bottom goes off the screen then put it on the top of the invoking control
-			if ((clientRect.top + clientHeight > innerHeight) && ((innerHeight - clientRect.bottom) < (clientRect.top - clientHeight))){
+			if ((clientRect.top + clientRect.height > innerHeight) && ((innerHeight - clientRect.bottom) < (clientRect.top - clientRect.height))){
 				this.addClass("above");
 			} else {
 				this.addClass("below");
@@ -277,8 +274,8 @@ enyo.kind({
 		}
 		
 		//if moving the popup above or below the activator puts it past the edge of the screen then vertical doesn't work
-		clientRect = this.node.getBoundingClientRect();
-		if ((clientRect.top + clientHeight) > innerHeight || clientRect.top < 0){
+		clientRect = this.getBoundingRect(this.node);
+		if ((clientRect.top + clientRect.height) > innerHeight || clientRect.top < 0){
 			return false;
 		}
 
@@ -290,7 +287,7 @@ enyo.kind({
 			return false;
 		}
 		
-		var clientRect = this.node.getBoundingClientRect();		
+		var clientRect = this.getBoundingRect(this.node);
 		var innerWidth = this.getViewWidth();
 		
 		if (this.floating){
@@ -327,7 +324,7 @@ enyo.kind({
 			return false;
 		}
 		
-		var clientRect = this.node.getBoundingClientRect();		
+		var clientRect = this.getBoundingRect(this.node);
 		var innerWidth = this.getViewWidth();
 		
 		//If the activator's right side is within our left side cut off use flush positioning
@@ -361,7 +358,7 @@ enyo.kind({
 	initHorizontalPositioning: function() {
 		this.resetPositioning();
 		
-		var clientRect = this.node.getBoundingClientRect();
+		var clientRect = this.getBoundingRect(this.node);
 		var innerWidth = this.getViewWidth();	
 
 		//adjust horizontal positioning of the popup & nub vertical positioning
@@ -385,7 +382,7 @@ enyo.kind({
 		this.addRemoveClass("horizontal", true);
 		
 		//if moving the popup left or right of the activator puts it past the edge of the screen then horizontal won't work
-		clientRect = this.node.getBoundingClientRect();
+		clientRect = this.getBoundingRect(this.node);
 		if (clientRect.left < 0 || (clientRect.left + clientRect.width) > innerWidth){
 			return false;
 		}
@@ -398,7 +395,7 @@ enyo.kind({
 			return false;
 		}
 		
-		var clientRect = this.node.getBoundingClientRect();
+		var clientRect = this.getBoundingRect(this.node);
 		var innerHeight = this.getViewHeight();			
 		var activatorCenter = this.activatorOffset.top + this.activatorOffset.height/2;
 		
@@ -433,7 +430,7 @@ enyo.kind({
 			return false;
 		}
 		
-		var clientRect = this.node.getBoundingClientRect();
+		var clientRect = this.getBoundingRect(this.node);
 		var innerWidth = this.getViewWidth();
 
 		//adjust vertical positioning (high or low nub & popup position)	
@@ -469,6 +466,21 @@ enyo.kind({
 		}
 		
 		return false;
+	},
+	getBoundingRect:  function(inNode){
+		// getBoundingClientRect returns top/left values which are relative to the viewport and not absolute
+		var o = inNode.getBoundingClientRect();
+		if (!o.width || !o.height) {
+			return {
+				left: o.left,
+				right: o.right,
+				top: o.top,
+				bottom: o.bottom,
+				width: o.right - o.left,
+				height: o.bottom - o.top
+			};	
+		}
+		return o;
 	},
 	getViewHeight: function() {
 		return (window.innerHeight === undefined) ? document.documentElement.clientHeight : window.innerHeight;
