@@ -7,39 +7,41 @@ enyo.kind({
 	},	
 	components: [
 		{kind: "onyx.Toolbar", name:"topToolbar", classes: "onyx-menu-toolbar", style:"background-color:lightgray", components: [
-			{kind: "mochi.ContextualPopupDecorator", components: [
-				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
-				{kind: "mochi.ContextualPopup",
-					title:"Toolbar Button",
-					floating:true,					
-					actionButtons:[
-						{content:"test1", classes: "onyx-button-warning"},
-						{content:"test2"}
-					],
-					components: [
-						{content:"testing 1"},
-						{content:"testing 2"}
-					]
-				}
-			]},
-			{kind: "mochi.ContextualPopupDecorator", style:"float:right;", components: [
-				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
-				{kind: "mochi.ContextualPopup",
-					title:"Toolbar Button",
-					floating:true,					
-					actionButtons:[
-						{content:"test1", classes: "onyx-button-warning"},
-						{content:"test2"}
-					],
-					components: [
-						{content:"testing 1"},
-						{content:"testing 2"},
-						{content:"testing 3"},
-						{content:"testing 4"},
-						{content:"testing 5"},
-						{content:"testing 6"}
-					]
-				}
+			{kind:"FittableColumns", style:"width:100%;", components:[		
+				{kind: "mochi.ContextualPopupDecorator", components: [
+					{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+					{kind: "mochi.ContextualPopup",
+						title:"Toolbar Button",
+						floating:true,					
+						actionButtons:[
+							{content:"test1", classes: "onyx-button-warning"},
+							{content:"test2"}
+						],
+						components: [
+							{content:"testing 1"},
+							{content:"testing 2"}
+						]
+					}
+				]},
+				{kind: "mochi.ContextualPopupDecorator", fit:true, style:"position:absolute;right:0;", components: [
+					{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+					{kind: "mochi.ContextualPopup",
+						title:"Toolbar Button",
+						floating:true,					
+						actionButtons:[
+							{content:"test1", classes: "onyx-button-warning"},
+							{content:"test2"}
+						],
+						components: [
+							{content:"testing 1"},
+							{content:"testing 2"},
+							{content:"testing 3"},
+							{content:"testing 4"},
+							{content:"testing 5"},
+							{content:"testing 6"}
+						]
+					}
+				]}
 			]}
 		]},
 		{kind: "Scroller", fit: true, thumb:false, components:[
@@ -180,43 +182,45 @@ enyo.kind({
 			]},
 		]},
 		{kind: "onyx.Toolbar", name:"bottomToolbar", classes: "onyx-menu-toolbar", style:"background-color:lightgray", components: [
-			{kind: "mochi.ContextualPopupDecorator", components: [
-				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
-				{kind: "mochi.ContextualPopup",
-					title:"Toolbar Button",
-					floating:true,					
-					actionButtons:[
-						{content:"test1", classes: "onyx-button-warning"},
-						{content:"test2"}
-					],
-					components: [
-						{content:"testing 1"},
-						{content:"testing 2"},
-						{content:"testing 3"},
-						{content:"testing 4"},
-						{content:"testing 5"},
-						{content:"testing 6"}
-					]
-				}
-			]},
-			{kind: "mochi.ContextualPopupDecorator", style:"float:right;", components: [
-				{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
-				{kind: "mochi.ContextualPopup", name:"facebook",
-					title:"Toolbar Button",
-					floating:true,					
-					actionButtons:[
-						{content:"test1", classes: "onyx-button-warning"},
-						{content:"Dismiss", name:"dismiss_button"}
-					],
-					components: [
-						{content:"testing 1"},
-						{content:"testing 2"},
-						{content:"testing 3"},
-						{content:"testing 4"},
-						{content:"testing 5"},
-						{content:"testing 6"}
-					]
-				}
+			{kind:"FittableColumns", style:"width:100%;", components:[			
+				{kind: "mochi.ContextualPopupDecorator", components: [
+					{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+					{kind: "mochi.ContextualPopup",
+						title:"Toolbar Button",
+						floating:true,					
+						actionButtons:[
+							{content:"test1", classes: "onyx-button-warning"},
+							{content:"test2"}
+						],
+						components: [
+							{content:"testing 1"},
+							{content:"testing 2"},
+							{content:"testing 3"},
+							{content:"testing 4"},
+							{content:"testing 5"},
+							{content:"testing 6"}
+						]
+					}
+				]},
+				{kind: "mochi.ContextualPopupDecorator", fit:true, style:"position:absolute;right:0;", components: [
+					{kind:onyx.IconButton, src: "assets/menu-icon-bookmark.png"},
+					{kind: "mochi.ContextualPopup", name:"facebook",
+						title:"Toolbar Button",
+						floating:true,					
+						actionButtons:[
+							{content:"test1", classes: "onyx-button-warning"},
+							{content:"Dismiss", name:"dismiss_button"}
+						],
+						components: [
+							{content:"testing 1"},
+							{content:"testing 2"},
+							{content:"testing 3"},
+							{content:"testing 4"},
+							{content:"testing 5"},
+							{content:"testing 6"}
+						]
+					}
+				]}
 			]}
 		]}
 	],
