@@ -24,5 +24,6 @@ enyo.depends(
 	"ListHeader.js",
 	"Collapsable.js",
 	"Header.js",
-	"Subheader.js"
+	"Subheader.js",
+	"Panels.js"
 );

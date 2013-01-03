@@ -1,7 +1,8 @@
 /* Input.css */
 .mochi-input-decorator > input {
-	margin: 4px 0px 0px;
-	padding: 0;
+	/* reset */
+	margin: 0px;
+	padding: 0px;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -9,7 +10,7 @@
 	box-shadow: none;
 	/* FIXME: hack for styling reset on Android */
 	/* -webkit-appearance: caret;*/
-	font-size: 14pt;
+	font-size: 14px;
 	font-family: "PreludeWGL Medium";
 	color: #4b4b4b;
 	font-style: italic;
@@ -21,14 +22,14 @@
 	cursor: default;
 }
 .mochi-input-decorator > input::-webkit-input-placeholder {
-    color: #7d7d7d;
+	color: #7d7d7d;
 }
 .mochi-input-decorator > input:-moz-placeholder {
-    color: #7d7d7d;
+	color: #7d7d7d;
 }
 /* IE10 */
 .mochi-input-decorator > input:-ms-input-placeholder {
-    color: #7d7d7d;
+	color: #7d7d7d;
 }
 .mochi-input-animate {
 	-webkit-transition: border-color 0.1s linear;

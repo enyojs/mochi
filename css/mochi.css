@@ -416,8 +416,10 @@
 }
 /* Input.css */
 .mochi-input-decorator > input {
-  margin: 4px 0px 0px;
-  padding: 0;
+  /* reset */
+
+  margin: 0px;
+  padding: 0px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -427,7 +429,7 @@
 
   /* -webkit-appearance: caret;*/
 
-  font-size: 14pt;
+  font-size: 14px;
   font-family: "PreludeWGL Medium";
   color: #4b4b4b;
   font-style: italic;
@@ -475,8 +477,8 @@
 }
 /* RichText.css */
 .mochi-input-decorator > .mochi-richtext {
-  margin: 4px 0px 0px;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -486,12 +488,10 @@
 
   /* -webkit-appearance: caret;*/
 
-  font-size: 14pt;
+  font-size: 14px;
   font-family: "PreludeWGL Medium";
   color: #4b4b4b;
   font-style: italic;
-  min-height: 25px;
-  min-width: 100px;
 }
 .mochi-input-decorator.mochi-focused > .mochi-richtext {
   cursor: text;
@@ -595,7 +595,7 @@
 /* below is commented out pending HI approval */
 /*
 .mochi-slider-popup.below {
-  top: 25px;
+	top: 25px;
 }
 */
 /* Spinner.css */
@@ -618,7 +618,7 @@
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {
-  margin: 6px 0px 6px;
+  margin: 10px 0px 6px;
   padding: 0;
   border: none;
   outline: none;
@@ -633,7 +633,7 @@
 
   /* -webkit-appearance: caret;*/
 
-  font-size: 14pt;
+  font-size: 14px;
   font-family: "PreludeWGL Medium";
   color: #4b4b4b;
   font-style: italic;
@@ -699,41 +699,40 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 /* Header.css */
 .mochi-header {
-  padding: 0px 32px;
-}
-.mochi-header-content-container {
   height: 64px;
-  display: table;
-}
-.mochi-header-content-wrapper {
-  display: table-cell;
-  vertical-align: bottom;
+  padding: 0px 32px;
+  white-space: nowrap;
 }
 .mochi-header-content {
   font-family: "PreludeWGL Light";
-  font-size: 36pt;
-  line-height: 32pt;
+  font-size: 36px;
+  line-height: 32px;
   color: #4b4b4b;
+  padding-top: 30px;
   text-overflow: ellipsis;
   text-transform: uppercase;
   overflow: hidden;
   white-space: nowrap;
+  display: inline-block;
+  vertical-align: text-bottom;
 }
 .mochi-header-controls {
-  height: 64px;
-  max-height: 64px;
-  display: table-cell;
+  display: inline-block;
   vertical-align: bottom;
+  padding-top: 2px;
+}
+.mochi-header-controls-first {
   padding-left: 56px;
 }
 .mochi-header-controls > * {
   display: inline-block;
+  white-space: nowrap;
 }
 /* Subheader.css */
-.mochi-subheader-content-container {
+.mochi-subheader {
   height: 56px;
-  width: 100%;
-  display: table;
+  padding: 0px 32px;
+  white-space: nowrap;
 }
 .mochi-subheader-content {
   font-family: "PreludeWGL Medium";
@@ -743,6 +742,10 @@ textarea::-webkit-scrollbar-thumb:vertical {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  /* 56px height */
+
+  line-height: 26px;
+  padding-top: 30px;
 }
 /* Collapsable.css */
 .mochi-collapsable-header {
@@ -768,7 +771,6 @@ textarea::-webkit-scrollbar-thumb:vertical {
   border-radius: 32px;
   background-color: #F5F5F5;
 }
-/* ContextualPopup.css */
 .mochi-contextual-popup-title {
   font-weight: bold;
   padding: 24px 32px 0px;
@@ -826,7 +828,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 34%;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
 }
 /*nub near horizontal left*/
 .mochi-contextual-popup.vertical.right::after {
@@ -843,21 +845,21 @@ textarea::-webkit-scrollbar-thumb:vertical {
   top: 100%;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/down.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/down.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.right::after {
   top: 0%;
   margin-top: -20px;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.left::after {
   top: 0%;
   margin-top: -20px;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
 }
 /****nub positioning for left/right popups****/
 /*vertically centered nub for popups on left of activator*/
@@ -866,7 +868,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   top: 35%;
   width: 20px;
   height: 71px;
-  background: transparent url(./../images/contextual-popup-nubs/right.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/right.png) no-repeat;
 }
 /*nub near vertical top for popups on left of activator*/
 .mochi-contextual-popup.right.high::after {
@@ -884,7 +886,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   height: 71px;
   margin-left: -20px;
   top: 35%;
-  background: transparent url(./../images/contextual-popup-nubs/left.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/left.png) no-repeat;
 }
 /*nub near vertical top for popups on right of activator*/
 .mochi-contextual-popup.left.high::after {
@@ -918,7 +920,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   margin-left: -30px;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/top-right-corner-up.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/top-right-corner-up.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.right.corner::after {
   top: 0%;
@@ -927,7 +929,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   height: 20px;
   margin-left: -2px;
   margin-top: -14px;
-  background: transparent url(./../images/contextual-popup-nubs/top-left-corner-up.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/top-left-corner-up.png) no-repeat;
 }
 /*vertical bottom corners*/
 .mochi-contextual-popup.left.above.corner {
@@ -941,13 +943,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   margin-left: -30px;
   width: 71px;
   height: 20px;
-  background: transparent url(./../images/contextual-popup-nubs/bottom-right-corner-down.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/bottom-right-corner-down.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.right.above.corner::after {
   top: 100%;
   left: 0%;
   margin-left: -2px;
-  background: transparent url(./../images/contextual-popup-nubs/bottom-left-corner-down.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/bottom-left-corner-down.png) no-repeat;
 }
 /*horizontal bottom corners*/
 .mochi-contextual-popup.left.low.corner {
@@ -961,13 +963,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 0%;
   margin-top: -30px;
   margin-left: -14px;
-  background: transparent url(./../images/contextual-popup-nubs/bottom-left-corner-left.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/bottom-left-corner-left.png) no-repeat;
 }
 .mochi-contextual-popup.right.low.corner::after {
   top: 100%;
   left: 100%;
   margin-top: -30px;
-  background: transparent url(./../images/contextual-popup-nubs/bottom-right-corner-right.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/bottom-right-corner-right.png) no-repeat;
 }
 /*horizontal top corners*/
 .mochi-contextual-popup.left.high.corner {
@@ -981,13 +983,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 0%;
   margin-top: -2px;
   margin-left: -14px;
-  background: transparent url(./../images/contextual-popup-nubs/top-left-corner-left.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/top-left-corner-left.png) no-repeat;
 }
 .mochi-contextual-popup.right.high.corner::after {
   top: 0%;
   left: 100%;
   margin-top: -2px;
-  background: transparent url(./../images/contextual-popup-nubs/top-right-corner-right.png) no-repeat;
+  background: transparent url(././../images/contextual-popup-nubs/top-right-corner-right.png) no-repeat;
 }
 /* ContextualPopupDecorator.css */
 .mochi-contextual-popup-decorator {
@@ -1052,6 +1054,15 @@ textarea::-webkit-scrollbar-thumb:vertical {
 /* ListHeader.css */
 .mochi-list-header {
   font-family: "PreludeWGL Medium";
+  font-size: 18pt;
+  font-weight: bold;
+  font-style: italic;
+  color: #323232;
+  padding: 0 32px 0 32px;
+}
+/* ListHeader.css */
+.mochi-list-header {
+  font-family: "PreludeWGL Medium";
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
@@ -1090,26 +1101,26 @@ textarea::-webkit-scrollbar-thumb:vertical {
   background-repeat: no-repeat;
 }
 .mochi-highlight-border.top {
-  background: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
+  background: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
 }
 .mochi-highlight-border.top:before {
   left: -112px;
-  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
+  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
 }
 .mochi-highlight-border.top:after {
   right: -112px;
-  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
+  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
 }
 .mochi-highlight-border.bottom {
-  background: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
+  background: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
 }
 .mochi-highlight-border.bottom:before {
   left: -112px;
-  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
+  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
 }
 .mochi-highlight-border.bottom:after {
   right: -112px;
-  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
+  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
 }
 /* wide lists, ie width >= 640px */
 .mochi-highlight-border.large {
@@ -1127,24 +1138,42 @@ textarea::-webkit-scrollbar-thumb:vertical {
   background-repeat: no-repeat;
 }
 .mochi-highlight-border.large.top {
-  background: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopMiddle.png) repeat-x;
+  background: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopMiddle.png) repeat-x;
 }
 .mochi-highlight-border.top.large:before {
   left: -320px;
-  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopLeftFade.png);
+  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopLeftFade.png);
 }
 .mochi-highlight-border.top.large:after {
   right: -320px;
-  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopRightFade.png);
+  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopRightFade.png);
 }
 .mochi-highlight-border.bottom.large {
-  background: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomMiddle.png) repeat-x;
+  background: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomMiddle.png) repeat-x;
 }
 .mochi-highlight-border.bottom.large:before {
   left: -320px;
-  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomLeftFade.png);
+  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomLeftFade.png);
 }
 .mochi-highlight-border.bottom.large:after {
   right: -320px;
-  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomRightFade.png);
+  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomRightFade.png);
+}
+/* Panels.css */
+.mochi-panels > * {
+  /* 320px width, plus the 45px overlap */
+
+  /* May need to modify this */
+
+  width: 365px;
+  padding-right: 45px;
+  background-color: #f5f5f5;
+  /* box-shadow: inset 0 0 169px rgba(0, 0, 0, 0.3); */
+
+  border-left: 1px solid #ccc;
+  border-top-left-radius: 45px;
+}
+.mochi-base-panel > *:first-child {
+  border-top-left-radius: 0px;
+  padding-right: 0px;
 }
