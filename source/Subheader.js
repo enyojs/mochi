@@ -6,28 +6,13 @@
 */
 enyo.kind({
 	name: "mochi.Subheader",
-	classes: "mochi-header",
+	classes: "mochi-subheader",
 	//* @protected
-	contentComponents: [
-		{name: "subheaderContentContainer", classes: "mochi-subheader-content-container", components: [
-			{classes: "mochi-header-content-wrapper", components: [
-				{name: "subheaderContent", classes: "mochi-subheader-content"}
-			]}
-		]}
+	components: [
+		{name: "subheaderContent", classes: "mochi-subheader-content"},
 	],
-	create: function() {
-		this.inherited(arguments);
-		this.initHeaderComponents();
-	},
-	initHeaderComponents: function() {
-		this.createComponents(this.contentComponents);
-		this.$.subheaderContent.setContent(this.content);
-	},
 	contentChanged: function() {
-		// this.$.subheaderContent will be undefined until the create method fires
-		if (this.$.subheaderContent !== undefined) {
-			this.$.subheaderContent.setContent(this.content);
-		}
+		this.$.subheaderContent.setContent(this.content);
 	},
 	resizeHandler: function() {
 		this.inherited(arguments);

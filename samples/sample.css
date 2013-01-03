@@ -74,3 +74,11 @@
 .list-sample-index {
 	float: right;
 }
+@media all and (max-width: 800px) {
+	.enyo-panels-fit-narrow > * {
+		min-width: 100%;
+		max-width: 100%;
+		padding-right: 0px;
+		border-top-left-radius: 0px;		
+	}
+}
