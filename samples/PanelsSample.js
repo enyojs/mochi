@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "PanelsSample",
+	name: "mochi.sample.PanelsSample",
 	kind: "FittableRows",
 	classes: "mochi mochi-sample enyo-unselectable enyo-fit",
 	components: [
