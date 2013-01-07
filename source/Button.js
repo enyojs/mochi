@@ -18,7 +18,7 @@ enyo.kind({
 	},
 	tools: [
 		{kind: "mochi.ButtonDecoratorLeft"},
-		{kind: "enyo.Button", name: "button", tag: "div", classes: "mochi-button-base"},
+		{name: "button", classes: "mochi-button-base"},
 		{name: "client"},
 		{kind: "mochi.ButtonDecoratorRight"},
 		{name: "bar", classes: "mochi-button-bar"}
@@ -29,13 +29,13 @@ enyo.kind({
 	},
 	create: function() {
 		this.inherited(arguments);
-		this.activeChanged();
 		this.disabledChanged();
 		this.decoratorLeftChanged();
 		this.decoratorRightChanged();
 	},
 	rendered: function() {
 		this.inherited(arguments);
+		this.activeChanged();
 		this.calcBarValue();
 		this.barClassesChanged();
 	},
@@ -46,7 +46,7 @@ enyo.kind({
 		this.$.buttonDecoratorRight.setContent(this.decoratorRight);
 	},
 	activeChanged: function() {
-		this.addRemoveClass("active", this.active);
+		this.bubble("onActivate");
 	},
 	disabledChanged: function() {
 		this.setAttribute("disabled", this.disabled);
@@ -67,5 +67,14 @@ enyo.kind({
 	contentChanged: function() {
 		this.$.button.setContent(this.content);
 		this.calcBarValue();
+	},
+	tap: function() {
+		if (this.disabled) {
+			// work around for platforms like Chrome on Android or Opera that send
+			// mouseup to disabled form controls
+			return true;
+		} else {
+			this.setActive(true);
+		}
 	}
 });
