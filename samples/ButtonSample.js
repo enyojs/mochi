@@ -8,8 +8,8 @@ enyo.kind({
 			{classes: "mochi-sample-tools", components: [
 				{kind: "mochi.Button", content: "Button", ontap:"buttonTapped"},
 				{kind: "mochi.Button", content: "Disabled Button", disabled: true, ontap:"buttonTapped"},
-				{kind: "mochi.Button", content: "Active Button", active: true, ontap:"buttonTapped"},
-				{kind: "mochi.Button", content: "Active Disabled Button", active: true, disabled: true, ontap:"buttonTapped"},
+				{kind: "mochi.Button", content: "Active Button", classes: "active", ontap:"buttonTapped"},
+				{kind: "mochi.Button", content: "Active Disabled Button", classes: "active", disabled: true, ontap:"buttonTapped"},
 				{kind: "mochi.Button", content: "Warning Button", classes: "mochi-button-warning", ontap:"buttonTapped"},
 				{kind: "mochi.Button", content: "Active Warning Button", classes: "mochi-button-warning", active: true, ontap:"buttonTapped"}
 			]},
