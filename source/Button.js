@@ -6,11 +6,11 @@
 */
 enyo.kind({
 	name: "mochi.Button",
+	kind: "enyo.GroupItem",
 	tag: "button",
 	classes: "enyo-tool-decorator mochi-button",
 	published: {
 		disabled: false,
-		active: false,
 		content: "",
 		barClasses: "",
 		decoratorLeft: "(",
@@ -44,9 +44,6 @@ enyo.kind({
 	},
 	decoratorRightChanged: function() {
 		this.$.buttonDecoratorRight.setContent(this.decoratorRight);
-	},
-	activeChanged: function() {
-		this.bubble("onActivate");
 	},
 	disabledChanged: function() {
 		this.setAttribute("disabled", this.disabled);
