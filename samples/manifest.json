@@ -11,11 +11,13 @@
 		{"name": "Checkboxes", "path":"$lib/mochi/samples/CheckboxSample", "css":"sample"},
 		{"name": "Headers", "path":"$lib/mochi/samples/HeaderSample", "css":"sample"},
 		{"name": "Inputs", "path":"$lib/mochi/samples/InputSample", "css":"sample"},
+		{"name": "Panels", "path":"$lib/mochi/samples/PanelsSample", "css":"sample"},
 		{"name": "Progress Bars", "path":"$lib/mochi/samples/ProgressSample", "css":"sample"},
 		{"name": "Sliders", "path":"$lib/mochi/samples/SliderSample", "css":"sample"},
 		{"name": "Radio Buttons", "path":"$lib/mochi/samples/RadioButtonSample", "css":"sample"},
 		{"name": "Badge", "path":"$lib/mochi/samples/BadgeSample", "css":"sample"},
 		{"name": "Spinners", "path":"$lib/mochi/samples/SpinnerSample", "css":"sample"},
-		{"name": "Contextual Pop-ups", "path":"$lib/mochi/samples/ContextualPopupSample", "css":"sample"}
+		{"name": "Contextual Popups", "path":"$lib/mochi/samples/ContextualPopupSample", "css":"sample"},
+		{"name": "List", "path":"$lib/mochi/samples/ListSample", "css":"sample"}				
 	]
 }
