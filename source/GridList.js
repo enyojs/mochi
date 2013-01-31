@@ -6,7 +6,8 @@ enyo.kind(
     {
         name: "mochi.GridList", 
         kind: "enyo.GridList", 
-        classes: "mochi-gridlist"
+        classes: "mochi-gridlist",
+        itemFixedSize: true
     }   
 );
 

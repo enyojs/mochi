@@ -9,7 +9,9 @@ enyo.kind({
 			kind: "mochi.GridList",
 			onSetupItem: "setupItem", 
 			toggleSelected: true, 
-			itemWidth: 120, itemHeight: 120, itemSpacing: 3, multiSelect: true, 
+			itemWidth: 160, 
+			itemHeight: 160, 
+			itemSpacing: 2, 
 			components: [
 	            {name: "item", kind: "mochi.GridList.ImageItem"}
 	        ]
