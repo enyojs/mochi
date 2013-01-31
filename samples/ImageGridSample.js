@@ -1,22 +1,12 @@
 enyo.kind({
-	name: "mochi.sample.GridListSample",
+	name: "mochi.sample.ImageGridSample",
 	classes: "mochi mochi-sample",
 	kind: "FittableRows",
 	components: [
 		{classes: "mochi-subheader", content: "Image Grid"},
 		{
-			name: "gridlist", 
-			fit: true, 
-			kind: "mochi.GridList",
-			itemSpacing: 4, 
-	        itemMinWidth: 120, 
-	        itemMinHeight: 120, 
-	        itemWidth: 160, 
-	        itemHeight: 160,
-			onSetupItem: "setupItem", 
-			components: [
-	            {name: "item", kind: "mochi.GridList.ImageItem"}
-	        ]
+			name: "imagegrid", kind: "mochi.ImageGrid", onSetupItem: "setupItem", 
+			itemWidth: 120, itemHeight: 120, itemSpacing: 3
 	    }
 	],
 	rendered: function() {
@@ -29,7 +19,7 @@ enyo.kind({
 			method: "flickr.photos.search",
 			format: "json",
 			api_key: '2a21b46e58d207e4888e1ece0cb149a5',
-			per_page: 100,
+			per_page: 200,
 			page: 0,
 			text: searchText,
 			sort: 'date-posted-desc',
@@ -39,13 +29,12 @@ enyo.kind({
 	},
 	processResults: function(inRequest, inResponse) {
 		this.results = inResponse.photos.photo;
-		this.$.gridlist.show(this.results.length);
+		this.$.imagegrid.show(this.results.length);
 	},
 	setupItem: function(inSender, inEvent) {
 		var i = inEvent.index;
 		var item = this.results[i];
-		this.$.item.setSource(item.url_s);
-		this.$.item.setCaption(item.title);
-		this.$.item.setSelected(this.$.gridlist.isSelected(i));
+		this.$.imagegrid.setItemSource(item.url_s);
+		this.$.imagegrid.setItemCaption(item.title);
 	}
 });
