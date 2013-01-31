@@ -14,5 +14,6 @@ enyo.depends(
 	"SpinnerSample.js",
 	"ListSample.js",
 	"RadioButtonSample.js",
-	"HeaderSample.js"
+	"HeaderSample.js",
+	"GridListSample.js"
 );

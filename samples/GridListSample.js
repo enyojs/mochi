@@ -1,12 +1,18 @@
 enyo.kind({
-	name: "mochi.sample.ImageGridSample",
+	name: "mochi.sample.GridListSample",
 	classes: "mochi mochi-sample",
 	kind: "FittableRows",
 	components: [
 		{classes: "mochi-subheader", content: "Image Grid"},
 		{
-			name: "imagegrid", kind: "mochi.ImageGrid", onSetupItem: "setupItem", 
-			itemWidth: 120, itemHeight: 120, itemSpacing: 3
+			name: "gridlist", 
+			kind: "mochi.GridList",
+			onSetupItem: "setupItem", 
+			toggleSelected: true, 
+			itemWidth: 120, itemHeight: 120, itemSpacing: 3, multiSelect: true, 
+			components: [
+	            {name: "item", kind: "mochi.GridList.ImageItem"}
+	        ]
 	    }
 	],
 	rendered: function() {
@@ -29,12 +35,13 @@ enyo.kind({
 	},
 	processResults: function(inRequest, inResponse) {
 		this.results = inResponse.photos.photo;
-		this.$.imagegrid.show(this.results.length);
+		this.$.gridlist.show(this.results.length);
 	},
 	setupItem: function(inSender, inEvent) {
 		var i = inEvent.index;
 		var item = this.results[i];
-		this.$.imagegrid.setItemSource(item.url_s);
-		this.$.imagegrid.setItemCaption(item.title);
+		this.$.item.setSource(item.url_s);
+		this.$.item.setCaption(item.title);
+		this.$.item.setSelected(this.$.gridlist.isSelected(i));
 	}
 });
