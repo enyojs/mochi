@@ -1,0 +1,42 @@
+/*
+	Put anything you reference with "url()" in ../assets/
+	This way, you can minify your application, and just remove the "source" folder for production
+*/
+.mochi-gridlist {
+	background: #ccc;
+	font-family: "PreludeWGL Light";
+}
+.mochi-gridlist-imageitem {
+	width: 100%;
+	height: 100%; 
+	overflow: visible;
+}
+.mochi-gridlist-imageitem.selected {
+	background: orange;
+	padding: 3px;
+	/*Offset the right and bottom padding by adding negative top and left margin*/
+	margin-left: -3px;
+	margin-top: -3px;
+}
+.mochi-gridlist-imageitem img {
+	width: 100%;
+	height: 100%;
+}
+.mochi-gridlist-imageitem .caption {
+	font-family: "PreludeWGL Light";
+	font-weight: bold;
+	text-align: center;
+	font-size: 10pt;
+	text-transform: uppercase;
+	z-index: 10;
+	padding-top: 10px;
+	color: #555;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height: 30px;
+	overflow: hidden;
+	bottom: 30px;
+	position: relative;
+	color: #fff;
+}
