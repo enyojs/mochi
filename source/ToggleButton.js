@@ -151,5 +151,9 @@ enyo.kind({
 		if (this.dragged) {
 			inEvent.preventTap();
 		}
+	},
+	resizeHandler: function() {
+		this.inherited(arguments);
+		this.calcKnob();
 	}
 })
