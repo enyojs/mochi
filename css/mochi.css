@@ -1,5 +1,5 @@
 /* WARNING: This is a generated file for backward-compatibility.  Most      */
-/* usrs should instead modify LESS files.  If you choose to edit this CSS   */
+/* users should instead modify LESS files.  If you choose to edit this CSS  */
 /* directly rather than LESS files, you should make sure less.xx.yy.min.js  */
 /* is commented out in your debug.html, and run deploy.sh/bat using the     */
 /* '-c' flag to disable LESS compilation.  This will force the loader and   */
@@ -25,50 +25,54 @@
 /* PreludeWGL Family */
 @font-face {
   font-family: "PreludeWGL Light";
-  src: local("☺"), url(./../fonts/PreludeWGL/PreludeWGL-Light.woff) format("woff"), url(./../fonts/PreludeWGL/PreludeWGL-Light.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Light.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "PreludeWGL Medium";
-  src: local("☺"), url(./../fonts/PreludeWGL/PreludeWGL-Medium.woff) format("woff"), url(./../fonts/PreludeWGL/PreludeWGL-Medium.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Medium.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "PreludeWGL Medium";
-  src: local("☺"), url(./../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff) format("woff"), url(./../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf") format("truetype");
   font-style: italic;
 }
 @font-face {
   font-family: "PreludeWGL Bold Italic";
-  src: local("☺"), url(./../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff) format("woff"), url(./../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Condensed Med";
-  src: local("☺"), url(./../fonts/PreludeCondensed-Medium.woff) format("woff"), url(./../fonts/PreludeCondensed-Medium.ttf) format("truetype");
+  src: local("☺"), url("../fonts/PreludeCondensed-Medium.woff") format("woff"), url("../fonts/PreludeCondensed-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Med Oblique";
-  src: local("☺"), url(./../fonts/Prelude-MediumOblique.woff) format("woff"), url(./../fonts/Prelude-MediumOblique.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-MediumOblique.woff") format("woff"), url("../fonts/Prelude-MediumOblique.ttf") format("truetype");
   font-weight: normal;
   font-style: oblique;
 }
 @font-face {
   font-family: "Prelude Bold";
-  src: local("☺"), url(./../fonts/Prelude-Bold.woff) format("woff"), url(./../fonts/Prelude-bold.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-Bold.woff") format("woff"), url("../fonts/Prelude-bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Prelude Bold Oblique";
-  src: local("☺"), url(./../fonts/Prelude-BoldOblique.woff) format("woff"), url(./../fonts/Prelude-boldOblique.ttf) format("truetype");
+  src: local("☺"), url("../fonts/Prelude-BoldOblique.woff") format("woff"), url("../fonts/Prelude-boldOblique.ttf") format("truetype");
   font-weight: bold;
   font-style: oblique;
+}
+/* Prevent browser's default focus treatment (at least in Chrome) */
+:focus {
+  outline: none;
 }
 .mochi {
   color: #333333;
@@ -401,7 +405,7 @@
   border: 2px solid #646464;
 }
 .mochi-checkbox[checked] {
-  background: url(./../images/checkbox.png) no-repeat;
+  background: url(../images/checkbox.png) no-repeat;
   padding: 2px;
   border-width: 0px;
 }
@@ -603,18 +607,18 @@
   width: 52px;
   height: 52px;
   display: inline-block;
-  background: url(./../images/spinner-dark.gif) no-repeat 0 0;
+  background: url(../images/spinner-dark.gif) no-repeat 0 0;
 }
 .mochi-spinner.mochi-light {
-  background: url(./../images/spinner-light.gif) no-repeat 0 0;
+  background: url(../images/spinner-light.gif) no-repeat 0 0;
 }
 .mochi-spinner.mochi-large {
   width: 100%;
-  background: url(./../images/spinner-large-dark.gif) no-repeat 0 0;
+  background: url(../images/spinner-large-dark.gif) no-repeat 0 0;
 }
 .mochi-spinner.mochi-large.mochi-light {
   width: 100%;
-  background: url(./../images/spinner-large-light.gif) no-repeat 0 0;
+  background: url(../images/spinner-large-light.gif) no-repeat 0 0;
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {
@@ -828,7 +832,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 34%;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
 }
 /*nub near horizontal left*/
 .mochi-contextual-popup.vertical.right::after {
@@ -845,21 +849,21 @@ textarea::-webkit-scrollbar-thumb:vertical {
   top: 100%;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/down.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/down.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.right::after {
   top: 0%;
   margin-top: -20px;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.left::after {
   top: 0%;
   margin-top: -20px;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/up.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/up.png) no-repeat;
 }
 /****nub positioning for left/right popups****/
 /*vertically centered nub for popups on left of activator*/
@@ -868,7 +872,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   top: 35%;
   width: 20px;
   height: 71px;
-  background: transparent url(././../images/contextual-popup-nubs/right.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/right.png) no-repeat;
 }
 /*nub near vertical top for popups on left of activator*/
 .mochi-contextual-popup.right.high::after {
@@ -886,7 +890,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   height: 71px;
   margin-left: -20px;
   top: 35%;
-  background: transparent url(././../images/contextual-popup-nubs/left.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/left.png) no-repeat;
 }
 /*nub near vertical top for popups on right of activator*/
 .mochi-contextual-popup.left.high::after {
@@ -920,7 +924,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   margin-left: -30px;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/top-right-corner-up.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/top-right-corner-up.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.below.right.corner::after {
   top: 0%;
@@ -929,7 +933,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   height: 20px;
   margin-left: -2px;
   margin-top: -14px;
-  background: transparent url(././../images/contextual-popup-nubs/top-left-corner-up.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/top-left-corner-up.png) no-repeat;
 }
 /*vertical bottom corners*/
 .mochi-contextual-popup.left.above.corner {
@@ -943,13 +947,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   margin-left: -30px;
   width: 71px;
   height: 20px;
-  background: transparent url(././../images/contextual-popup-nubs/bottom-right-corner-down.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/bottom-right-corner-down.png) no-repeat;
 }
 .mochi-contextual-popup.vertical.right.above.corner::after {
   top: 100%;
   left: 0%;
   margin-left: -2px;
-  background: transparent url(././../images/contextual-popup-nubs/bottom-left-corner-down.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/bottom-left-corner-down.png) no-repeat;
 }
 /*horizontal bottom corners*/
 .mochi-contextual-popup.left.low.corner {
@@ -963,13 +967,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 0%;
   margin-top: -30px;
   margin-left: -14px;
-  background: transparent url(././../images/contextual-popup-nubs/bottom-left-corner-left.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/bottom-left-corner-left.png) no-repeat;
 }
 .mochi-contextual-popup.right.low.corner::after {
   top: 100%;
   left: 100%;
   margin-top: -30px;
-  background: transparent url(././../images/contextual-popup-nubs/bottom-right-corner-right.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/bottom-right-corner-right.png) no-repeat;
 }
 /*horizontal top corners*/
 .mochi-contextual-popup.left.high.corner {
@@ -983,13 +987,13 @@ textarea::-webkit-scrollbar-thumb:vertical {
   left: 0%;
   margin-top: -2px;
   margin-left: -14px;
-  background: transparent url(././../images/contextual-popup-nubs/top-left-corner-left.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/top-left-corner-left.png) no-repeat;
 }
 .mochi-contextual-popup.right.high.corner::after {
   top: 0%;
   left: 100%;
   margin-top: -2px;
-  background: transparent url(././../images/contextual-popup-nubs/top-right-corner-right.png) no-repeat;
+  background: transparent url(./../images/contextual-popup-nubs/top-right-corner-right.png) no-repeat;
 }
 /* ContextualPopupDecorator.css */
 .mochi-contextual-popup-decorator {
@@ -1101,26 +1105,26 @@ textarea::-webkit-scrollbar-thumb:vertical {
   background-repeat: no-repeat;
 }
 .mochi-highlight-border.top {
-  background: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
+  background: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopMiddle.png) repeat-x;
 }
 .mochi-highlight-border.top:before {
   left: -112px;
-  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
+  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopLeftFade.png);
 }
 .mochi-highlight-border.top:after {
   right: -112px;
-  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
+  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_TopRightFade.png);
 }
 .mochi-highlight-border.bottom {
-  background: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
+  background: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomMiddle.png) repeat-x;
 }
 .mochi-highlight-border.bottom:before {
   left: -112px;
-  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
+  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomLeftFade.png);
 }
 .mochi-highlight-border.bottom:after {
   right: -112px;
-  background-image: url(././../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
+  background-image: url(./../images/list/SmallSelectedItem/SmallSelectedListItem_BottomRightFade.png);
 }
 /* wide lists, ie width >= 640px */
 .mochi-highlight-border.large {
@@ -1138,26 +1142,26 @@ textarea::-webkit-scrollbar-thumb:vertical {
   background-repeat: no-repeat;
 }
 .mochi-highlight-border.large.top {
-  background: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopMiddle.png) repeat-x;
+  background: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopMiddle.png) repeat-x;
 }
 .mochi-highlight-border.top.large:before {
   left: -320px;
-  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopLeftFade.png);
+  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopLeftFade.png);
 }
 .mochi-highlight-border.top.large:after {
   right: -320px;
-  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_TopRightFade.png);
+  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_TopRightFade.png);
 }
 .mochi-highlight-border.bottom.large {
-  background: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomMiddle.png) repeat-x;
+  background: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomMiddle.png) repeat-x;
 }
 .mochi-highlight-border.bottom.large:before {
   left: -320px;
-  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomLeftFade.png);
+  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomLeftFade.png);
 }
 .mochi-highlight-border.bottom.large:after {
   right: -320px;
-  background-image: url(././../images/list/LargeSelectedItem/LargeSelectedListItem_BottomRightFade.png);
+  background-image: url(./../images/list/LargeSelectedItem/LargeSelectedListItem_BottomRightFade.png);
 }
 /* Panels.css */
 .mochi-panels > * {

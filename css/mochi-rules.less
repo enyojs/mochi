@@ -5,6 +5,11 @@
 /* Import font styles */
 @import "mochi-fonts.less";
 
+/* Prevent browser's default focus treatment (at least in Chrome) */
+:focus {
+	outline: none;
+}
+
 .mochi {
 	color: @mochi-text-color;
 	font-family: @mochi-font-family;
