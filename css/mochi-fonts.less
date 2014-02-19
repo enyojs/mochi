@@ -1,71 +1,89 @@
-/* PreludeWGL Family */
+/* due to licensing, we have the open-source Lato as a fallback when Prelude is
+   not available. However,  */
+
 @font-face {
-  font-family: "PreludeWGL Light";
-  src: local("☺"), 
-    url("../fonts/PreludeWGL/PreludeWGL-Light.woff") format("woff"), 
-    url("../fonts/PreludeWGL/PreludeWGL-Light.ttf") format("truetype");
+  font-family: "Mochi Light";
+  src: local("☺"),
+    url("../fonts/PreludeWGL/PreludeWGL-Light.woff") format("woff"),
+    url("../fonts/PreludeWGL/PreludeWGL-Light.ttf") format("truetype"),
+    url("../fonts/lato-light.woff") format("woff"),
+    url("../fonts/lato-light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "PreludeWGL Medium";
-  src: local("☺"), 
-    url("../fonts/PreludeWGL/PreludeWGL-Medium.woff") format("woff"), 
-    url("../fonts/PreludeWGL/PreludeWGL-Medium.ttf") format("truetype");
+  font-family: "Mochi Medium";
+  src: local("☺"),
+    url("../fonts/PreludeWGL/PreludeWGL-Medium.woff") format("woff"),
+    url("../fonts/PreludeWGL/PreludeWGL-Medium.ttf") format("truetype"),
+    url("../fonts/lato-regular.woff") format("woff"),
+    url("../fonts/lato-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "PreludeWGL Medium";
-  src: local("☺"), 
-    url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff") format("woff"), 
-    url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf") format("truetype");
+  font-family: "Mochi Medium";
+  src: local("☺"),
+    url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff") format("woff"),
+    url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf") format("truetype"),
+    url("../fonts/lato-italic.woff") format("woff"),
+    url("../fonts/lato-italic.ttf") format("truetype");
   font-style: italic;
 }
 
 @font-face {
-    font-family: "PreludeWGL Bold Italic";
-    src: local("☺"),
-         url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff") format("woff"),
-         url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Mochi Bold Italic";
+  src: local("☺"),
+    url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff") format("woff"),
+    url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf") format("truetype"),
+    url("../fonts/lato-bolditalic.woff") format("woff"),
+    url("../fonts/lato-bolditalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Prelude Condensed Med";
-    src: local("☺"),
-    	 url("../fonts/PreludeCondensed-Medium.woff") format("woff"),
-         url("../fonts/PreludeCondensed-Medium.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Mochi Condensed Med";
+  src: local("☺"),
+    url("../fonts/PreludeCondensed-Medium.woff") format("woff"),
+    url("../fonts/PreludeCondensed-Medium.ttf") format("truetype"),
+    url("../fonts/lato-regular.woff") format("woff"),
+    url("../fonts/lato-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Prelude Med Oblique";
-    src: local("☺"),
-    	 url("../fonts/Prelude-MediumOblique.woff") format("woff"),
-         url("../fonts/Prelude-MediumOblique.ttf") format("truetype");
-    font-weight: normal;
-    font-style: oblique;
+  font-family: "Mochi Med Oblique";
+  src: local("☺"),
+    url("../fonts/Prelude-MediumOblique.woff") format("woff"),
+    url("../fonts/Prelude-MediumOblique.ttf") format("truetype"),
+    url("../fonts/lato-italic.woff") format("woff"),
+    url("../fonts/lato-italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: oblique;
 }
 
 @font-face {
-    font-family: "Prelude Bold";
-    src: local("☺"),
-    	 url("../fonts/Prelude-Bold.woff") format("woff"),
-         url("../fonts/Prelude-bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Mochi Bold";
+  src: local("☺"),
+    url("../fonts/Prelude-Bold.woff") format("woff"),
+    url("../fonts/Prelude-bold.ttf") format("truetype"),
+    url("../fonts/lato-bold.woff") format("woff"),
+    url("../fonts/lato-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Prelude Bold Oblique";
-    src: local("☺"),
-    	 url("../fonts/Prelude-BoldOblique.woff") format("woff"),
-         url("../fonts/Prelude-boldOblique.ttf") format("truetype");
-    font-weight: bold;
-    font-style: oblique;
+  font-family: "Mochi Bold Oblique";
+  src: local("☺"),
+    url("../fonts/Prelude-BoldOblique.woff") format("woff"),
+    url("../fonts/Prelude-boldOblique.ttf") format("truetype"),
+    url("../fonts/lato-bolditalic.woff") format("woff"),
+    url("../fonts/lato-bolditalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: oblique;
 }
