@@ -18,55 +18,56 @@
 /* Spinner */
 /* ---------------------------------------*/
 /* Mochi rules defined here */
-/* mochi-classes.less - combined CSS (less) files for all released mochi controls 
+/* mochi-classes.less - combined CSS (less) files for all released mochi controls
    into single mochi.less file to avoid IE bug that allows
    a maximum of 31 style sheets to be loaded before silently failing */
 /* Import font styles */
-/* PreludeWGL Family */
+/* due to licensing, we have the open-source Lato as a fallback when Prelude is
+   not available. However,  */
 @font-face {
-  font-family: "PreludeWGL Light";
-  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Light.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Light.ttf") format("truetype");
+  font-family: "Mochi Light";
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Light.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Light.ttf") format("truetype"), url("../fonts/lato-light.woff") format("woff"), url("../fonts/lato-light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "PreludeWGL Medium";
-  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Medium.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Medium.ttf") format("truetype");
+  font-family: "Mochi Medium";
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-Medium.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-Medium.ttf") format("truetype"), url("../fonts/lato-regular.woff") format("woff"), url("../fonts/lato-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "PreludeWGL Medium";
-  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf") format("truetype");
+  font-family: "Mochi Medium";
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-MediumItalic.ttf") format("truetype"), url("../fonts/lato-italic.woff") format("woff"), url("../fonts/lato-italic.ttf") format("truetype");
   font-style: italic;
 }
 @font-face {
-  font-family: "PreludeWGL Bold Italic";
-  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf") format("truetype");
+  font-family: "Mochi Bold Italic";
+  src: local("☺"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.woff") format("woff"), url("../fonts/PreludeWGL/PreludeWGL-BoldItalic.ttf") format("truetype"), url("../fonts/lato-bolditalic.woff") format("woff"), url("../fonts/lato-bolditalic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Prelude Condensed Med";
-  src: local("☺"), url("../fonts/PreludeCondensed-Medium.woff") format("woff"), url("../fonts/PreludeCondensed-Medium.ttf") format("truetype");
+  font-family: "Mochi Condensed Med";
+  src: local("☺"), url("../fonts/PreludeCondensed-Medium.woff") format("woff"), url("../fonts/PreludeCondensed-Medium.ttf") format("truetype"), url("../fonts/lato-regular.woff") format("woff"), url("../fonts/lato-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Prelude Med Oblique";
-  src: local("☺"), url("../fonts/Prelude-MediumOblique.woff") format("woff"), url("../fonts/Prelude-MediumOblique.ttf") format("truetype");
+  font-family: "Mochi Med Oblique";
+  src: local("☺"), url("../fonts/Prelude-MediumOblique.woff") format("woff"), url("../fonts/Prelude-MediumOblique.ttf") format("truetype"), url("../fonts/lato-italic.woff") format("woff"), url("../fonts/lato-italic.ttf") format("truetype");
   font-weight: normal;
   font-style: oblique;
 }
 @font-face {
-  font-family: "Prelude Bold";
-  src: local("☺"), url("../fonts/Prelude-Bold.woff") format("woff"), url("../fonts/Prelude-bold.ttf") format("truetype");
+  font-family: "Mochi Bold";
+  src: local("☺"), url("../fonts/Prelude-Bold.woff") format("woff"), url("../fonts/Prelude-bold.ttf") format("truetype"), url("../fonts/lato-bold.woff") format("woff"), url("../fonts/lato-bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "Prelude Bold Oblique";
-  src: local("☺"), url("../fonts/Prelude-BoldOblique.woff") format("woff"), url("../fonts/Prelude-boldOblique.ttf") format("truetype");
+  font-family: "Mochi Bold Oblique";
+  src: local("☺"), url("../fonts/Prelude-BoldOblique.woff") format("woff"), url("../fonts/Prelude-boldOblique.ttf") format("truetype"), url("../fonts/lato-bolditalic.woff") format("woff"), url("../fonts/lato-bolditalic.ttf") format("truetype");
   font-weight: bold;
   font-style: oblique;
 }
@@ -76,7 +77,7 @@
 }
 .mochi {
   color: #333333;
-  font-family: "Prelude Bold Oblique";
+  font-family: "Mochi Bold Oblique";
   font-size: 20px;
   cursor: default;
   background-color: #f5f5f5;
@@ -102,7 +103,7 @@
   transition: none;
 }
 .mochi-item {
-  font-family: "Prelude Med Oblique";
+  font-family: "Mochi Med Oblique";
   font-size: 14px;
   color: #323232;
   font-style: oblique;
@@ -124,7 +125,7 @@
   vertical-align: middle;
 }
 .mochi-badge-inner {
-  font-family: "PreludeWGL Bold Italic";
+  font-family: "Mochi Bold Italic";
   font-size: 12pt;
   height: 24px;
   line-height: 24px;
@@ -221,7 +222,7 @@
 }
 .mochi-button-base {
   display: inline-block;
-  font-family: "Prelude Bold Oblique";
+  font-family: "Mochi Bold Oblique";
   font-size: 14px;
   color: #323232;
   font-style: oblique;
@@ -242,7 +243,7 @@
 }
 /* ButtonDecorator.css */
 .mochi-button-decorator {
-  font-family: "Prelude Bold";
+  font-family: "Mochi Bold";
   font-size: 30px;
   color: #4b4b4b;
   font-weight: bold;
@@ -434,7 +435,7 @@
   /* -webkit-appearance: caret;*/
 
   font-size: 14px;
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   color: #4b4b4b;
   font-style: italic;
 }
@@ -493,7 +494,7 @@
   /* -webkit-appearance: caret;*/
 
   font-size: 14px;
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   color: #4b4b4b;
   font-style: italic;
 }
@@ -522,7 +523,7 @@
   margin: 24px 16px 0px;
   font-size: 12px;
   color: #a2a2a2;
-  font-family: "Prelude Med Oblique";
+  font-family: "Mochi Med Oblique";
   font-style: oblique;
 }
 .mochi-progress-text-box {
@@ -586,7 +587,7 @@
   width: 60px;
   height: 32px;
   white-space: nowrap;
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   color: #fff;
   text-align: center;
   line-height: 32px;
@@ -638,7 +639,7 @@
   /* -webkit-appearance: caret;*/
 
   font-size: 14px;
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   color: #4b4b4b;
   font-style: italic;
 }
@@ -708,7 +709,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   white-space: nowrap;
 }
 .mochi-header-content {
-  font-family: "PreludeWGL Light";
+  font-family: "Mochi Light";
   font-size: 36px;
   line-height: 32px;
   color: #4b4b4b;
@@ -739,7 +740,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   white-space: nowrap;
 }
 .mochi-subheader-content {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 18px;
   font-style: italic;
   color: #323232;
@@ -753,7 +754,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 /* Collapsable.css */
 .mochi-collapsable-header {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
@@ -761,7 +762,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   padding: 0 32px 0 32px;
 }
 .mochi-collapsable-item {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 14px;
   font-weight: bold;
   font-style: italic;
@@ -1057,7 +1058,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 /* ListHeader.css */
 .mochi-list-header {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 18pt;
   font-weight: bold;
   font-style: italic;
@@ -1066,7 +1067,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 /* ListHeader.css */
 .mochi-list-header {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
@@ -1075,7 +1076,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 }
 /* ListItem.css */
 .mochi-list-item {
-  font-family: "PreludeWGL Medium";
+  font-family: "Mochi Medium";
   font-size: 14px;
   font-weight: bold;
   font-style: italic;
@@ -1187,7 +1188,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
 */
 .mochi-gridlist {
   background: #ccc;
-  font-family: "PreludeWGL Light";
+  font-family: "Mochi Light";
 }
 .mochi-gridlist-imageitem {
   width: 100%;
@@ -1207,7 +1208,7 @@ textarea::-webkit-scrollbar-thumb:vertical {
   height: 100%;
 }
 .mochi-gridlist-imageitem .caption {
-  font-family: "PreludeWGL Light";
+  font-family: "Mochi Light";
   font-weight: bold;
   text-align: center;
   font-size: 10pt;
