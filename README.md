@@ -2,7 +2,7 @@
 
 Mochi is an enhanced UI library for Enyo 2.
 
-# Copyright and License Information
+## Copyright and License Information
 
 Unless otherwise specified, all content, including all source code files and
 documentation files in this repository are:
