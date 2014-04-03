@@ -1,6 +1,16 @@
 ## Mochi UI Library
 
-Mochi is an enhanced UI library for Enyo 2.
+Mochi is an modern touch-focused UI library for Enyo 2.
+
+Note: Mochi is currently a work-in-progress library that is currently community 
+managed.  Specifically, Mochi has not been tested or optimized on all platforms that
+Enyo core supports, and many controls are still work in progress.
+
+The full design specifications for the Mochi library can be found here:
+https://github.com/enyojs/mochi/wiki/Mochi-Designs
+
+Contributors to help complete the implementation against the envisoned design are 
+welcome!  Please see the [contributing guidelines](CONTRIBUTING.md) for more details.
 
 ## Copyright and License Information
 
