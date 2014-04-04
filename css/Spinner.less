@@ -3,19 +3,24 @@
 	width: @mochi-spinner-image-width;
 	height: @mochi-spinner-image-height;
 	display: inline-block;
-	background: @mochi-spinner-dark-image no-repeat 0 0;
+	background-image: @mochi-spinner-dark-image;
+    background-repeat: no-repeat;
+    background-position: 0 0;
 }
 
 .mochi-spinner.mochi-light {
-	background: @mochi-spinner-light-image no-repeat 0 0;
+	background-image: @mochi-spinner-light-image;
 }
 
 .mochi-spinner.mochi-large {
 	width: 100%;
-    background: @mochi-spinner-large-dark-image no-repeat 0 0;
+    background-image: @mochi-spinner-large-dark-image;
 }
 
 .mochi-spinner.mochi-large.mochi-light {
     width: 100%;
-	background: @mochi-spinner-large-light-image no-repeat 0 0;
+	background-image: @mochi-spinner-large-light-image;
+}
+.mochi-spinner.mochi-spinner-center {
+    background-position: center 0;
 }
