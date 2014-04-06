@@ -624,7 +624,7 @@
   background-image: url(../images/spinner-large-light.gif);
 }
 .mochi-spinner.mochi-spinner-center {
-    background-position: center 0;
+  background-position: center 0;
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {
