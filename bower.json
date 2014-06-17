@@ -1,9 +1,9 @@
 {
 	"name": "enyo-mochi",
-	"version": "2.4.0",
+	"version": "2.5.0",
 	"main":"package.js",
 	"dependencies": {
-		"enyo":">=2.4.0"
+		"enyo":"2.5.0"
 	},
 	"ignore": [
 		".jshintrc",
