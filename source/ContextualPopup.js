@@ -60,7 +60,8 @@ enyo.kind({
 	},
 	handlers: {
 		onRequestShowPopup: "requestShow",
-		onRequestHidePopup: "requestHide"
+		onRequestHidePopup: "requestHide",
+        onActivate: "nomnomnom"
 	},
 	components: [
 		{name:"title", classes:"mochi-contextual-popup-title"},
@@ -70,6 +71,9 @@ enyo.kind({
 		{name:"actionButtons", classes:"mochi-contextual-popup-action-buttons"}
 	],	
 	scrollerName: "client",
+    nomnomnom: function() {
+        return true;
+    },
 	create: function() {
 		this.inherited(arguments);		
 	    this.maxHeightChanged();
@@ -80,18 +84,24 @@ enyo.kind({
 		return this.$[this.scrollerName];
 	},
 	titleChanged: function(){
-		this.$.title.setContent(this.title);
+		this.$.title?this.$.title.setContent(this.title):null;
+		this.$.title?this.$.title.setShowing(this.title&&(this.title!="")):null;
 	},
 	actionButtonsChanged: function(){
 		for (var i=0;i<this.actionButtons.length;i++){
 			this.$.actionButtons.createComponent({
 				kind:"mochi.Button",
-				content:this.actionButtons[i].content,
 				classes: this.actionButtons[i].classes,
 				name: this.actionButtons[i].name ? this.actionButtons[i].name : "ActionButton"+i,
 				index: i,
-				tap: enyo.bind(this,this.tapHandler)
-			})
+				tap: enyo.bind(this,this.tapHandler),
+				content:this.actionButtons[i].content,
+				barClasses: "",
+				decoratorClasses: this.actionButtons[i].decoratorClasses,
+				decoratorLeft: this.actionButtons[i].decoratorLeft,
+				decoratorRight: this.actionButtons[i].decoratorRight,
+				disabled: this.actionButtons[i].disabled
+			});
 		}
 	},
 	tapHandler: function(inSender, inEvent){
@@ -127,7 +137,7 @@ enyo.kind({
 		return true;
 	},
 	applyPosition: function(inRect) {
-		var s = ""
+		var s = "";
 		for (n in inRect) {
 			s += (n + ":" + inRect[n] + (isNaN(inRect[n]) ? "; " : "px; "));
 		}

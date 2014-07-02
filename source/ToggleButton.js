@@ -27,7 +27,11 @@ enyo.kind({
 		disabled: false,
 		canAnimate: true,
 		colorActive: "#ffb80d",
-		colorInactive: "#646464"
+		colorInactive: "#646464",
+		//* Label for toggle button's "on" state
+		onContent: "On",
+		//* Label for toggle button's "off" state
+		offContent: "Off",
 	},
 	events: {
 		/**
@@ -46,6 +50,7 @@ enyo.kind({
 	onXPos: 0,
 	_canAnimate: false,
 	components: [
+		{name: "content", style:"width:100%; position:absolute; float:left;"},
 		{name: "toggleKnob", classes: "mochi-toggle-button-knob"},
 		{kind: "enyo.Animator", onStep: "animatorStep", onEnd: "animatorEnd"}
 	],
@@ -97,6 +102,8 @@ enyo.kind({
 	valueChanged: function() {
 		this.applyStyle("background-color", this.value ? this.colorActive : this.colorInactive);
 		this.setActive(this.value);
+		this.$.content.setContent(this.value?this.onContent:this.offContent);
+		this.$.content.applyStyle("float", this.value?"left":"right");
 		this.doChange({value: this.value});
 
 		var xPos = (this.value) ? this.onXPos : 0;
@@ -156,4 +163,4 @@ enyo.kind({
 		this.inherited(arguments);
 		this.calcKnob();
 	}
-})
+});

@@ -69,7 +69,7 @@ enyo.kind({
 	updateKnobPosition: function(inPercent) {
 		this.$.knob.applyStyle("left", inPercent + "%");
 		this.$.popup.applyStyle("left", inPercent + "%");
-		this.$.popupLabel.setContent( Math.round(inPercent) + "%" );
+		this.showPercentage?this.$.popupLabel.setContent( Math.round(inPercent) + "%" ):this.$.popupLabel.setContent( Math.round(this.value) );
 	},
 	calcKnobPosition: function(inEvent) {
 		var x = inEvent.clientX - this.hasNode().getBoundingClientRect().left;

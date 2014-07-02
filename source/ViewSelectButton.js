@@ -10,11 +10,15 @@ enyo.kind({
 	contentWidth: 0,
 	rendered: function() {
 		this.inherited(arguments);
-
-		this.contentWidth = this.getBounds().width;
+		this.recalcContentWidth();
 		// Resize the button to fit ViewSelectButtonItem kerning state
 		// (current-width + ((string-length + arbitrary padding) * size-of-letter-spacing))
-		this.applyStyle("width", (this.contentWidth + ((this.content.length + 2) * 2) ) + "px");
+		if (this.contentWidth!=0){
+			this.applyStyle("width", (this.contentWidth + ((this.content.length + 2) * 2) ) + "px");
+		}
+	},
+	recalcContentWidth: function(){
+		this.contentWidth = this.getBounds().width;
 	}
 });
 
@@ -35,7 +39,10 @@ enyo.kind({
 	defaultKind: "mochi.ViewSelectButtonItem",
 	classes: "enyo-tool-decorator mochi-view-select-button",
 	published: {
-		barClasses: ""
+		barClasses: "",
+		decoratorLeft: "(",
+		decoratorRight: ")",
+		decoratorClasses:""
 	},
 	handlers: {
 		onActivate: "activate"
@@ -52,19 +59,40 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		this.createComponents(this.moreComponents);
+		this.decoratorLeftChanged();
+		this.decoratorRightChanged();
 	},
 	rendered: function() {
 		this.inherited(arguments);
 		this.barClassesChanged();
+		this.decoratorClassesChanged();
 		this.init();
 	},
 	init: function() {
 		this.componentsRendered = true;
 		this.calcBarValue(this.active);
 	},
+	decoratorLeftChanged: function() {
+		this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
+	},
+	decoratorRightChanged: function() {
+		this.$.buttonDecoratorRight.setContent(this.decoratorRight);
+	},
 	barClassesChanged: function(inOld) {
-		this.$.bar.removeClass(inOld);
-		this.$.bar.addClass(this.barClasses);
+		if (this.$.bar){
+			this.$.bar.removeClass(inOld);
+			this.$.bar.addClass(this.barClasses);
+		}
+	},
+	decoratorClassesChanged: function(inOld) {
+		if (this.$.buttonDecoratorLeft){
+			this.$.buttonDecoratorLeft.removeClass(inOld);
+			this.$.buttonDecoratorLeft.addClass(this.decoratorClasses);
+		}
+		if (this.$.buttonDecoratorRight){
+			this.$.buttonDecoratorRight.removeClass(inOld);
+			this.$.buttonDecoratorRight.addClass(this.decoratorClasses);
+		}
 	},
 	animatorStep: function(inSender) {
 		this.updateBarPosition(this.$.bar, inSender.value);
@@ -79,14 +107,14 @@ enyo.kind({
 	},
 	calcBarValue: function(activeItem) {
 		if ((this.active) && (this.componentsRendered)) {
-
 			if (this.active.kind === "mochi.ViewSelectButtonItem") {
-				this.$.bar.applyStyle("width", activeItem.contentWidth + "px");
+				activeItem.recalcContentWidth();
+				this.$.bar.applyStyle("width", (activeItem.contentWidth-5) + "px");
 
 				// IE8 doesn't return getBoundingClientRect().width, so we calculate from right/left. Who cares ... it's IE8 ... I know
 				//var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
-				var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - activeItem.contentWidth;
-				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false) + (differential / 2);
+				var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - (activeItem.contentWidth-5);
+				var xPos = this.getCSSProperty(activeItem, "offsetLeft", false);// + (differential / 2);
 
 			} else if (this.active.kind === "mochi.IconButtonItem") {
 				this.$.bar.applyStyle("width", 25 + "px");
@@ -117,6 +145,7 @@ enyo.kind({
 				this.calcBarValue(inEvent.originator);
 			}
 		}
+				this.calcBarValue(this.active);
 	},
 	getCSSProperty: function(target, property, style) {
 		if (target.hasNode()) return (style) ? target.node.style[property] : target.node[property];
