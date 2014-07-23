@@ -1,19 +1,39 @@
 /**
-	An mochi-styled TextArea control. In addition to the features of
-	<a href="#enyo.TextArea">enyo.TextArea</a>, mochi.TextArea has a
-	*defaultFocus* property that can be set to true to focus the TextArea when
-	it's rendered. Only one TextArea should be set as the *defaultFocus*.
+ * A mochi-styled TextArea control. In addition to the features of {@link enyo.TextArea}, `mochi.TextArea` has a
+ * `defaultFocus` property that can be set to true to focus the TextArea when it is rendered. Only one `mochi.TextArea`
+ * should be set as the `defaultFocus`.
+ *
+ * Typically, a `mochi.TextArea` is placed inside a {@link mochi.InputDecorator}, which provides styling, e.g.:
+ *
+ * ```
+ * {kind: "mochi.InputDecorator", components: [
+ *	{kind: "mochi.TextArea", onchange: "inputChange"}
+ * ]}
+ * ```
+ *
+ * @class mochi.TextArea
+ * @extends enyo.TextArea
+ * @ui
+ * @public
+ */
+(function (enyo, scope) {
+	enyo.kind(
+		/** @lends mochi.TextArea.prototype */ {
 
-	Typically, an mochi.TextArea is placed inside an
-	<a href="#mochi.InputDecorator">mochi.InputDecorator</a>, which provides
-	styling, e.g.:
+		/**
+		 * @private
+		 */
+		name: "mochi.TextArea",
 
-		{kind: "mochi.InputDecorator", components: [
-			{kind: "mochi.TextArea", onchange: "inputChange"}
-		]}
-*/
-enyo.kind({
-	name: "mochi.TextArea",
-	kind: "enyo.TextArea",
-	classes: "mochi-textarea"
-});
+		/**
+		 * @private
+		 */
+		kind: "enyo.TextArea",
+
+		/**
+		 * @private
+		 */
+		classes: "mochi-textarea"
+	});
+
+})(enyo, this);
