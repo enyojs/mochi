@@ -8,7 +8,6 @@
  * @public
  */
 
-
 /**
  * `mochi.ToggleButton` extends {@link enyo.Control} and is a control that looks like a switch with labels for two
  * states. Each time a `mochi.ToggleButton` is tapped, it switches its value and fires an onChange event.

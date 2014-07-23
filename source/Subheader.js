@@ -36,13 +36,25 @@
 		components: [
 			{name: 'subheaderContent', classes: 'mochi-subheader-content'},
 		],
+
+		/**
+		 * @private
+		 */
 		contentChanged: function () {
 			this.$.subheaderContent.setContent(this.content);
 		},
+
+		/**
+		 * @private
+		 */
 		resizeHandler: function () {
 			this.inherited(arguments);
 			this.adjustContent();
 		},
+
+		/**
+		 * @private
+		 */
 		adjustContent: function () {
 			var padding = this.hasNode() ? enyo.dom.calcPaddingExtents(this.node) : {};
 			var pw = padding.left + padding.right;

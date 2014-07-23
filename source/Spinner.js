@@ -1,26 +1,11 @@
 /**
-	A control that displays a spinner animation to indicate that activity is
-	taking place. By default, mochi.Spinner will display a light spinner,
-	suitable for displaying against a dark background. To render a dark spinner
-	to be shown on a lighter background, add the "mochi-light" class to the
-	spinner:
-	
-		{kind: "mochi.Spinner", classes: "mochi-light"}
-	
-	Typically, a spinner is shown to indicate activity and hidden to indicate
-	that the activity has ended. The spinner animation will automatically start
-	when a spinner is shown. If you wish, you may control the animation directly
-	by calling the *start*, *stop*, and *toggle* methods.
-*/
-
-/**
  * `mochi.Spinner` extends {@link enyo.Control}.
  *
  * A control that displays a spinner animation to indicate that activity is taking place. By default, `mochi.Spinner`
  * will display a light spinner, suitable for displaying against a dark background. To render a dark spinner
- * to be shown on a lighter background, add the "mochi-light" class to the spinner:
+ * to be shown on a lighter background, add the 'mochi-light' class to the spinner:
  *
- * {kind: "mochi.Spinner", classes: "mochi-light"}
+ * {kind: 'mochi.Spinner', classes: 'mochi-light'}
  *
  * Typically, a spinner is shown to indicate activity and hidden to indicate that the activity has ended. The spinner
  * animation will automatically start when a spinner is shown. If you wish, you may control the animation directly
@@ -38,7 +23,7 @@
 		/**
 		 * @private
 		 */
-		name: "mochi.Spinner",
+		name: 'mochi.Spinner',
 
 		/**
 		 * @private
@@ -48,13 +33,13 @@
 		/**
 		 * @private
 		 */
-		classes: "mochi-spinner",
+		classes: 'mochi-spinner',
 		/**
 		 * Stops the spinner animation.
 		 *
 		 * @public
 		 */
-		stop: function() {
+		stop: function () {
 			this.setShowing(false);
 		},
 
@@ -63,7 +48,7 @@
 		 *
 		 * @public
 		 */
-		start: function() {
+		start: function () {
 			this.setShowing(true);
 		},
 
@@ -72,7 +57,7 @@
 		 *
 		 * @public
 		 */
-		toggle: function() {
+		toggle: function () {
 			this.setShowing(!this.getShowing());
 		}
 	});
