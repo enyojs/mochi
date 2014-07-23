@@ -14,17 +14,17 @@
  * states. Each time a `mochi.ToggleButton` is tapped, it switches its value and fires an onChange event.
  *
  *	 ```
- *	 {kind: "mochi.ToggleButton", onChange: "buttonToggle"}
+ *	 {kind: 'mochi.ToggleButton', onChange: 'buttonToggle'}
  *
- *	 buttonToggle: function(inSender, inEvent) {
- *				this.log("Toggled to value " + inEvent.value);
+ *	 buttonToggle: function (inSender, inEvent) {
+ *				this.log('Toggled to value ' + inEvent.value);
  *			}
  * 	```
  *
  * To find out the value of the button, use getValue:
  *
  *	```
- *	 queryToggleValue: function() {
+ *	 queryToggleValue: function () {
  *				return this.$.toggleButton.getValue();
  *			}
  *	```
@@ -32,7 +32,7 @@
  * The color of the toggle button can be customized by applying a background color:
  *
  * 	```
- * 	{kind: "mochi.ToggleButton", style: "background-color: #35A8EE;"}
+ * 	{kind: 'mochi.ToggleButton', style: 'background-color: #35A8EE;'}
  * 	```
  *
  * @class mochi.ToggleButton
@@ -47,7 +47,7 @@
 		/**
 		 * @private
 		 */
-		name: "mochi.ToggleButton",
+		name: 'mochi.ToggleButton',
 
 		/**
 		 * @private
@@ -57,7 +57,7 @@
 		/**
 		 * @private
 		 */
-		classes: "mochi-toggle-button",
+		classes: 'mochi-toggle-button',
 
 		/**
 		 * @private
@@ -103,19 +103,19 @@
 			 * CSS background-color property indicating active state
 			 *
 			 * @type {String}
-			 * @default "#ffb80d"
+			 * @default '#ffb80d'
 			 * @public
 			 */
-			colorActive: "#ffb80d",
+			colorActive: '#ffb80d',
 
 			/**
 			 * CSS background-color property indicating inactive state
 			 *
 			 * @type {String}
-			 * @default "#646464"
+			 * @default '#646464'
 			 * @public
 			 */
-			colorInactive: "#646464"
+			colorInactive: '#646464'
 		},
 
 
@@ -123,16 +123,16 @@
 		 * @private
 		 */
 		events: {
-			onChange: ""
+			onChange: ''
 		},
 
 		/**
 		 * @private
 		 */
 		handlers: {
-			ondragstart: "dragstart",
-			ondrag: "drag",
-			ondragfinish: "dragfinish"
+			ondragstart: 'dragstart',
+			ondrag: 'drag',
+			ondragfinish: 'dragfinish'
 		},
 
 		/**
@@ -154,14 +154,14 @@
 		 * @private
 		 */
 		components: [
-			{name: "toggleKnob", classes: "mochi-toggle-button-knob"},
-			{kind: "enyo.Animator", onStep: "animatorStep", onEnd: "animatorEnd"}
+			{name: 'toggleKnob', classes: 'mochi-toggle-button-knob'},
+			{kind: 'enyo.Animator', onStep: 'animatorStep', onEnd: 'animatorEnd'}
 		],
 
 		/**
 		 * @private
 		 */
-		create: function() {
+		create: function () {
 			this.inherited(arguments);
 			this.value = Boolean(this.value || this.active);
 			this.disabledChanged();
@@ -171,7 +171,7 @@
 		/**
 		 * @private
 		 */
-		rendered: function() {
+		rendered: function () {
 			this.inherited(arguments);
 			this.calcKnob();
 			this.valueChanged();
@@ -181,7 +181,7 @@
 		/**
 		 * @private
 		 */
-		supressAnimation: function() {
+		supressAnimation: function () {
 			this._canAnimate = this.canAnimate;
 			this.canAnimate = false;
 		},
@@ -189,17 +189,17 @@
 		/**
 		 * @private
 		 */
-		init: function() {
+		init: function () {
 			this.setCanAnimate(this._canAnimate);
 		},
 
 		/*
 		// We can add a class here to animate the background also
-		canAnimateChanged: function() {
+		canAnimateChanged: function () {
 			if (this.canAnimate) {
-				var toggleClass = "mochi-toggle-animate";
+				var toggleClass = 'mochi-toggle-animate';
 			} else {
-				var toggleClass = "mochi-no-animate";
+				var toggleClass = 'mochi-no-animate';
 			}
 			this.addClass(toggleClass);
 		},
@@ -208,35 +208,35 @@
 		/**
 		 * @private
 		 */
-		animatorStep: function(inSender) {
+		animatorStep: function (inSender) {
 			this.updateKnobPosition(inSender.value);
 		},
 
 		/**
 		 * @private
 		 */
-		updateKnobPosition: function(inValue) {
-			var xPos = inValue + "px";
+		updateKnobPosition: function (inValue) {
+			var xPos = inValue + 'px';
 			var inControl = this.$.toggleKnob;
 			if (enyo.dom.canTransform()) {
 				enyo.dom.transform(inControl, {translateX: xPos});
 			} else {
-				inControl.applyStyle("left", xPos);
+				inControl.applyStyle('left', xPos);
 			}
 		},
 
 		/**
 		 * @private
 		 */
-		calcKnob: function() {
-			this.onXPos = (this.getBounds().width - this.$.toggleKnob.getBounds().width) - (parseInt(enyo.dom.getComputedStyleValue(this.$.toggleKnob.hasNode(), "margin-left")) * 2);
+		calcKnob: function () {
+			this.onXPos = (this.getBounds().width - this.$.toggleKnob.getBounds().width) - (parseInt(enyo.dom.getComputedStyleValue(this.$.toggleKnob.hasNode(), 'margin-left')) * 2);
 		},
 
 		/**
 		 * @private
 		 */
-		valueChanged: function() {
-			this.applyStyle("background-color", this.value ? this.colorActive : this.colorInactive);
+		valueChanged: function () {
+			this.applyStyle('background-color', this.value ? this.colorActive : this.colorInactive);
 			this.setActive(this.value);
 			this.doChange({value: this.value});
 
@@ -258,22 +258,22 @@
 		/**
 		 * @private
 		 */
-		activeChanged: function() {
+		activeChanged: function () {
 			this.setValue(this.active);
-			this.bubble("onActivate");
+			this.bubble('onActivate');
 		},
 
 		/**
 		 * @private
 		 */
-		disabledChanged: function() {
-			this.addRemoveClass("disabled", this.disabled);
+		disabledChanged: function () {
+			this.addRemoveClass('disabled', this.disabled);
 		},
 
 		/**
 		 * @private
 		 */
-		updateValue: function(inValue) {
+		updateValue: function (inValue) {
 			if (!this.disabled) {
 				this.setValue(inValue);
 			}
@@ -282,14 +282,14 @@
 		/**
 		 * @private
 		 */
-		tap: function() {
+		tap: function () {
 			this.updateValue(!this.value);
 		},
 
 		/**
 		 * @private
 		 */
-		dragstart: function(inSender, inEvent) {
+		dragstart: function (inSender, inEvent) {
 			if (inEvent.horizontal) {
 				inEvent.preventDefault();
 				this.dragging = true;
@@ -301,7 +301,7 @@
 		/**
 		 * @private
 		 */
-		drag: function(inSender, inEvent) {
+		drag: function (inSender, inEvent) {
 			if (this.dragging) {
 				var d = inEvent.dx;
 				if (Math.abs(d) > 10) {
@@ -315,7 +315,7 @@
 		/**
 		 * @private
 		 */
-		dragfinish: function(inSender, inEvent) {
+		dragfinish: function (inSender, inEvent) {
 			this.dragging = false;
 			if (this.dragged) {
 				inEvent.preventTap();
@@ -325,7 +325,7 @@
 		/**
 		 * @private
 		 */
-		resizeHandler: function() {
+		resizeHandler: function () {
 			this.inherited(arguments);
 			this.calcKnob();
 		}

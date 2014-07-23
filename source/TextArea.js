@@ -6,8 +6,8 @@
  * Typically, a `mochi.TextArea` is placed inside a {@link mochi.InputDecorator}, which provides styling, e.g.:
  *
  * ```
- * {kind: "mochi.InputDecorator", components: [
- *	{kind: "mochi.TextArea", onchange: "inputChange"}
+ * {kind: 'mochi.InputDecorator', components: [
+ *	{kind: 'mochi.TextArea', onchange: 'inputChange'}
  * ]}
  * ```
  *
@@ -23,17 +23,17 @@
 		/**
 		 * @private
 		 */
-		name: "mochi.TextArea",
+		name: 'mochi.TextArea',
 
 		/**
 		 * @private
 		 */
-		kind: "enyo.TextArea",
+		kind: 'enyo.TextArea',
 
 		/**
 		 * @private
 		 */
-		classes: "mochi-textarea"
+		classes: 'mochi-textarea'
 	});
 
 })(enyo, this);
