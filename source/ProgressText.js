@@ -57,7 +57,7 @@
 		/**
 		 * @private
 		 */
-		published: {
+		published: /** @lends mochi.ProgressText.prototype */ {
 			/**
 			 * Current position of progress bar
 			 *
@@ -118,6 +118,9 @@
 		 * @private
 		 */
 		events: {
+			/**
+			 * {@link mochi.ProgressText#event:onAnimateProgressFinish}
+			 */
 			onAnimateProgressFinish: ''
 		},
 

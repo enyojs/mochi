@@ -1,18 +1,57 @@
-/**
-	_mochi.Panels_ is a mochi-styled _enyo.Panels_ control.
+(function (enyo, scope) {
+	/**
+	 * `mochi.Panels` is a mochi-styled {@link enyo.Panels} control.
+	 *
+	 * ```
+	 * {kind: "mochi.Panels", components: [
+	 *	{content: "Panel 0"},
+	 *	{content: "Panel 1"}
+	 * ]}
+	 * ```
+	 *
+	 * @class mochi.Panels
+	 * @extends enyo.Panels
+	 * @ui
+	 * @public
+	 */
 
-		{kind: "mochi.Panels", components: [
-			{content: "Panel 0"},
-			{content: "Panel 1"}
-		]}
+	enyo.kind(
+		/** @lends mochi.Panels.prototype */ {
 
-*/
-enyo.kind({
-	name: "mochi.Panels",
-	kind: "enyo.Panels",
-	classes:"mochi-panels mochi-base-panel",
-	arrangerKind: "DockRightArranger",
-	basePanel: true,
-	overlap: 45,
-	layoutWidth: 800
-});
+		/**
+		 * @private
+		 */
+		name: "mochi.Panels",
+
+		/**
+		 * @private
+		 */
+		kind: "enyo.Panels",
+
+		/**
+		 * @private
+		 */
+		classes:"mochi-panels mochi-base-panel",
+
+		/**
+		 * @private
+		 */
+		arrangerKind: "DockRightArranger",
+
+		/**
+		 * @private
+		 */
+		basePanel: true,
+
+		/**
+		 * @private
+		 */
+		overlap: 45,
+
+		/**
+		 * @private
+		 */
+		layoutWidth: 800
+	});
+
+})(enyo, this);

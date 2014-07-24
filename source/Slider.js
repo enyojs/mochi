@@ -64,7 +64,7 @@
 		/**
 		 * @private
 		 */
-		published: {
+		published: /** @lends mochi.Slider.prototype */ {
 			/**
 			 * Value between min and max for knob position
 			 *
@@ -106,8 +106,19 @@
 		 * @private
 		 */
 		events: {
+			/**
+			 * {@link mochi.Slider#event:onChange}
+			 */
 			onChange: '',
+
+			/**
+			 * {@link mochi.Slider#event:onChanging}
+			 */
 			onChanging: '',
+
+			/**
+			 * {@link mochi.Slider#event:onAnimateFinish}
+			 */
 			onAnimateFinish: ''
 		},
 
