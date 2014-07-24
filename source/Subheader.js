@@ -1,17 +1,18 @@
-/**
- * `mochi.ToggleButton` is a mochi-styled Subheader control that extends {@link enyo.Control}. This will display a
- * single line of text.
- *
- * ```
- * {kind: 'mochi.Subheader', content: 'This is a subheader'}
- * ```
- *
- * @class mochi.Subheader
- * @extends enyo.Control
- * @ui
- * @public
- */
 (function (enyo, scope) {
+	/**
+	 * `mochi.ToggleButton` is a mochi-styled Subheader control that extends {@link enyo.Control}. This will display a
+	 * single line of text.
+	 *
+	 * ```
+	 * {kind: 'mochi.Subheader', content: 'This is a subheader'}
+	 * ```
+	 *
+	 * @class mochi.Subheader
+	 * @extends enyo.Control
+	 * @ui
+	 * @public
+	 */
+
 	enyo.kind(
 		/** @lends mochi.Subheader.prototype */ {
 

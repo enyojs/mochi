@@ -1,47 +1,48 @@
-/**
- * The `onChange` event is fired when the position is set, either by finishing a drag or by tapping the bar.
- *
- * @event mochi.Slider#onChange
- * @type {Object}
- * @property {Number} value - The current position of the knob
- * @public
- */
-
-/**
- * The `onChanging` event is fired when dragging the control knob.
- *
- * @event mochi.Slider#onChanging
- * @type {Object}
- * @property {Number} value - The current position of the knob
- * @public
- */
-
-/**
- * The `onAnimateFinish` event fires when the knob movement animation finishes.
- *
- * @event mochi.Slider#onAnimateFinish
- * @type {Object}
- * @property {Object} sender - The [component]{@link enyo.Component} that most recently
- *	propagated the [event]{@link external:event}.
- * @public
- */
-
-/**
- * `mochi.Slider` extends {@link mochi.ProgressBar}.
- *
- * A control that presents a range of selection options in the form of a horizontal slider with a control knob. The
- * knob may be tapped and dragged to the desired location.
- *
- * ```
- * {kind: 'mochi.Slider', value: 30}
- * ```
- *
- * @class mochi.Spinner
- * @extends mochi.ProgressBar
- * @ui
- * @public
- */
 (function (enyo, scope) {
+	/**
+	 * The `onChange` event is fired when the position is set, either by finishing a drag or by tapping the bar.
+	 *
+	 * @event mochi.Slider#onChange
+	 * @type {Object}
+	 * @property {Number} value - The current position of the knob
+	 * @public
+	 */
+
+	/**
+	 * The `onChanging` event is fired when dragging the control knob.
+	 *
+	 * @event mochi.Slider#onChanging
+	 * @type {Object}
+	 * @property {Number} value - The current position of the knob
+	 * @public
+	 */
+
+	/**
+	 * The `onAnimateFinish` event fires when the knob movement animation finishes.
+	 *
+	 * @event mochi.Slider#onAnimateFinish
+	 * @type {Object}
+	 * @property {Object} sender - The [component]{@link enyo.Component} that most recently
+	 *	propagated the [event]{@link external:event}.
+	 * @public
+	 */
+
+	/**
+	 * `mochi.Slider` extends {@link mochi.ProgressBar}.
+	 *
+	 * A control that presents a range of selection options in the form of a horizontal slider with a control knob. The
+	 * knob may be tapped and dragged to the desired location.
+	 *
+	 * ```
+	 * {kind: 'mochi.Slider', value: 30}
+	 * ```
+	 *
+	 * @class mochi.Spinner
+	 * @extends mochi.ProgressBar
+	 * @ui
+	 * @public
+	 */
+
 	enyo.kind(
 		/** @lends mochi.Slider.prototype */ {
 

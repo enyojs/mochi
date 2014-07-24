@@ -1,14 +1,14 @@
-/**
- * `mochi.ViewSelectButtonItem' extends {@link enyo.Button}, and is intended to be used only within
- * a {@link mochi.ViewSelectButton}.
- *
- * @class mochi.ViewSelectButtonItem
- * @extends enyo.Button
- * @ui
- * @public
- */
-
 (function (enyo, scope) {
+	/**
+	 * `mochi.ViewSelectButtonItem' extends {@link enyo.Button}, and is intended to be used only within
+	 * a {@link mochi.ViewSelectButton}.
+	 *
+	 * @class mochi.ViewSelectButtonItem
+	 * @extends enyo.Button
+	 * @ui
+	 * @public
+	 */
+
 	enyo.kind(
 		/** @lends mochi.ViewSelectButtonItem.prototype */ {
 
