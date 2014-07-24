@@ -3,46 +3,46 @@
 	* A button in the mochi style. The active state of the button may be customized by
 	* applying a custom style.
 	*
-	* ```
+	* ```javascript
 	* {kind: 'mochi.Button', content: 'Button'},
 	* ```
 	*
 	* @ui
 	* @class mochi.Button
 	* @extends enyo.GroupItem
-	* @public	
+	* @public
 	*/
 	enyo.kind(
 		/** @lends mochi.Button.prototype */ {
-			
+
 		/**
 		* @private
 		*/
 		name: 'mochi.Button',
-		
+
 		/**
 		* @private
 		*/
 		kind: 'enyo.GroupItem',
-		
+
 		/**
 		* @private
 		*/
 		tag: 'button',
-		
+
 		/**
 		* @private
 		*/
 		classes: 'enyo-tool-decorator mochi-button',
-		
+
 		/**
 		* @private
 		* @lends mochi.Button.prototype
 		*/
 		published: {
-			
+
 			/**
-			* When `true`, the [button]{@glossary button} is shown as disabled and does not 
+			* When `true`, the [button]{@glossary button} is shown as disabled and does not
 			* generate tap [events]{@glossary event}.
 			*
 			* @type {Boolean}
@@ -50,25 +50,25 @@
 			* @public
 			*/
 			disabled: false,
-			
-			/** 
-			* The button text 
+
+			/**
+			* The button text
 			*
-			* @type {Boolean}
-			* @default null
+			* @type {String}
+			* @default ''
 			* @public
 			*/
 			content: '',
-			
+
 			/**
-			* Css classes applied to the bar. If '', the default is used
+			* CSS classes applied to the underline bar. If '', the default is used
 			*
 			* @type {String}
 			* @default ''
 			* @public
 			*/
 			barClasses: '',
-			
+
 			/**
 			* The character to the left of the button text
 			*
@@ -77,7 +77,7 @@
 			* @public
 			*/
 			decoratorLeft: '(',
-			
+
 			/**
 			* The character to the right of the button text
 			*
@@ -87,7 +87,7 @@
 			*/
 			decoratorRight: ')'
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -98,7 +98,7 @@
 			{kind: 'mochi.ButtonDecoratorRight'},
 			{name: 'bar', classes: 'mochi-button-bar'}
 		],
-		
+
 		/**
 		* @private
 		*/
@@ -106,7 +106,7 @@
 			this.createChrome(this.tools);
 			this.inherited(arguments);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -116,7 +116,7 @@
 			this.decoratorLeftChanged();
 			this.decoratorRightChanged();
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -126,21 +126,21 @@
 			this.calcBarValue();
 			this.barClassesChanged();
 		},
-		
+
 		/**
 		* @private
 		*/
 		decoratorLeftChanged: function () {
 			this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
 		},
-		
+
 		/**
 		* @private
 		*/
 		decoratorRightChanged: function () {
 			this.$.buttonDecoratorRight.setContent(this.decoratorRight);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -148,7 +148,7 @@
 			this.setAttribute('disabled', this.disabled);
 			this.addRemoveClass('disabled', this.disabled);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -156,7 +156,7 @@
 			this.$.bar.removeClass(inOld);
 			this.$.bar.addClass(this.barClasses);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -164,7 +164,7 @@
 			this.$.bar.applyStyle('width', bounds.width + 'px');
 			this.$.bar.applyStyle('left', bounds.left + 'px');
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -172,7 +172,7 @@
 			var bounds = this.$.button.getBounds();
 			this.updateBarPosition(bounds);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -180,7 +180,7 @@
 			this.$.button.setContent(this.content);
 			this.calcBarValue();
 		},
-		
+
 		/**
 		* @private
 		*/

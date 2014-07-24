@@ -3,53 +3,54 @@
 	* A mochi-styled Header control. This will display a single line of text,
 	* alongside an optional control.
 	*
-	* ```
+	* ```javascript
 	* {kind: 'mochi.Header', content: 'This is a header', components: [
-	* {kind: 'mochi.Button', content: 'Button'}
+	* 	{kind: 'mochi.Button', content: 'Button'}
 	* ]}
 	* ```
 	*
-	* It is intended that only 1 control be used with a mochi.Header.
+	* It is intended that only 1 control be used with a {@link mochi.Header}.
 	* However, multiple controls should align properly as inline-blocks.
 	*
 	* @ui
-	* @class mochi.Checkbox
-	* @extends mochi.RadioButton
-	* @public		
+	* @class mochi.Header
+	* @extends enyo.Control
+	* @public
 	*/
 	enyo.kind(
-		/** @lends enyo.Control.prototype */ {
-			
+		/** @lends mochi.Header.prototype */ {
+
 		/**
 		* @private
 		*/
 		name: 'mochi.Header',
-		
+
 		/**
 		* @private
 		*/
 		kind: 'enyo.Control',
-		
+
 		/**
 		* @private
 		*/
 		classes: 'mochi-header',
-		
+
 		/**
 		* @private
+		* @lends mochi.Header.prototype
 		*/
 		published: {
-			
+
 			/**
+			* Custom CSS classes to apply to header
 			*
-			* @type {Boolean}
-			* @default null
+			* @type {String}
+			* @default ''
 			* @public
 			*/
 			customClasses: ''
 		},
-		
-		//* @protected
+
 		/**
 		* @private
 		*/
@@ -57,7 +58,7 @@
 			{name: 'headerContent', classes: 'mochi-header-content'},
 			{name: 'client', classes: 'mochi-header-controls'}
 		],
-		
+
 		/**
 		* @private
 		*/
@@ -65,14 +66,15 @@
 			this.createChrome(this.tools);
 			this.inherited(arguments);
 		},
-		
-		// Minimum px width allowed for content
-		// 80px is generally enough to display 1 letter and ellipsis
+
 		/**
+		* Minimum px width allowed for content
+		* 80px is generally enough to display 1 letter and ellipsis
+		*
 		* @private
 		*/
 		minContentWidth: 80,
-		
+
 		/**
 		* @private
 		*/
@@ -80,14 +82,14 @@
 			this.$.headerContent.removeClass(inOld);
 			this.$.headerContent.addClass(this.customClasses);
 		},
-		
+
 		/**
 		* @private
 		*/
 		contentChanged: function () {
 			this.$.headerContent.setContent(this.content);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -97,7 +99,7 @@
 			this.adjustControls();
 			this.adjustContent();
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -105,7 +107,7 @@
 			this.inherited(arguments);
 			this.adjustContent();
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -117,7 +119,7 @@
 				this.$.client.addClass('mochi-header-controls-first');
 			}
 		},
-		
+
 		/**
 		* @private
 		*/

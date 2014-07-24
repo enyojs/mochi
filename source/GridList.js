@@ -1,60 +1,57 @@
 (function (enyo, scope) {
 	/**
-	* _mochi.GridList_ extends _enyo.GridList_ to add mochi styling
+	* `mochi.GridList` extends `enyo.GridList` to add mochi styling
 	*
 	* @ui
-	* @class mochi.Checkbox
-	* @extends mochi.RadioButton
-	* @public	
+	* @class mochi.GridList
+	* @extends enyo.GridList
+	* @public
 	*/
 
 	enyo.kind(
-	 	/** @lends enyo.Control.prototype */ {
-			
+	 	/** @lends mochi.GridList.prototype */ {
+
 			/**
 			* @private
 			*/
 			name: 'mochi.GridList',
-			
+
 			/**
 			* @private
-			*/ 
-			kind: 'enyo.GridList', 
-			
+			*/
+			kind: 'enyo.GridList',
+
 			/**
 			* @private
 			*/
 			classes: 'mochi-gridlist',
-			
+
 			/**
 			* @private
 			*/
 			itemFixedSize: true
 		}
 	);
-	
-	/**
-	* _mochi.GridList_ extends _enyo.GridList_ to add mochi styling
-	*
-	* @ui
-	* @class mochi.Checkbox
-	* @extends mochi.RadioButton
-	* @public	
-	*/	
 
+	/**
+	* @ui
+	* @class mochi.GridList.ImageItem
+	* @extends enyo.GridList.ImageItem
+	* @public
+	*/
 	enyo.kind (
-		/** @lends enyo.Control.prototype */ {
-			
+		/** @lends mochi.GridList.ImageItem */ {
+
 			/**
 			* @private
 			*/
 			name: 'mochi.GridList.ImageItem',
-			
+
 			/**
 			* @private
 			*/
 			kind: 'enyo.GridList.ImageItem',
-			
+
 			/**
 			* @private
 			*/

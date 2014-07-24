@@ -1,50 +1,51 @@
 (function (enyo, scope) {
 	/**
-	* A badge in the mochi style. 
-	* ```
+	* A badge in the mochi style.
+	*
+	* ```javascript
 	* {kind: 'mochi.Badge', content: '5'},
 	* ```
 	*
 	* @ui
 	* @class mochi.Badge
 	* @extends enyo.Control
-	* @public	
+	* @public
 	*/
 	enyo.kind(
 		/** @lends mochi.Badge.prototype */ {
-			
+
 		/**
 		* @private
 		*/
 		name: 'mochi.Badge',
-		
+
 		/**
 		* @private
 		*/
 		kind: 'enyo.Control',
-		
+
 		/**
 		* @private
 		*/
 		classes: 'enyo-tool-decorator mochi-badge',
-		
+
 		/**
 		* @private
 		* @lends mochi.Badge.prototype
 		*/
 		published: {
-			
+
 			/**
-			* style string for css background property.
+			* value string for CSS background property.
 			*
 			* @type {String}
 			* @default '#69cdff'
 			* @public
 			*/
 			background: '#69cdff',
-			
+
 			/**
-			* style string for css color property.
+			* value string for CSS color property.
 			*
 			* @type {String}
 			* @default '#ffffff'
@@ -52,14 +53,14 @@
 			*/
 			color: '#ffffff'
 		},
-		
+
 		/**
 		* @private
 		*/
 		components: [
 			{name: 'inner', classes: 'mochi-badge-inner'}
 		],
-		
+
 		/**
 		* @private
 		*/
@@ -67,7 +68,7 @@
 			this._origBackground = this.background;
 			this.inherited(arguments);
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -77,7 +78,7 @@
 			this.backgroundChanged();
 			this.colorChanged();
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -86,7 +87,7 @@
 				this.setBackground('transparent');
 				this.$.inner.setContent('');
 				return;
-			} 
+			}
 			this.setShowing(true);
 			this.setBackground(this._origBackground);
 			this.$.inner.setContent(this.content);
@@ -100,14 +101,14 @@
 				this.$.inner.addClass('round');
 			}
 		},
-		
+
 		/**
 		* @private
 		*/
 		backgroundChanged: function () {
 			this.$.inner.addStyles('background: ' + this.background + ';');
 		},
-		
+
 		/**
 		* @private
 		*/

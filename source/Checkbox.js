@@ -1,12 +1,12 @@
-(function (enyo, scope) {	
+(function (enyo, scope) {
 	/**
 	* A box that shows or hides a check mark when clicked.
-	* The {@link mochi.RadioButtononChange event is fired when it is clicked. Use getValue() to fetch
-	* the checked status.
+	* The {@link mochi.RadioButton#onChange} event is fired when it is clicked. Use `getValue()` to
+	* fetch the checked status.
 	*
-	* ```
+	* ```javascript
 	* {kind: 'mochi.Checkbox', onchange: 'checkboxClicked'}
-	* 
+	*
 	* checkboxClicked: function (inSender) {
 	* 	if (inSender.getValue()) {
 	* 		this.log('I've been checked!');
@@ -21,33 +21,34 @@
 	*/
 	enyo.kind(
 		/** @lends mochi.Checkbox.prototype */ {
-			
+
 		/**
 		* @private
 		*/
 		name: 'mochi.Checkbox',
-		
+
 		/**
 		* @private
 		*/
 		kind: 'mochi.RadioButton',
-		
-		// FIXME: Experimental properties for dynamic color changing
+
 		/**
+		* FIXME: Experimental properties for dynamic color changing
+		*
 		* @private
 		* @lends mochi.Checkbox.prototype
 		*/
 		published: {
-			
+
 			/**
 			* Background color when checked
 			*
 			* @type {String}
 			* @default '#ffb80d'
 			* @public
-			*/			
+			*/
 			colorActive: '#ffb80d',
-			
+
 			/**
 			* Background color when unchecked
 			*
@@ -56,7 +57,7 @@
 			* @public
 			*/
 			colorInactive: '#fff',
-			
+
 			/**
 			* Background color when checked and disabled
 			*
@@ -65,7 +66,7 @@
 			* @public
 			*/
 			colorActiveDisabled: '#ffb80d',
-			
+
 			/**
 			* Background color when unchecked and disabled
 			*
@@ -74,7 +75,7 @@
 			* @public
 			*/
 			colorInactiveDisabled: '#fff',
-			
+
 			/**
 			* Whether to animate between checked and unchecked
 			*
@@ -83,7 +84,7 @@
 			* @public
 			*/
 			canAnimate: true,
-			
+
 			/**
 			* Type of control
 			*
@@ -92,9 +93,9 @@
 			* @public
 			*/
 			type: 'checkbox',
-			
+
 			/**
-			* Css classes which add button styling
+			* CSS classes which add button styling
 			*
 			* @type {String}
 			* @default 'mochi-checkbox'
@@ -102,7 +103,7 @@
 			*/
 			buttonClasses: 'mochi-checkbox'
 		},
-		
+
 		/**
 		* @private
 		*/

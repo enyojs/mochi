@@ -1,57 +1,58 @@
 (function (enyo, scope) {
 	/**
-	* A control that activates a <a href='#mochi.ContextualPopup'>mochi.ContextualPopup</a>. It loosely
+	* A control that activates a {@link mochi.ContextualPopup}. It loosely
 	* couples the Popup with an activating control, which may be a button or any
-	* other control with an _onActivate_ event. The decorator must surround both
+	* other control with an `onActivate` event. The decorator must surround both
 	* the	activating control and the popup itself. When the control is activated,
 	* the	popup shows itself in the correct position relative to the activator.
 	*
-	* ```
+	* ```javascript
 	* {kind: 'mochi.ContextualPopupDecorator', components: [
-	* {content: 'Show Popup'},
-	* {kind: 'mochi.ContextualPopup',
-	* title:'Sample Popup',
-	* actionButtons:[
-	* {content:'Button 1', classes: 'mochi-button-warning'},
-	* {content:'Button 2'}
-	* ],
-	* components: [
-	* {content:'Sample component in popup'}
-	* ]
-	* }
+	* 	{content: 'Show Popup'},
+	* 	{
+	*		kind: 'mochi.ContextualPopup',
+	* 		title:'Sample Popup',
+	* 		actionButtons:[
+	* 			{content:'Button 1', classes: 'mochi-button-warning'},
+	* 			{content:'Button 2'}
+	* 		],
+	* 		components: [
+	* 			{content:'Sample component in popup'}
+	* 		]
+	* 	}
 	* ]}
 	* ```
 	*
 	* @ui
-	* @class mochi.Checkbox
-	* @extends mochi.RadioButton
-	* @public	
+	* @class mochi.ContextualPopupDecorator
+	* @extends enyo.Control
+	* @public
 	*/
 	enyo.kind(
-		/** @lends enyo.Control.prototype */ {
-			
+		/** @lends mochi.ContextualPopupDecorator.prototype */ {
+
 		/**
 		* @private
 		*/
 		name: 'mochi.ContextualPopupDecorator',
-		
+
 		/**
 		* @private
 		*/
 		kind: 'enyo.Control',
-		
+
 		/**
 		* @private
 		*/
 		defaultKind: 'mochi.Button',
-		
-		//* @protected
-		// selection on ios prevents tap events, so avoid.
+
 		/**
+		* selection on ios prevents tap events, so avoid.
+		*
 		* @private
 		*/
 		classes: 'mochi-contextual-popup-decorator enyo-unselectable',
-		
+
 		/**
 		* @private
 		*/
@@ -59,8 +60,9 @@
 			onActivate: 'activated',
 			onHide: 'popupHidden'
 		},
-		
+
 		/**
+		* @fires enyo.Control#event:onActivate
 		* @private
 		*/
 		activated: function (inSender, inEvent) {
@@ -72,7 +74,7 @@
 				this.requestShowPopup();
 			}
 		},
-		
+
 		/**
 		* @private
 		*/
@@ -83,15 +85,19 @@
 				this.activator.removeClass('active');
 			}
 		},
-		
+
 		/**
+		* event waterfalls down
+		* @fires mochi.ContextualPopup#event:onRequestShowPopup
 		* @private
 		*/
 		requestShowPopup: function () {
 			this.waterfallDown('onRequestShowPopup', {activator: this.activator});
 		},
-		
+
 		/**
+		* event waterfalls down
+		* @fires moon.ContextualPopup#event:onRequestHidePopup
 		* @private
 		*/
 		requestHidePopup: function () {
