@@ -1,4 +1,16 @@
-enyo.kind({
-	name: "mochi.ListHeader",
-	classes: "mochi-list-header"
-})
+(function (enyo, scope) {
+	enyo.kind(		
+		{
+			
+		/**
+		* @private
+		*/	
+		name: 'mochi.ListHeader',
+		
+		/**
+		* @private
+		*/	
+		classes: 'mochi-list-header'
+	})
+
+})(enyo, this);
