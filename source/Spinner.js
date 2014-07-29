@@ -14,7 +14,20 @@
 */
 enyo.kind({
 	name: "mochi.Spinner",
-	classes: "mochi-spinner",
+	published: {
+		//* centers the spinner in its container. default: true
+		center: true
+	},
+	classes: "mochi-spinner mochi-spinner-center",
+	create: function() {
+		this.inherited(arguments);
+		this.centerChanged();
+	},
+	//* @private
+	//* Adds or remove css regarding the spinner's centering
+	centerChanged: function() {
+		this.addRemoveClass("mochi-spinner-center", this.getCenter() );
+	},
 	//* @public
 	//* Stops the spinner animation.
 	stop: function() {
