@@ -6,9 +6,9 @@ enyo.kind({
 		{kind: "enyo.Scroller", fit: true, components:[
 			{kind: "mochi.Subheader", content: "Progress Text"},
 			{classes: "mochi-sample-tools", components: [
-				{kind: "mochi.ProgressText", progress: 25},
+				{kind: "mochi.ProgressText", progress: 25, label: ''},
 				{kind: "mochi.ProgressText", barClasses: "mochi-sample-progress-text-red", progress: 50},
-				{kind: "mochi.ProgressText", progress: 75}
+				{kind: "mochi.ProgressText", progress: 75, label: 'Downloaded'}
 			]},
 			{tag: "br"},
 			{kind: "mochi.Subheader", content: "Progress Bar"},

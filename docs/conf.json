@@ -1,0 +1,23 @@
+{
+	"tags": {
+		"allowUnknownTags": false
+	},
+	"source": {
+		"include": ["source", "docs/external.jsdoc"],
+		"exclude": ["css", "docs", "fonts", "images", "samples"],
+		"excludePattern": "package\\.js",
+		"includePattern": ".+\\.js(doc)?$"
+	},
+	"opts": {
+		"encoding": "utf8",
+		"destination": "./docs/out",
+		"recurse": true,
+		"private": false,
+		"lenient": false
+	},
+	"plugins": ["plugins/markdown"],
+	"markdown": {
+		"parser": "gfm",
+		"hardwrap": false
+	}
+}
