@@ -1,4 +1,4 @@
-/* WARNING: This is a generated file for backward-compatibility.  Most      */
+﻿/* WARNING: This is a generated file for backward-compatibility.  Most      */
 /* users should instead modify LESS files.  If you choose to edit this CSS  */
 /* directly rather than LESS files, you should make sure less.xx.yy.min.js  */
 /* is commented out in your debug.html, and run deploy.sh/bat using the     */
@@ -608,18 +608,23 @@
   width: 52px;
   height: 52px;
   display: inline-block;
-  background: url(../images/spinner-dark.gif) no-repeat 0 0;
+  background-image: url(../images/spinner-dark.gif);
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 .mochi-spinner.mochi-light {
-  background: url(../images/spinner-light.gif) no-repeat 0 0;
+  background-image: url(../images/spinner-light.gif);
 }
 .mochi-spinner.mochi-large {
   width: 100%;
-  background: url(../images/spinner-large-dark.gif) no-repeat 0 0;
+  background-image: url(../images/spinner-large-dark.gif);
 }
 .mochi-spinner.mochi-large.mochi-light {
   width: 100%;
-  background: url(../images/spinner-large-light.gif) no-repeat 0 0;
+  background-image: url(../images/spinner-large-light.gif);
+}
+.mochi-spinner.mochi-spinner-center {
+  background-position: center 0;
 }
 /* TextArea.css */
 .mochi-input-decorator > textarea {

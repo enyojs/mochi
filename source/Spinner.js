@@ -1,4 +1,5 @@
 (function (enyo, scope) {
+	
 	/**
 	 * `mochi.Spinner` extends {@link enyo.Control}.
 	 *
@@ -34,6 +35,22 @@
 		 * @private
 		 */
 		classes: 'mochi-spinner',
+		
+		/**
+		* @private
+		*/
+		published: /** @lends mochi.Spinner.prototype */ {
+			
+			/**
+			* Whether or not to center the spinner in its container.
+			*
+			* @type {Boolean}
+			* @default true
+			* @public
+			*/
+			center: true
+		},
+		
 		/**
 		 * Stops the spinner animation.
 		 *
@@ -59,7 +76,24 @@
 		 */
 		toggle: function () {
 			this.setShowing(!this.getShowing());
-		}
+		},
+		
+		/**
+		* @private
+		*/
+		centerChanged: function () {
+			this.addRemoveClass('mochi-spinner-center', this.getCenter());
+		},
+		
+		/**
+		* @private
+		*/
+		create: enyo.inherit(function (sup) {
+			return function () {
+				sup.apply(this, arguments);
+				this.centerChanged();
+			};
+		})
 	});
 
 })(enyo, this);
