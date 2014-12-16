@@ -1,14 +1,14 @@
 /**
-	A control that presents a range of selection options in the form of a
-	horizontal slider with a control knob.  The knob may be tapped and dragged
-	to the desired location.
-	
-		{kind: "mochi.Slider", value: 30}
-	
-	The *onChanging* event is fired when dragging the control knob.
-	The *onChange* event is fired when the position is set, either by finishing
-	a drag or by tapping the bar.
-*/
+ A control that presents a range of selection options in the form of a
+ horizontal slider with a control knob.  The knob may be tapped and dragged
+ to the desired location.
+
+ {kind: "mochi.Slider", value: 30}
+
+ The *onChanging* event is fired when dragging the control knob.
+ The *onChange* event is fired when the position is set, either by finishing
+ a drag or by tapping the bar.
+ */
 enyo.kind({
 	name: "mochi.Slider",
 	kind: "mochi.ProgressBar",
@@ -73,12 +73,14 @@ enyo.kind({
 	},
 	calcKnobPosition: function(inEvent) {
 		var x = inEvent.clientX - this.hasNode().getBoundingClientRect().left;
-		return (x / this.getBounds().width) * (this.max - this.min) + this.min;
+		var v = (x / this.getBounds().width) * (this.max - this.min) + this.min;
+		v = (this.increment) ? this.calcIncrement(v) : v;
+		return v;
 	},
 	adjustPopupPosition: function() {
 
 		var inControl = this.$.popup;
-		
+
 		// popup bounds
 		var pb = inControl.hasNode().getBoundingClientRect();
 		// container bounds
@@ -89,17 +91,17 @@ enyo.kind({
 		// FIXME: What do we do when the popup's top goes above the window height?
 		// Adding "above" class directly to classes property for now
 		/*
-		// IE8 doesn't return window.page{X/Y}Offset
-		var pageYOffset = (window.pageYOffset === undefined) ? document.documentElement.scrollTop : window.pageYOffset;
-		//when the popup's top goes above the container's top, move popup below the decorator
-		if ((pb.top + pb.height) < pageYOffset) {
-			inControl.addRemoveClass("above", false);
-			inControl.addRemoveClass("below", true);
-		} else 	{
-			inControl.addRemoveClass("above", true);
-			inControl.addRemoveClass("below", false);
-		}
-		*/
+		 // IE8 doesn't return window.page{X/Y}Offset
+		 var pageYOffset = (window.pageYOffset === undefined) ? document.documentElement.scrollTop : window.pageYOffset;
+		 //when the popup's top goes above the container's top, move popup below the decorator
+		 if ((pb.top + pb.height) < pageYOffset) {
+		 inControl.addRemoveClass("above", false);
+		 inControl.addRemoveClass("below", true);
+		 } else 	{
+		 inControl.addRemoveClass("above", true);
+		 inControl.addRemoveClass("below", false);
+		 }
+		 */
 
 		// when the popup's right edge is out of the window, adjust to the left
 		if ( (pb.width + pb.left) > cb.right ) {
@@ -172,18 +174,18 @@ enyo.kind({
 		var ctx = this.$.drawing.hasNode().getContext("2d");
 
 		// Set styles
-    	ctx.fillStyle = enyo.dom.getComputedStyleValue(this.$.knob.hasNode(), "background-color");
+		ctx.fillStyle = enyo.dom.getComputedStyleValue(this.$.knob.hasNode(), "background-color");
 
-    	// Draw shape with arrow on bottom-left
-        ctx.moveTo(1, 37);
-    	ctx.arcTo(1, 33, 12, 33, 4);
-    	ctx.lineTo(46, 33);
+		// Draw shape with arrow on bottom-left
+		ctx.moveTo(1, 37);
+		ctx.arcTo(1, 33, 12, 33, 4);
+		ctx.lineTo(46, 33);
 		ctx.arcTo(61, 33, 61, 17, 16);
 		ctx.moveTo(61, 17); // This is needed on IE9 for some reason
 		ctx.arcTo(61, 1, 46, 1, 16);
 		ctx.lineTo(16, 1);
-    	ctx.arcTo(1, 1, 1, 17, 16);
-    	ctx.lineTo(1, 37);
-        ctx.fill();
+		ctx.arcTo(1, 1, 1, 17, 16);
+		ctx.lineTo(1, 37);
+		ctx.fill();
 	}
 });
