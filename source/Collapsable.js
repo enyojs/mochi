@@ -11,4 +11,4 @@ enyo.kind({
 enyo.kind({
 	name: "mochi.CollapsableFooter",
 	classes: "mochi-collapsable-footer"
-})
+});

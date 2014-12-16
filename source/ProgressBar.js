@@ -1,18 +1,18 @@
 /**
-	A control that shows the current progress of a process in a horizontal bar.
-	
-		{kind: "mochi.ProgressBar", progress: 10}
-	
-	To animate progress changes, call the *animateProgressTo* method:
-	
-		this.$.progressBar.animateProgressTo(50);
-		
-	You may customize the color of the bar by applying a style via the
-	*barClasses* property, e.g.:
-	
-		{kind: "mochi.ProgressBar", barClasses: "mochi-dark"}
-	
-*/
+ A control that shows the current progress of a process in a horizontal bar.
+
+ {kind: "mochi.ProgressBar", progress: 10}
+
+ To animate progress changes, call the *animateProgressTo* method:
+
+ this.$.progressBar.animateProgressTo(50);
+
+ You may customize the color of the bar by applying a style via the
+ *barClasses* property, e.g.:
+
+ {kind: "mochi.ProgressBar", barClasses: "mochi-dark"}
+
+ */
 enyo.kind({
 	name: "mochi.ProgressBar",
 	classes: "mochi-progress-bar",
@@ -20,7 +20,8 @@ enyo.kind({
 		progress: 0,
 		min: 0,
 		max: 100,
-		barClasses: ""
+		barClasses: "",
+		increment: 0
 	},
 	events: {
 		onAnimateProgressFinish: ""
@@ -66,6 +67,9 @@ enyo.kind({
 		});
 	},
 	//* @protected
+	calcIncrement: function (value) {
+		return (Math.round(value / this.increment) * this.increment);
+	},
 	progressAnimatorStep: function(inSender) {
 		this.setProgress(inSender.value);
 		return true;

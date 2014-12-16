@@ -14,7 +14,8 @@ enyo.kind({
 		content: "",
 		barClasses: "",
 		decoratorLeft: "(",
-		decoratorRight: ")"
+		decoratorRight: ")",
+		decoratorClasses:""
 	},
 	tools: [
 		{kind: "mochi.ButtonDecoratorLeft"},
@@ -38,6 +39,7 @@ enyo.kind({
 		this.activeChanged();
 		this.calcBarValue();
 		this.barClassesChanged();
+		this.decoratorClassesChanged();
 	},
 	decoratorLeftChanged: function() {
 		this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
@@ -52,6 +54,12 @@ enyo.kind({
 	barClassesChanged: function(inOld) {
 		this.$.bar.removeClass(inOld);
 		this.$.bar.addClass(this.barClasses);
+	},
+	decoratorClassesChanged: function(inOld) {
+		this.$.buttonDecoratorLeft.removeClass(inOld);
+		this.$.buttonDecoratorLeft.addClass(this.decoratorClasses);
+		this.$.buttonDecoratorRight.removeClass(inOld);
+		this.$.buttonDecoratorRight.addClass(this.decoratorClasses);
 	},
 	updateBarPosition: function(bounds) {
 		this.$.bar.applyStyle("width", bounds.width + "px");
