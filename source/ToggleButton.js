@@ -124,7 +124,7 @@
 			 * @default 'On'
 			 * @public
 			 */
-			onContent: "On",
+			onContent: 'On',
 			/**
 			 * Label for toggle button's "off" state
 			 *
@@ -132,7 +132,7 @@
 			 * @default 'Off'
 			 * @public
 			 */
-			offContent: "Off"
+			offContent: 'Off'
 		},
 
 		/**
@@ -170,7 +170,7 @@
 		 * @private
 		 */
 		components: [
-			{name: "content", style:"width:100%; position:absolute; float:left;"},
+			{name: 'content', style:'width:100%; position:absolute; float:left;'},
 			{name: 'toggleKnob', classes: 'mochi-toggle-button-knob'},
 			{kind: 'enyo.Animator', onStep: 'animatorStep', onEnd: 'animatorEnd'}
 		],
@@ -233,12 +233,12 @@
 		 * @private
 		 */
 		updateKnobPosition: function(inValue) {
-			var xPos = inValue + "px";
+			var xPos = inValue + 'px';
 			var inControl = this.$.toggleKnob;
 			if (enyo.dom.canTransform()) {
 				enyo.dom.transform(inControl, {translateX: xPos});
 			} else {
-				inControl.applyStyle("left", xPos);
+				inControl.applyStyle('left', xPos);
 			}
 		},
 
@@ -256,7 +256,7 @@
 			this.applyStyle('background-color', this.value ? this.colorActive : this.colorInactive);
 			this.setActive(this.value);
 			this.$.content.setContent(this.value?this.onContent:this.offContent);
-			this.$.content.applyStyle("float", this.value?"left":"right");
+			this.$.content.applyStyle('float', this.value?'left':'right');
 			this.doChange({value: this.value});
 
 			var xPos = (this.value) ? this.onXPos : 0;

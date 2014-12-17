@@ -42,7 +42,7 @@
 			// Resize the button to fit ViewSelectButtonItem kerning state
 			// (current-width + ((string-length + arbitrary padding) * size-of-letter-spacing))
 			if (this.contentWidth!=0){
-				this.applyStyle("width", (this.contentWidth + ((this.content.length + 2) * 2) ) + "px");
+				this.applyStyle('width', (this.contentWidth + ((this.content.length + 2) * 2) ) + 'px');
 			}
 		},
 
@@ -114,7 +114,7 @@
 			 * @default ''
 			 * @public
 			 */
-			decoratorLeft: "(",
+			decoratorLeft: '(',
 			/**
 			 * Right sided decorator.
 			 *
@@ -122,7 +122,7 @@
 			 * @default ''
 			 * @public
 			 */
-			decoratorRight: ")",
+			decoratorRight: ')',
 			/**
 			 * CSS Classes for decorators of selected item.
 			 *
@@ -130,7 +130,7 @@
 			 * @default ''
 			 * @public
 			 */
-			decoratorClasses:""
+			decoratorClasses:''
 		},
 
 		/**
@@ -257,7 +257,7 @@
 					// IE8 doesn't return getBoundingClientRect().width, so we calculate from right/left. Who cares ... it's IE8 ... I know
 					//var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
 					var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - (activeItem.contentWidth-5);
-					var xPos = this.getCSSProperty(activeItem, "offsetLeft", false);// + (differential / 2);
+					var xPos = this.getCSSProperty(activeItem, 'offsetLeft', false);// + (differential / 2);
 
 				} else if (this.active.kind === 'mochi.IconButtonItem') {
 					this.$.bar.applyStyle('width', 25 + 'px');

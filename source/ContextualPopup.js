@@ -193,9 +193,9 @@
 		* @private
 		*/
 		handlers: {
-			onRequestShowPopup: "requestShow",
-			onRequestHidePopup: "requestHide",
-			onActivate: "nomnomnom"
+			onRequestShowPopup: 'requestShow',
+			onRequestHidePopup: 'requestHide',
+			onActivate: 'nomnomnom'
 		},
 
 		/**
@@ -249,12 +249,12 @@
 		/**
 		* @private
 		*/
-		actionButtonsChanged: function(){
+		actionButtonsChanged: function (){
 			for (var i=0;i<this.actionButtons.length;i++){
 				this.$.actionButtons.createComponent({
-					kind:"mochi.Button",
+					kind:'mochi.Button',
 					classes: this.actionButtons[i].classes,
-					name: this.actionButtons[i].name ? this.actionButtons[i].name : "ActionButton"+i,
+					name: this.actionButtons[i].name ? this.actionButtons[i].name : 'ActionButton'+i,
 					index: i,
 					tap: enyo.bind(this,this.tapHandler),
 					content:this.actionButtons[i].content,
