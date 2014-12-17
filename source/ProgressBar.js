@@ -173,6 +173,13 @@
 		/**
 		 * @private
 		 */
+		calcIncrement: function (value) {
+			return (Math.round(value / this.increment) * this.increment);
+		},
+
+		/**
+		 * @private
+		 */
 		updateBarPosition: function(inPercent) {
 			this.$.bar.applyStyle("width", inPercent + "%");
 		},
