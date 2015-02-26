@@ -66,7 +66,7 @@
 		* @private
 		*/
 		activated: function (inSender, inEvent) {
-			this.requestHidePopup();
+			//this.requestHidePopup();
 			if (inEvent.originator.active) {
 				this.popupActive = true;
 				this.activator = inEvent.originator;

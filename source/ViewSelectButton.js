@@ -37,11 +37,17 @@
 		 */
 		rendered: function () {
 			this.inherited(arguments);
+			this.recalcContentWidth();
 
-			this.contentWidth = this.getBounds().width;
 			// Resize the button to fit ViewSelectButtonItem kerning state
 			// (current-width + ((string-length + arbitrary padding) * size-of-letter-spacing))
-			this.applyStyle('width', (this.contentWidth + ((this.content.length + 2) * 2) ) + 'px');
+			if (this.contentWidth!=0){
+				this.applyStyle('width', (this.contentWidth + ((this.content.length + 2) * 2) ) + 'px');
+			}
+		},
+
+		recalcContentWidth: function(){
+			this.contentWidth = this.getBounds().width;
 		}
 	});
 
@@ -100,7 +106,31 @@
 			 * @default ''
 			 * @public
 			 */
-			barClasses: ''
+			barClasses: '',
+			/**
+			 * Left sided decorator.
+			 *
+			 * @type {String}
+			 * @default ''
+			 * @public
+			 */
+			decoratorLeft: '(',
+			/**
+			 * Right sided decorator.
+			 *
+			 * @type {String}
+			 * @default ''
+			 * @public
+			 */
+			decoratorRight: ')',
+			/**
+			 * CSS Classes for decorators of selected item.
+			 *
+			 * @type {String}
+			 * @default ''
+			 * @public
+			 */
+			decoratorClasses:''
 		},
 
 		/**
@@ -137,6 +167,8 @@
 		create: function () {
 			this.inherited(arguments);
 			this.createComponents(this.moreComponents);
+			this.decoratorLeftChanged();
+			this.decoratorRightChanged();
 		},
 
 		/**
@@ -145,6 +177,7 @@
 		rendered: function () {
 			this.inherited(arguments);
 			this.barClassesChanged();
+			this.decoratorClassesChanged();
 			this.init();
 		},
 
@@ -159,9 +192,37 @@
 		/**
 		 * @private
 		 */
-		barClassesChanged: function (inOld) {
-			this.$.bar.removeClass(inOld);
-			this.$.bar.addClass(this.barClasses);
+		decoratorLeftChanged: function() {
+			this.$.buttonDecoratorLeft.setContent(this.decoratorLeft);
+		},
+		/**
+		 * @private
+		 */
+		decoratorRightChanged: function() {
+			this.$.buttonDecoratorRight.setContent(this.decoratorRight);
+		},
+
+		/**
+		 * @private
+		 */
+		barClassesChanged: function(inOld) {
+			if (this.$.bar){
+				this.$.bar.removeClass(inOld);
+				this.$.bar.addClass(this.barClasses);
+			}
+		},
+		/**
+		 * @private
+		 */
+		decoratorClassesChanged: function(inOld) {
+			if (this.$.buttonDecoratorLeft){
+				this.$.buttonDecoratorLeft.removeClass(inOld);
+				this.$.buttonDecoratorLeft.addClass(this.decoratorClasses);
+			}
+			if (this.$.buttonDecoratorRight){
+				this.$.buttonDecoratorRight.removeClass(inOld);
+				this.$.buttonDecoratorRight.addClass(this.decoratorClasses);
+			}
 		},
 
 		/**
@@ -190,12 +251,13 @@
 			if ((this.active) && (this.componentsRendered)) {
 
 				if (this.active.kind === 'mochi.ViewSelectButtonItem') {
+					activeItem.recalcContentWidth();
 					this.$.bar.applyStyle('width', activeItem.contentWidth + 'px');
 
 					// IE8 doesn't return getBoundingClientRect().width, so we calculate from right/left. Who cares ... it's IE8 ... I know
 					//var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;
-					var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - activeItem.contentWidth;
-					var xPos = this.getCSSProperty(activeItem, 'offsetLeft', false) + (differential / 2);
+					var differential = (activeItem.hasNode().getBoundingClientRect().right - activeItem.hasNode().getBoundingClientRect().left) - (activeItem.contentWidth-5);
+					var xPos = this.getCSSProperty(activeItem, 'offsetLeft', false);// + (differential / 2);
 
 				} else if (this.active.kind === 'mochi.IconButtonItem') {
 					this.$.bar.applyStyle('width', 25 + 'px');

@@ -43,7 +43,7 @@
 		/**
 		 * @private
 		 */
-		name: "mochi.ProgressBar",
+		name: 'mochi.ProgressBar',
 
 		/**
 		 * @private
@@ -53,7 +53,7 @@
 		/**
 		 * @private
 		 */
-		classes: "mochi-progress-bar",
+		classes: 'mochi-progress-bar',
 
 		/**
 		 * @private
@@ -93,7 +93,16 @@
 			 * @default 'mochi-progress-bar-bar'
 			 * @public
 			 */
-			barClasses: ""
+			barClasses: '',
+			/**
+			 * Increment value (value by which slider increments upon move)
+			 *
+			 * @type {Number}
+			 * @default 0
+			 * @public
+			 */
+			increment: 0
+
 		},
 
 		/**
@@ -103,15 +112,15 @@
 			/**
 			 * {@link mochi.ProgressBar#event:onAnimateProgressFinish}
 			 */
-			onAnimateProgressFinish: ""
+			onAnimateProgressFinish: ''
 		},
 
 		/**
 		 * @private
 		 */
 		components: [
-			{name: "progressAnimator", kind: "Animator", onStep: "progressAnimatorStep", onEnd: "progressAnimatorComplete"},
-			{name: "bar", classes: "mochi-progress-bar-bar"}
+			{name: 'progressAnimator', kind: 'Animator', onStep: 'progressAnimatorStep', onEnd: 'progressAnimatorComplete'},
+			{name: 'bar', classes: 'mochi-progress-bar-bar'}
 		],
 
 		/**
@@ -164,8 +173,15 @@
 		/**
 		 * @private
 		 */
+		calcIncrement: function (value) {
+			return (Math.round(value / this.increment) * this.increment);
+		},
+
+		/**
+		 * @private
+		 */
 		updateBarPosition: function(inPercent) {
-			this.$.bar.applyStyle("width", inPercent + "%");
+			this.$.bar.applyStyle('width', inPercent + '%');
 		},
 
 		/**

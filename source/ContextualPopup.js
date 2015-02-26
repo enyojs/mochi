@@ -1,48 +1,48 @@
 (function (enyo, scope) {
-   /**
-	* Fires in response to a tap of an action button
-	*
-	* @event mochi.ContextualPopup#onTap
-	* @type {Object}
-	* @property {Object} originator - the action button which was tapped
-	* @property {Boolean} actionButton - whether tap event comes from an action button
-	* @property {Object} popup - reference to the Contextual Popup
-	* @public
-	*/
+	/**
+	 * Fires in response to a tap of an action button
+	 *
+	 * @event mochi.ContextualPopup#onTap
+	 * @type {Object}
+	 * @property {Object} originator - the action button which was tapped
+	 * @property {Boolean} actionButton - whether tap event comes from an action button
+	 * @property {Object} popup - reference to the Contextual Popup
+	 * @public
+	 */
 
 	/**
-	* @event mochi.ContextualPopup#event:onRequestShowPopup
-	* @type {Object}
-	* @property {Object} activator - contains a reference to the activating object
-	* @public
-	*/
+	 * @event mochi.ContextualPopup#event:onRequestShowPopup
+	 * @type {Object}
+	 * @property {Object} activator - contains a reference to the activating object
+	 * @public
+	 */
 
 	/**
-	* @event mochi.ContextualPopup#event:onRequestHidePopup
-	* @type {Object}
-	* @public
-	*/
+	 * @event mochi.ContextualPopup#event:onRequestHidePopup
+	 * @type {Object}
+	 * @public
+	 */
 
 	/**
-	* `mochi.ContextualPopup` is a subkind of {@link enyo.Popup}.
-	* Contextual pop-ups serve as child windows that appear near the point of initiation.
-	* Use them for:
-	*
-	* - Selection from a discreet set of values
-	* - Quick, single step interactions where context should be maintained
-	* - Simple views (such as previews)
-	*
-	* They are meant to be used in conjunction with a
-	* {@link mochi.ContextualPopupDecorator}. The decorator
-	* couples the popup with an activating control, which may be a button or any other
-	* control with an `onActivate` event. When the control is activated, the popup
-	* shows itself in the correct position relative to the activator. Note that by default
-	* the popup is not floating, so toolbars & high z-index controls may obscure it. You may
-	* set floating to true to have the popup always on top, however the popup will not be in the
-	* containing document flow and will not scroll with the document.
-	*
-	* ```javascript
-	* {kind: 'mochi.ContextualPopupDecorator', components: [
+	 * `mochi.ContextualPopup` is a subkind of {@link enyo.Popup}.
+	 * Contextual pop-ups serve as child windows that appear near the point of initiation.
+	 * Use them for:
+	 *
+	 * - Selection from a discreet set of values
+	 * - Quick, single step interactions where context should be maintained
+	 * - Simple views (such as previews)
+	 *
+	 * They are meant to be used in conjunction with a
+	 * {@link mochi.ContextualPopupDecorator}. The decorator
+	 * couples the popup with an activating control, which may be a button or any other
+	 * control with an `onActivate` event. When the control is activated, the popup
+	 * shows itself in the correct position relative to the activator. Note that by default
+	 * the popup is not floating, so toolbars & high z-index controls may obscure it. You may
+	 * set floating to true to have the popup always on top, however the popup will not be in the
+	 * containing document flow and will not scroll with the document.
+	 *
+	 * ```javascript
+	 * {kind: 'mochi.ContextualPopupDecorator', components: [
 	* 	{content: 'Show Popup'},
 	* 	{
 	*		kind: 'mochi.ContextualPopup',
@@ -56,13 +56,14 @@
 	* 		]
 	* 	}
 	* ]}
-	* ```
-	*
-	* @ui
-	* @class mochi.ContextualPopup
-	* @extends enyo.Popup
-	* @public
-	*/
+	 * ```
+	 *
+	 * @ui
+	 * @class mochi.ContextualPopup
+	 * @extends enyo.Popup
+	 * @public
+	 */
+
 
 	enyo.kind(
 		/** @lends mochi.ContextualPopup.prototype */ {
@@ -193,7 +194,8 @@
 		*/
 		handlers: {
 			onRequestShowPopup: 'requestShow',
-			onRequestHidePopup: 'requestHide'
+			onRequestHidePopup: 'requestHide',
+			onActivate: 'nomnomnom'
 		},
 
 		/**
@@ -223,6 +225,13 @@
 		},
 
 		/**
+		 * @private
+		 */
+		nomnomnom: function() {
+			return true;
+		},
+
+		/**
 		* @private
 		*/
 		getScroller: function () {
@@ -232,8 +241,9 @@
 		/**
 		* @private
 		*/
-		titleChanged: function (){
-			this.$.title.setContent(this.title);
+		titleChanged: function(){
+			this.$.title?this.$.title.setContent(this.title):null;
+			this.$.title?this.$.title.setShowing(this.title&&(this.title!="")):null;
 		},
 
 		/**
@@ -243,12 +253,17 @@
 			for (var i=0;i<this.actionButtons.length;i++){
 				this.$.actionButtons.createComponent({
 					kind:'mochi.Button',
-					content:this.actionButtons[i].content,
 					classes: this.actionButtons[i].classes,
 					name: this.actionButtons[i].name ? this.actionButtons[i].name : 'ActionButton'+i,
 					index: i,
-					tap: enyo.bind(this,this.tapHandler)
-				})
+					tap: enyo.bind(this,this.tapHandler),
+					content:this.actionButtons[i].content,
+					barClasses: "",
+					decoratorClasses: this.actionButtons[i].decoratorClasses,
+					decoratorLeft: this.actionButtons[i].decoratorLeft,
+					decoratorRight: this.actionButtons[i].decoratorRight,
+					disabled: this.actionButtons[i].disabled
+				});
 			}
 		},
 
