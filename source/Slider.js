@@ -93,6 +93,15 @@
 			tappable: true,
 
 			/**
+			 * If `true`, percentage sign will be appended to value displayed
+			 *
+			 * @type {Boolean}
+			 * @default true
+			 * @public
+			 */
+			showPercentage: true,
+
+			/**
 			 * Custom CSS classes for bar and knob
 			 *
 			 * @type {String}
@@ -194,18 +203,20 @@
 		/**
 		 * @private
 		 */
-		updateKnobPosition: function (inPercent) {
+		updateKnobPosition: function(inPercent) {
 			this.$.knob.applyStyle('left', inPercent + '%');
 			this.$.popup.applyStyle('left', inPercent + '%');
-			this.$.popupLabel.setContent( Math.round(inPercent) + '%' );
+			this.showPercentage?this.$.popupLabel.setContent( Math.round(inPercent) + '%' ):this.$.popupLabel.setContent( Math.round(this.value) );
 		},
 
 		/**
 		 * @private
 		 */
-		calcKnobPosition: function (inEvent) {
+		calcKnobPosition: function(inEvent) {
 			var x = inEvent.clientX - this.hasNode().getBoundingClientRect().left;
-			return (x / this.getBounds().width) * (this.max - this.min) + this.min;
+			var v = (x / this.getBounds().width) * (this.max - this.min) + this.min;
+			v = (this.increment) ? this.calcIncrement(v) : v;
+			return v;
 		},
 
 		/**
