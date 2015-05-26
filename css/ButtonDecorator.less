@@ -1,19 +1,20 @@
 /* ButtonDecorator.css */
 .mochi-button-decorator {
 	font-family: "Mochi Bold";
-	font-size: 30px;
+	font-size: inherit;
 	color: #4b4b4b;
 	font-weight: bold;
 	display: inline-block;
-	vertical-align: top;
 }
 .mochi-button-decorator-bookened {
 	vertical-align: top;
 	margin: 0px;
 	padding: 0px;
+    font-size:inherit;
 }
 .mochi-button > .mochi-button-decorator-left {
-	padding: 0px 0px 0px 4px;
+	padding: 0px;
+    font-size: inherit;
 	/* Iffy method - prevents flickering in Chrome */
 	/*
 	-webkit-transition: padding 0.1s ease-in-out;
@@ -38,7 +39,8 @@
 	transform: translateX(-4px);
 }
 .mochi-button > .mochi-button-decorator-right {
-	padding: 0px 4px 0px 0px;
+	padding: 0px;
+    font-size: inherit;
 	/* Iffy method - prevents flickering in Chrome */
 	/*
 	-webkit-transition: padding 0.1s ease-in-out;
