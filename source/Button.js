@@ -161,7 +161,7 @@
 		* @private
 		*/
 		updateBarPosition: function (bounds) {
-			this.$.bar.applyStyle('width', bounds.width + 'px');
+			this.$.bar.applyStyle('width', (bounds.width-bounds.width*5/100) + 'px');
 			this.$.bar.applyStyle('left', bounds.left + 'px');
 		},
 
