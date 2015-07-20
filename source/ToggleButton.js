@@ -170,7 +170,8 @@
              * @private
              */
             components: [
-                {name: 'content', style: 'width:100%; position:absolute;'},
+                {name: 'contentOn', style: 'margin:0 24px -24px 0;text-align:left;padding:0 2px 0 4px;'},
+                {name: 'contentOff', style: 'margin:0 0 -24px 24px;text-align:right;padding:0 4px 0 2px;'},
                 {name: 'toggleKnob', classes: 'mochi-toggle-button-knob', style: 'float:left;'},
                 {kind: 'enyo.Animator', onStep: 'animatorStep', onEnd: 'animatorEnd'}
             ],
@@ -190,6 +191,7 @@
              */
             rendered: function () {
                 this.inherited(arguments);
+                this.valueChanged();
                 this.calcKnob();
                 this.valueChanged();
                 this.init();
@@ -255,9 +257,11 @@
             valueChanged: function () {
                 this.applyStyle('background-color', this.value ? this.colorActive : this.colorInactive);
                 this.setActive(this.value);
-                this.$.content.setContent(this.value ? this.onContent : this.offContent);
-                this.$.toggleKnob.applyStyle('float', !this.value ? 'left' : 'right');
+                this.$.contentOn.setContent(this.onContent);
+                this.$.contentOff.setContent(this.offContent);
                 this.doChange({value: this.value});
+                this.$.contentOn.applyStyle('visibility', !this.value ? 'hidden' : 'visible');
+                this.$.contentOff.applyStyle('visibility', !this.value ? 'visible' : 'hidden');
 
                 var xPos = (this.value) ? this.onXPos : 0;
 
