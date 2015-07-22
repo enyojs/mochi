@@ -173,7 +173,6 @@
 		 */
 		rendered: function () {
 			this.inherited(arguments);
-			this.drawToCanvas(this.controlColor);
 			this.adjustPopupPosition(false);
 		},
 
@@ -205,7 +204,6 @@
 		 */
 		updateKnobPosition: function(inPercent) {
 			this.$.knob.applyStyle('left', inPercent + '%');
-			this.$.popup.applyStyle('left', inPercent + '%');
 			this.showPercentage?this.$.popupLabel.setContent( Math.round(inPercent) + '%' ):this.$.popupLabel.setContent( Math.round(this.value) );
 		},
 
@@ -249,8 +247,12 @@
 			*/
 
 			// when the popup's right edge is out of the window, adjust to the left
-			if ( (pb.width + pb.left) > cb.right ) {
-				inControl.applyStyle('left', (kb.left - cb.left - pb.width) + 'px');
+			if ( (pb.width + kb.left +20) > cb.right ) {
+				inControl.applyStyle('left', (kb.left - cb.left - pb.width - 24) + 'px');
+				this.drawToCanvas('right above');
+			} else {
+				inControl.applyStyle('left', (kb.left - cb.left - 14) + 'px');
+				this.drawToCanvas('left above');
 			}
 		},
 
@@ -259,6 +261,7 @@
 		 */
 		showKnobStatus: function (inSender, inEvent) {
 			this.$.popup.setShowing(true);
+			this.adjustPopupPosition(false);
 		},
 
 		/**
@@ -355,23 +358,49 @@
 		/**
 		 * @private
 		 */
-		drawToCanvas: function (bgColor) {
+		drawToCanvas: function (direction) {
+			if (this.popopDirection == direction){
+				return true;
+			}else{
+				this.popopDirection = direction;
+				this.clearCanvas();
+				var ctx = this.$.drawing.hasNode().getContext('2d');
+
+				// Set styles
+				if (this.controlColor)
+				{		
+					//use the controlColor
+					ctx.fillStyle = this.controlColor;
+				}else{
+					//use the color of the Knob
+					ctx.fillStyle = enyo.dom.getComputedStyleValue(this.$.knob.hasNode(), 'background-color');
+				}
+				
+				ctx.save();
+
+				if (direction=="right above"){ctx.translate(61, 0 ),ctx.scale(-1, 1);}// flip context horizontally
+				if (direction=="right below"){ctx.translate(61, 37 ),ctx.scale(-1, -1);}// flip context horizontally and vertically
+				if (direction=="left below"){ctx.translate(0, 37 ),ctx.scale(1, -1);}// flip context vertically
+						
+				// Draw shape with arrow on bottom-left
+				ctx.beginPath();
+				ctx.moveTo(1, 37);
+				ctx.arcTo(1, 33, 12, 33, 4);
+				ctx.lineTo(46, 33);
+				ctx.arcTo(61, 33, 61, 17, 16);
+				ctx.moveTo(61, 17); // This is needed on IE9 for some reason
+				ctx.arcTo(61, 1, 46, 1, 16);
+				ctx.lineTo(16, 1);
+				ctx.arcTo(1, 1, 1, 17, 16);
+				ctx.lineTo(1, 37);
+				ctx.fill();
+				ctx.restore();
+
+			}
+		},
+		clearCanvas: function () {
 			var ctx = this.$.drawing.hasNode().getContext('2d');
-
-			// Set styles
-			ctx.fillStyle = enyo.dom.getComputedStyleValue(this.$.knob.hasNode(), 'background-color');
-
-			// Draw shape with arrow on bottom-left
-			ctx.moveTo(1, 37);
-			ctx.arcTo(1, 33, 12, 33, 4);
-			ctx.lineTo(46, 33);
-			ctx.arcTo(61, 33, 61, 17, 16);
-			ctx.moveTo(61, 17); // This is needed on IE9 for some reason
-			ctx.arcTo(61, 1, 46, 1, 16);
-			ctx.lineTo(16, 1);
-			ctx.arcTo(1, 1, 1, 17, 16);
-			ctx.lineTo(1, 37);
-			ctx.fill();
+			ctx.clearRect(0,0,61,37);	
 		}
 	});
 
