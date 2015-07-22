@@ -258,7 +258,17 @@
                 this.applyStyle('background-color', this.value ? this.colorActive : this.colorInactive);
                 this.setActive(this.value);
                 this.$.contentOn.setContent(this.onContent);
+				if (this.onContent.trim() == "") {
+					this.$.contentOn.setAllowHtml(true);
+					this.$.contentOn.setContent("&nbsp;");
+					this.$.contentOn.setAllowHtml(false);
+				}
                 this.$.contentOff.setContent(this.offContent);
+				if (this.offContent.trim() == "") {
+					this.$.contentOff.setAllowHtml(true);
+					this.$.contentOff.setContent("&nbsp;");
+					this.$.contentOff.setAllowHtml(false);
+				}
                 this.doChange({value: this.value});
                 this.$.contentOn.applyStyle('visibility', !this.value ? 'hidden' : 'visible');
                 this.$.contentOff.applyStyle('visibility', !this.value ? 'visible' : 'hidden');
