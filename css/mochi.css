@@ -135,26 +135,26 @@
   vertical-align: middle;
 }
 .mochi-badge-inner.oval {
-  -webkit-border-radius: 8px;
+  -webkit-border-radius: 12px;
   /* Safari, Chrome */
 
-  -moz-border-radius: 8px;
+  -moz-border-radius: 12px;
   /* Firefox */
 
-  border-radius: 8px;
+  border-radius: 12px;
   /* CSS3 */
 
   padding-left: 8px;
   padding-right: 8px;
 }
 .mochi-badge-inner.round {
-  -webkit-border-radius: 16px;
+  -webkit-border-radius: 12px;
   /* Safari, Chrome */
 
-  -moz-border-radius: 16px;
+  -moz-border-radius: 12px;
   /* Firefox */
 
-  border-radius: 16px;
+  border-radius: 12px;
   /* CSS3 */
 
   padding: 0px;
@@ -260,12 +260,12 @@
   /* Iffy method - prevents flickering in Chrome */
 
   /*
-	-webkit-transition: padding 0.1s ease-in-out;
-	-moz-transition: padding 0.1s ease-in-out;
-	-o-transition: padding 0.1s ease-in-out;
-	-ms-transition: padding 0.1s ease-in-out;
-	transition: padding 0.1s ease-in-out;
-	*/
+  -webkit-transition: padding 0.1s ease-in-out;
+  -moz-transition: padding 0.1s ease-in-out;
+  -o-transition: padding 0.1s ease-in-out;
+  -ms-transition: padding 0.1s ease-in-out;
+  transition: padding 0.1s ease-in-out;
+  */
 
   /* Preferred method */
 
@@ -287,12 +287,12 @@
   /* Iffy method - prevents flickering in Chrome */
 
   /*
-	-webkit-transition: padding 0.1s ease-in-out;
-	-moz-transition: padding 0.1s ease-in-out;
-	-o-transition: padding 0.1s ease-in-out;
-	-ms-transition: padding 0.1s ease-in-out;
-	transition: padding 0.1s ease-in-out;
-	*/
+  -webkit-transition: padding 0.1s ease-in-out;
+  -moz-transition: padding 0.1s ease-in-out;
+  -o-transition: padding 0.1s ease-in-out;
+  -ms-transition: padding 0.1s ease-in-out;
+  transition: padding 0.1s ease-in-out;
+  */
 
   /* Preferred method */
 
@@ -1188,8 +1188,8 @@ textarea::-webkit-scrollbar-thumb:vertical {
   padding-right: 0px;
 }
 /*
-	Put anything you reference with "url()" in ../assets/
-	This way, you can minify your application, and just remove the "source" folder for production
+  Put anything you reference with "url()" in ../assets/
+  This way, you can minify your application, and just remove the "source" folder for production
 */
 .mochi-gridlist {
   background: #ccc;
