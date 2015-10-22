@@ -35,6 +35,11 @@
 		/**
 		 * @private
 		 */
+		padded: false,
+
+		/**
+		 * @private
+		 */
 		rendered: function () {
 			this.inherited(arguments);
 			this.recalcContentWidth();
@@ -43,12 +48,21 @@
 			// (current-width + ((string-length + arbitrary padding) * size-of-letter-spacing))
 			if (this.contentWidth!=0){
 				this.applyStyle('width', (this.contentWidth + ((this.content.length + 2) * 2) ) + 'px');
+				this.set('padded', true);
+			}
+			else
+			{
+				this.set('padded', false);
 			}
 		},
 
 		recalcContentWidth: function(){
 			this.contentWidth = this.getBounds().width;
-		}
+		},
+
+		isPadded: function(){
+			return this.get('padded');
+		},
 	});
 
 	/**
@@ -252,7 +266,7 @@
 
 				if (this.active.kind === 'mochi.ViewSelectButtonItem') {
 					activeItem.recalcContentWidth();
-					this.$.bar.applyStyle('width', activeItem.contentWidth + 'px');
+					this.$.bar.applyStyle('width', activeItem.isPadded() ? activeItem.contentWidth + "px" : activeItem.contentWidth - (activeItem.content.length * activeItem.getComputedStyleValue("letter-spacing").replace('px', '')) + 'px');
 
 					// IE8 doesn't return getBoundingClientRect().width, so we calculate from right/left. Who cares ... it's IE8 ... I know
 					//var differential = activeItem.hasNode().getBoundingClientRect().width - activeItem.contentWidth;

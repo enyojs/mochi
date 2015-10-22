@@ -1,30 +1,30 @@
 (function (enyo, scope) {
-    /**
-     * The onChange event fires when the user changes the value of the toggle button, but not when the value is
-     * changed programmatically.
-     *
-     * @event mochi.ToggleButton#onChange
-     * @type {Object}
-     * @property {Boolean} value - The on/off value of the toggle button.
-     * @public
-     */
+	/**
+	 * The onChange event fires when the user changes the value of the toggle button, but not when the value is
+	 * changed programmatically.
+	 *
+	 * @event mochi.ToggleButton#onChange
+	 * @type {Object}
+	 * @property {Boolean} value - The on/off value of the toggle button.
+	 * @public
+	 */
 
-    /**
-     * `mochi.ToggleButton` extends {@link enyo.Control} and is a control that looks like a switch with labels for two
-     * states. Each time a `mochi.ToggleButton` is tapped, it switches its value and fires an onChange event.
-     *
-     *     ```
-     *     {kind: 'mochi.ToggleButton', onChange: 'buttonToggle'}
-     *
-     *     buttonToggle: function (inSender, inEvent) {
+	/**
+	 * `mochi.ToggleButton` extends {@link enyo.Control} and is a control that looks like a switch with labels for two
+	 * states. Each time a `mochi.ToggleButton` is tapped, it switches its value and fires an onChange event.
+	 *
+	 *	 ```
+	 *	 {kind: 'mochi.ToggleButton', onChange: 'buttonToggle'}
+	 *
+	 *	 buttonToggle: function (inSender, inEvent) {
  *				this.log('Toggled to value ' + inEvent.value);
  *			}
-     *    ```
-     *
-     * To find out the value of the button, use getValue:
-     *
-     *    ```
-     *     queryToggleValue: function () {
+	 * 	```
+	 *
+	 * To find out the value of the button, use getValue:
+	 *
+	 *	```
+	 *	 queryToggleValue: function () {
  *				return this.$.toggleButton.getValue();
  *			}
      *    ```
