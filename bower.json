@@ -1,0 +1,14 @@
+{
+	"name": "enyo-mochi",
+	"version": "2.5.0",
+	"main":"package.js",
+	"dependencies": {
+		"enyo":"2.5.0"
+	},
+	"ignore": [
+		".jshintrc",
+		".travis.yml",
+		".gitignore",
+		".jshintignore"
+	]
+}
